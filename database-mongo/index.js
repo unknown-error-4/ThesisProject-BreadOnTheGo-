@@ -16,18 +16,15 @@ db.once('open', function() {
 var UserSchema = mongoose.Schema({
   userName:{
      type: String,
-        unique: true,
-        required: true
+        unique: true
     },
     email:{
      type: String,
           unique: true,
-          required: true,
           trim: true
     },
     password:{
-      type: String,
-      required: true
+      type: String
     },
     phoneNumber: Number,
     location: {
@@ -66,8 +63,6 @@ module.exports.Prouduct= Prouduct;
 module.exports.User = User;
 
 
-
-
 ///////////////////////////////////////////////////////////
 // var selectAll = function(callback) {
 //   Prouduct.find({}, function(err, items) {
@@ -91,14 +86,16 @@ module.exports.User = User;
 
 // var saveUser =function(data,callback){
 //   var NUser= new User(data);
-//   Nproudect.save(function(err,data){
+//   NUser.save(function(err,data){
 //     if(err){
 //       callback(err,null)
 //     }
-//     callback(nul,data)
+//     callback(null,data)
 //   })
 // }
 ////////////////////////////////////////////////////////////////
 // module.exports.selectAll = selectAll;
 // module.export.saveProuduct= saveProuduct;
+
+
 // module.export.saveUser= saveUser;

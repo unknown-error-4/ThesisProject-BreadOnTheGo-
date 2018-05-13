@@ -30,19 +30,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
      saveUninitialized: false // for the database
     }));
 /////////////////////////////////////////////////////////////
+app.post('/signup', handler.SignUp);
 
-
-// app.get('/items', function (req, res) {
-//   items.selectAll(function(err, data) {
-//     if(err) {
-//       res.sendStatus(500);
-//     } else {
-//       res.json(data);
-//     }
-//   });
-// });
-
-
+app.get('/signup', handler.SignUp);
+app.post('/signup',handler.saveUser)
 
 
 
