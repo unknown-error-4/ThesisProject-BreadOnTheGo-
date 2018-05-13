@@ -21,3 +21,4 @@ exports.checkUser = (req, res, next) => {
  } else {
    next()
  }
+}

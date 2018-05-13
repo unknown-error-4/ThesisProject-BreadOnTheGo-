@@ -26,6 +26,10 @@
           typeOfUser:{
             baker:'',
             customer:''
+          },
+          typeOfUser:{
+            baker: '',
+            customer: ''
           }
 				}
 
@@ -37,6 +41,7 @@
 				this.handleChangePhoneNumber = this.handleChangePhoneNumber.bind(this);
 				this.handleChangeLocation = this.handleChangeLocation.bind(this);
 				this.handleChangeTypeOfPayment = this.handleChangeTypeOfPayment.bind(this);
+        this.handleChangeTypeOfUser = this.handleChangeTypeOfUser.bind(this);
 			}
 
 			handleClick(){
@@ -56,16 +61,20 @@
 						typeOfPayment:{
 			      cash: this.state.typeOfPayment.cash,
 			      creditCard: this.state.typeOfPayment.creditCard
-			      }
+          },
+            typeOfUser:{
+              baker: this.state.typeOfUser.baker,
+              customer: this.state.typeOfUser.customer
+            }
 					},
 
 					success: (data) => {
-						console.log("Success in register POST!", data);
+						console.log("Success in signup POST!", data);
 						//window.location.href = "http://localhost:3000/login";
 
 					},
 					error(req, status, err){
-						console.log("Error in register POST!",err);
+						console.log("Error in signup POST!",err);
 					}
 				})
 			}
@@ -90,6 +99,9 @@
 		    this.setState({value: event.target.value});
 		  }
 			handleChangeTypeOfPayment(event) {
+		    this.setState({value: event.target.value});
+		  }
+      handleChangeTypeOfUser(event) {
 		    this.setState({value: event.target.value});
 		  }
 
@@ -135,13 +147,22 @@
 					<label> Type Of Payment:
           <br/>
 					<form className="form-group">
-		          <select name = "typeOfPayment" className="form-control selectpicker btn btn-default" required onChange={this.handleChangeConfirmPassword} value={this.state.TypeOfPayment}>
+		          <select name = "typeOfPayment" className="form-control selectpicker btn btn-default" required onChange={this.handleChangeTypeOfPayment} value={this.state.typeOfPayment}>
 		            <option value="Select">Sellect Type Of Payment</option>
 		            <option value="Cash">Cash</option>
 		            <option value="creditCard">Credit Card</option>
 		          </select>
 		          </form></label>
 					<br/>
+          <label> Type Of Payment:
+          <br/>
+					<form className="form-group">
+		          <select name = "typeOfPayment" className="form-control selectpicker btn btn-default" required onChange={this.handleChangeTypeOfUser} value={this.state.typeOfUser}>
+		            <option value="Select">Who Are You !!</option>
+		            <option value="Baker">Baker</option>
+		            <option value="Customer">Customer</option>
+		          </select>
+		          </form></label>
 					<button onClick={this.handleClick}>Sign Up</button>
 					</div>
 					);
