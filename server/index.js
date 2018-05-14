@@ -9,7 +9,7 @@ var app = express();
 //to connect with react
 app.use(express.static(__dirname + '/../react-client/dist'));
 
-app.get('*', (req, res) => {
+app.get('/navbar', (req, res) => {
  res.sendFile(path.resolve(path.join(__dirname, '/../react-client/dist/index.html')));
 });
 
@@ -42,6 +42,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //   });
 // });
 
+/////////////////////
 
 
 
