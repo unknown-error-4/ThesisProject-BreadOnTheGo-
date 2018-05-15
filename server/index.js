@@ -12,10 +12,6 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 app.get('*', (req, res) => {
  res.sendFile(path.resolve(path.join(__dirname, '/../react-client/dist/index.html')));
 });
-
-
-//this is  work
-var saltRounds = 10;
 /////////////////////////////////////////////////////////////
 
 app.use(bodyParser.json());
@@ -31,10 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
     }));
 /////////////////////////////////////////////////////////////
 app.post('/signup', handler.SignUp);
-
-app.get('/signup', handler.SignUp);
-app.post('/signup',handler.saveUser)
-
+app.post('/signin',handler.SignIn);
+app.post("/prouducts",handler.SavingProducts)
 
 
 
