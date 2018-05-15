@@ -3,6 +3,7 @@
   	import $ from 'jquery';
     import {Redirect} from "react-router-dom";
 
+
 		class SignUp extends React.Component {
 
 			constructor(props){
@@ -17,10 +18,8 @@
 		      phoneNumber: '',
 		      latitude:'',
 		      longtitude:'',
-		      cashPayment: '',
-		      creditCardPayment: '',
-          bakerUser:'',
-          customerUser:''
+		      typeOfPayment: '',
+		      typeOfUser: ''
           }
         this.handleChangeuserName = this.handleChangeuserName.bind(this);
 				this.handleChangeEmail = this.handleChangeEmail.bind(this);
@@ -29,10 +28,8 @@
 				this.handleChangePhoneNumber = this.handleChangePhoneNumber.bind(this);
 				this.handleChangeLongtitude = this.handleChangeLongtitude.bind(this);
         this.handleChangeLatitude = this.handleChangeLatitude.bind(this);
-				this.handleChangePaymentCash = this.handleChangePaymentCash.bind(this);
-        this.handleChangePaymentCreiditCard = this.handleChangePaymentCreiditCard.bind(this);
-        this.handleChangeUserBaker = this.handleChangeUserBaker.bind(this);
-        this.handleChangeUserCustomer = this.handleChangeUserCustomer.bind(this);
+				this.handleChangePayment = this.handleChangePayment.bind(this);
+        this.handleChangeUser = this.handleChangeUser.bind(this);
         this.handleClick = this.handleClick.bind(this)
 			}
 
@@ -50,10 +47,9 @@
 						phoneNumber: that.state.phoneNumber,
 		        latitude: that.state.latitude,
 		        longtitude: that.state.longtitude,
-            cashPayment: that.state.cashPayment,
-            creditCard: that.state.creditCard,
-            bakerUser: that.state.bakerUser,
-            customerUser: that.state.customerUser
+            typeOfPayment: that.state.typeOfPayment,
+            typeOfUser: that.state.typeOfUser
+
 						},
           success: (data) => {
           if(data === 'exists'){
@@ -78,6 +74,7 @@
 			handleChangeuserName(event) {
 		    this.setState({userName: event.target.value});
         console.log (this.state.userName);
+
 		  }
 			handleChangeEmail(event) {
 		    this.setState({email: event.target.value});
@@ -103,22 +100,17 @@
 		    this.setState({latitude: event.target.value});
         console.log(this.state.latitude);
 		  }
-			handleChangePaymentCash(event) {
-		    this.setState({cashPayment: event.target.value});
-        console.log(this.state.cashPayment);
+			handleChangePayment(event) {
+		    this.setState({typeOfPayment: event.target.value});
+        console.log(this.state.typeOfPayment);
+        
 		  }
-      handleChangePaymentCreiditCard(event) {
-		    this.setState({creditCard: event.target.value});
-        console.log(this.state.creditCard);
+
+      handleChangeUser(event) {
+		    this.setState({typeOfUser: event.target.value});
+        console.log(this.state.typeOfUser);
 		  }
-      handleChangeUserBaker(event) {
-		    this.setState({bakerUser: event.target.value});
-        console.log(this.state.bakerUser);
-		  }
-      handleChangeUserCustomer(event) {
-		    this.setState({customerUser: event.target.value});
-        console.log(this.state.customerUser);
-		  }
+
 
 
 			render(){
@@ -163,20 +155,19 @@
 					<label> Type Of Payment:
           <br/>
 					<form className="form-group1">
-		          <select name = "typeOfPayment" className="form-control selectpicker btn btn-default" required>
-		            <option  >Sellect Type Of Payment</option>
-		            <option value= {this.state.cashPayment} onChange={this.handleChangePaymentCash}>Cash</option>
-		            <option value= {this.state.creditCardPayment} onChange={this.handleChangePaymentCash}>Credit Card</option>
+		          <select name = "typeOfPayment" className="form-control selectpicker btn btn-default" value= {this.state.typeOfPayment} onChange={this.handleChangePayment} required>
+		            <option>Sellect Type Of Payment</option>
+		            <option>Cash</option>
+		            <option>Credit Card</option>
 		          </select>
 		          </form></label>
 					<br/>
-          <label> Type Of Payment:
+          <label> Who Are You !!
           <br/>
 					<form className="form-group2">
-		          <select name = "typeOfPayment" className="form-control selectpicker btn btn-default" required>
-		            <option value= "Who Are You">Who Are You !!</option>
-		            <option value= {this.state.bakerUser} onChange={this.handleChangeUserBaker}>Baker</option>
-		            <option value= {this.state.customerUser} onChange={this.handleChangeTypeOfUserCustomer}>Customer</option>
+		           <select name = "typeOfUser" className="form-control selectpicker btn btn-default" value={this.state.typeOfUser} onChange={this.handleChangeUser} required>
+		            <option >Baker </option>
+		            <option >Customer</option>
 		          </select>
 		          </form></label>
 					<button onClick = {this.handleClick}>Sign Up</button>

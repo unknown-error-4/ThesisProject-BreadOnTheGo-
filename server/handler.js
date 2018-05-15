@@ -12,10 +12,7 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
     console.log(err)
   }if(data.userName === "" || data.password.length < 8 || data.phoneNumber.length <12){
     res.send("Invalid Input")
-  // }else{
-  //   db.User.count({userName: data.userName}, function (err, count){
-  //   if(count>0){
-  //      res.send("exists")
+
     }
   else{
        db.saveUser({
@@ -25,10 +22,8 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
           longitude: data.longitude,
           laltitude: data.laltitude,
           email:data.email,
-          cash: data.cashPayment,
-          creditCard: data.creditCardPayment,
-          baker: data.bakerUser,
-          customer: data.customerUser
+          typeOfPayment: data.typeOfPayment,
+          typeOfUser: data.typeOfUser
         },function(err,data){
           if(err){
             console.log(err)
@@ -57,26 +52,34 @@ exports.SavingProducts = function(req, res){
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
  //function for signin
+exports.SignIn = function (req, res) {
 
-exports.SignIn=function(req,res) {
-  var email =req.body.email;
-  var password=req.body.password;
-db.User.findOne(
-  {email:email},
-  function (err,data) {
-  if (err) {
-    console.log(err);
-  }else {
-    bcrypt.compare (password,data.password,function (err,found) {
-      if (found) {
-        helperfunc.createSession(req,res,data.email)
-      } else {
-        res.send("wrong Email or password or the username not exists")
-      }
-    })
-  }
+  var email = req.body.email;
+  var pass = req.body.password;
 
-})
+  db.User.findOne({email:email},function(err,data){
+    if(err){
+      console.log(err)
+    }
+    if(data){
+      bcrypt.compare(pass,data.password,function(err,isMatch){
+          if(isMatch){
+          console.log('access valid')
+          var obj = {
+              email : data.email,
+              valid : isMatch
+          }
+          res.send(obj)
+          }
+          else{
+          console.log('wrong username or password')
+          res.send(isMatch)
+          }
+        })
+    } else {console.log('username not existed')
+            res.send(false)}
+  });
 
-}
+};
+
 //////////////////////////////////////////////////////////////////////////////////////////////////

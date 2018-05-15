@@ -25,10 +25,8 @@ var userSchema = mongoose.Schema({
     phoneNumber: Number,
     latitude: String,
     longtitude: String,
-    cashPayment: String,
-    creditCardPayment: String,
-    bakerUser: String,
-    customerUser: String
+    typeOfPayment: String,
+    typeOfUser: String
 
 
 });

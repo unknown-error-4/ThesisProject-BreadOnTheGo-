@@ -4,7 +4,7 @@ import $ from 'jquery';
 import AppRoute from './components/AppRoute.jsx';
 import SignUp from './components/SignUp.js';
 import Products from './components/Products.jsx';
-import SignIn from './components/SignIn.jsx'
+import SignIn from './components/SignIn.js'
 
 
 class App extends React.Component {
