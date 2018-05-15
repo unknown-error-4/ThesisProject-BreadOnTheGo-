@@ -67,9 +67,17 @@
 	
 	var _AppRoute2 = _interopRequireDefault(_AppRoute);
 	
-	var _SignUp = __webpack_require__(/*! ./components/SignUp.jsx */ 232);
+	var _SignUp = __webpack_require__(/*! ./components/SignUp.js */ 234);
 	
 	var _SignUp2 = _interopRequireDefault(_SignUp);
+	
+	var _Products = __webpack_require__(/*! ./components/Products.jsx */ 232);
+	
+	var _Products2 = _interopRequireDefault(_Products);
+	
+	var _SignIn = __webpack_require__(/*! ./components/SignIn.jsx */ 233);
+	
+	var _SignIn2 = _interopRequireDefault(_SignIn);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32921,9 +32929,13 @@
 	
 	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 186);
 	
-	var _SignUp = __webpack_require__(/*! ./SignUp.jsx */ 232);
+	var _SignUp = __webpack_require__(/*! ./SignUp.js */ 234);
 	
 	var _SignUp2 = _interopRequireDefault(_SignUp);
+	
+	var _Products = __webpack_require__(/*! ./Products.jsx */ 232);
+	
+	var _Products2 = _interopRequireDefault(_Products);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -32954,7 +32966,8 @@
 	        _react2.default.createElement(
 	          _reactRouterDom.Switch,
 	          null,
-	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/signup', component: _SignUp2.default })
+	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/signup', component: _SignUp2.default }),
+	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/prouducts', component: _Products2.default })
 	        )
 	      );
 	    }
@@ -37649,15 +37662,15 @@
 
 /***/ },
 /* 232 */
-/*!************************************************!*\
-  !*** ./react-client/src/components/SignUp.jsx ***!
-  \************************************************/
+/*!**************************************************!*\
+  !*** ./react-client/src/components/Products.jsx ***!
+  \**************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -37678,7 +37691,253 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Products = function (_React$Component) {
+	  _inherits(Products, _React$Component);
+	
+	  function Products(props) {
+	    _classCallCheck(this, Products);
+	
+	    var _this = _possibleConstructorReturn(this, (Products.__proto__ || Object.getPrototypeOf(Products)).call(this, props));
+	
+	    _this.state = {
+	      name: '',
+	      description: '',
+	      image: '',
+	      price: ''
+	    };
+	    _this.handleChangename = _this.handleChangename.bind(_this);
+	    _this.handleChangedescription = _this.handleChangedescription.bind(_this);
+	    _this.handleChangeprice = _this.handleChangeprice.bind(_this);
+	    _this.handleChangeimage = _this.handleChangeimage.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(Products, [{
+	    key: 'handleChangename',
+	    value: function handleChangename(event) {
+	      this.setState({ name: event.target.value });
+	    }
+	  }, {
+	    key: 'handleChangedescription',
+	    value: function handleChangedescription(event) {
+	      this.setState({ description: event.target.value });
+	    }
+	  }, {
+	    key: 'handleChangeprice',
+	    value: function handleChangeprice(event) {
+	      this.setState({ price: event.target.value });
+	    }
+	  }, {
+	    key: 'handleChangeimage',
+	    value: function handleChangeimage(event) {
+	      this.setState({ image: event.target.value });
+	    }
+	  }, {
+	    key: 'handleClick',
+	    value: function handleClick() {
+	      var that = this;
+	      _jquery2.default.ajax({
+	        type: 'POST',
+	        url: '/prouducts',
+	        data: {
+	          name: that.state.name,
+	          description: that.state.description,
+	          image: that.state.image,
+	          price: that.state.price
+	        },
+	        success: function success(data) {
+	          that.setState({ message: data });
+	          console.log("Success in prouduct POST!", data);
+	        },
+	        error: function error(err) {
+	          console.log("Error in prouduct POST!", err);
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Add Your Products'
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          ' Name of Prouduct :',
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { type: 'text', name: 'User Name', required: true, onChange: this.handleChangename })
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          ' Description:',
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { type: 'text', name: 'description', required: true, onChange: this.handleChangedescription })
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Image:',
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { type: 'text', name: 'image for Prouduct', required: true, onChange: this.handleChangeimage })
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          'Price:',
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { type: 'text', name: 'price', required: true, onChange: this.handleChangeprice })
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.handleClick.bind(this) },
+	          ' Add Prouduct'
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Products;
+	}(_react2.default.Component);
+	
+	exports.default = Products;
+
+/***/ },
+/* 233 */
+/*!************************************************!*\
+  !*** ./react-client/src/components/SignIn.jsx ***!
+  \************************************************/
+/***/ function(module, exports) {
+
+	// import React from 'react';
+	// import ReactDOM from 'react-dom';
+	// import $ from 'jquery';
+	// import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
+	//
+	// //This is a component that have two children components, and it will render only one of them regarding the value of a v which will switch from false to ture when the mech sign in with the right credintials -MechSignedIn- and will get back to false -SigninForm- when he signout.
+	//
+	// class Signin extends React.Component {
+	//   constructor(props){
+	//
+	//     super(props);
+	//
+	//     this.state = {
+	//       email: '',
+	//     password: ''
+	//     }
+	//     this.handleChangeEmail= this.handleChangeEmail.bind(this)
+	//     this.handleChangepassword= this.handleChangepassword.bind(this)
+	//     this.handleSubmit=this.handleSubmit.bind(this)
+	//   };
+	//
+	//   handleChangeEmail(event) {
+	//       this.setState({email: event.target.value})
+	//       console.log(this.state.Email)
+	//
+	//     }
+	//
+	//     handleChangespassword(event) {
+	//       this.setState({password: event.target.value})
+	//       console.log(this.state.password)
+	//     }
+	//     handleSubmit(event) {
+	//       var that=this;
+	//     $.ajax({
+	//       type : 'POST',
+	//       url: '/signin',
+	//       data: {
+	//         email: that.state.email,
+	//         password: that.state.password,
+	//
+	//       },
+	//       success: (data) => {
+	//
+	//               console.log(data)
+	//               if(data){
+	//                 console.log('correct signin');
+	//
+	//               } else{
+	//                 this.setState({mssg: 'Invalid Email or password'})
+	//               }
+	//             },
+	//             error: (err) => {
+	//               console.log('err', err);
+	//             }
+	//           });
+	//           event.preventDefault();
+	//   }
+	//
+	//   render () {
+	//
+	//     return(
+	//       <div className='container' style={{'marginTop':'50px'}}>
+	//       <label>Email:
+	//       <br/>
+	//       <input type="email" name="email" required onChange={this.handleChangeEmail}/>
+	//       </label>
+	//       <br/>
+	//       <label> password:
+	//       <br/>
+	//       <input type="password" name="password" required onChange={this.handleChangepassword}/>
+	//       </label>
+	//       <br/>
+	//       <br/>
+	//       <button onClick={this.handleSubmit.bind(this)}>Sign In</button>
+	//
+	//     </div>)
+	//   }
+	// }
+	//
+	// export default Signin;
+	"use strict";
+
+/***/ },
+/* 234 */
+/*!***********************************************!*\
+  !*** ./react-client/src/components/SignUp.js ***!
+  \***********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+							value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(/*! react-dom */ 37);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
+	var _jquery = __webpack_require__(/*! jquery */ 184);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _reactRouterDom = __webpack_require__(/*! react-router-dom */ 186);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -37687,255 +37946,283 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var SignUp = function (_React$Component) {
-		_inherits(SignUp, _React$Component);
+							_inherits(SignUp, _React$Component);
 	
-		function SignUp(props) {
-			_classCallCheck(this, SignUp);
+							function SignUp(props) {
+													_classCallCheck(this, SignUp);
 	
-			var _this = _possibleConstructorReturn(this, (SignUp.__proto__ || Object.getPrototypeOf(SignUp)).call(this, props));
+													var _this = _possibleConstructorReturn(this, (SignUp.__proto__ || Object.getPrototypeOf(SignUp)).call(this, props));
 	
-			_this.state = _defineProperty({
-				userName: '',
-				email: '',
-				password: '',
-				confirmPass: '',
-				phoneNumber: '',
-				location: {
-					latitude: '',
-					longtitude: ''
-				},
-				typeOfPayment: {
-					cash: '',
-					creditCard: ''
-				},
-				typeOfUser: {
-					baker: '',
-					customer: ''
-				}
-			}, 'typeOfUser', {
-				baker: '',
-				customer: ''
-			});
+													_this.state = {
+																			userName: '',
+																			email: '',
+																			password: '',
+																			confirmPass: '',
+																			phoneNumber: '',
+																			latitude: '',
+																			longtitude: '',
+																			cashPayment: '',
+																			creditCardPayment: '',
+																			bakerUser: '',
+																			customerUser: ''
+													};
+													_this.handleChangeuserName = _this.handleChangeuserName.bind(_this);
+													_this.handleChangeEmail = _this.handleChangeEmail.bind(_this);
+													_this.handleChangePassword = _this.handleChangePassword.bind(_this);
+													_this.handleChangeConfirmPassword = _this.handleChangeConfirmPassword.bind(_this);
+													_this.handleChangePhoneNumber = _this.handleChangePhoneNumber.bind(_this);
+													_this.handleChangeLongtitude = _this.handleChangeLongtitude.bind(_this);
+													_this.handleChangeLatitude = _this.handleChangeLatitude.bind(_this);
+													_this.handleChangePaymentCash = _this.handleChangePaymentCash.bind(_this);
+													_this.handleChangePaymentCreiditCard = _this.handleChangePaymentCreiditCard.bind(_this);
+													_this.handleChangeUserBaker = _this.handleChangeUserBaker.bind(_this);
+													_this.handleChangeUserCustomer = _this.handleChangeUserCustomer.bind(_this);
+													_this.handleClick = _this.handleClick.bind(_this);
+													return _this;
+							}
 	
-			_this.handleClick = _this.handleClick.bind(_this);
-			_this.handleChangeUserName = _this.handleChangeUserName.bind(_this);
-			_this.handleChangeEmail = _this.handleChangeEmail.bind(_this);
-			_this.handleChangePassword = _this.handleChangePassword.bind(_this);
-			_this.handleChangeConfirmPassword = _this.handleChangeConfirmPassword.bind(_this);
-			_this.handleChangePhoneNumber = _this.handleChangePhoneNumber.bind(_this);
-			_this.handleChangeLocation = _this.handleChangeLocation.bind(_this);
-			_this.handleChangeTypeOfPayment = _this.handleChangeTypeOfPayment.bind(_this);
-			_this.handleChangeTypeOfUser = _this.handleChangeTypeOfUser.bind(_this);
-			return _this;
-		}
+							_createClass(SignUp, [{
+													key: 'handleClick',
+													value: function handleClick(event) {
+																			var _this2 = this;
 	
-		_createClass(SignUp, [{
-			key: 'handleClick',
-			value: function handleClick() {
-				_jquery2.default.ajax({
-					type: 'POST',
-					url: '/signup',
-					data: {
-						firstName: this.state.firstName,
-						lastName: this.state.lastName,
-						email: this.state.email,
-						password: this.state.password,
-						phone: this.state.phone,
-						location: {
-							latitude: this.state.location.latitude,
-							longtitude: this.state.location.longtitude
-						},
-						typeOfPayment: {
-							cash: this.state.typeOfPayment.cash,
-							creditCard: this.state.typeOfPayment.creditCard
-						},
-						typeOfUser: {
-							baker: this.state.typeOfUser.baker,
-							customer: this.state.typeOfUser.customer
-						}
-					},
+																			var that = this;
 	
-					success: function success(data) {
-						console.log("Success in signup POST!", data);
-						//window.location.href = "http://localhost:3000/login";
-					},
-					error: function error(req, status, err) {
-						console.log("Error in signup POST!", err);
-					}
-				});
-			}
-		}, {
-			key: 'handleChangeUserName',
-			value: function handleChangeUserName(event) {
-				this.setState({ value: event.target.value });
-			}
-		}, {
-			key: 'handleChangeEmail',
-			value: function handleChangeEmail(event) {
-				this.setState({ value: event.target.value });
-			}
-		}, {
-			key: 'handleChangePassword',
-			value: function handleChangePassword(event) {
-				this.setState({ value: event.target.value });
-			}
-		}, {
-			key: 'handleChangeConfirmPassword',
-			value: function handleChangeConfirmPassword(event) {
-				this.setState({ value: event.target.value });
-			}
-		}, {
-			key: 'handleChangePhoneNumber',
-			value: function handleChangePhoneNumber(event) {
-				this.setState({ value: event.target.value });
-			}
-		}, {
-			key: 'handleChangeLocation',
-			value: function handleChangeLocation(event) {
-				this.setState({ value: event.target.value });
-			}
-		}, {
-			key: 'handleChangeTypeOfPayment',
-			value: function handleChangeTypeOfPayment(event) {
-				this.setState({ value: event.target.value });
-			}
-		}, {
-			key: 'handleChangeTypeOfUser',
-			value: function handleChangeTypeOfUser(event) {
-				this.setState({ value: event.target.value });
-			}
-		}, {
-			key: 'render',
-			value: function render() {
+																			_jquery2.default.ajax({
+																									type: 'POST',
+																									url: '/signup',
+																									data: {
+																															userName: that.state.userName,
+																															email: that.state.email,
+																															password: that.state.password,
+																															confirmPass: that.state.confirmPass,
+																															phoneNumber: that.state.phoneNumber,
+																															latitude: that.state.latitude,
+																															longtitude: that.state.longtitude,
+																															cashPayment: that.state.cashPayment,
+																															creditCard: that.state.creditCard,
+																															bakerUser: that.state.bakerUser,
+																															customerUser: that.state.customerUser
+																									},
+																									success: function success(data) {
+																															if (data === 'exists') {
+																																					_this2.setState({ mssg: "This username is already used" });
+																															} else if (data !== 'Invalid Input') {
+																																					_this2.setState({ redirect: true });
+																															} else {
+																																					_this2.setState({ mssg: data });
+																																					//window.location.href = "http://localhost:3000/login";
+																															}
+																															console.log('success', data);
+																									},
+																									error: function error(err) {
+																															console.log('err', err);
+																									}
+																			});
+																			event.preventDefault();
+													}
+							}, {
+													key: 'handleChangeuserName',
+													value: function handleChangeuserName(event) {
+																			this.setState({ userName: event.target.value });
+																			console.log(this.state.userName);
+													}
+							}, {
+													key: 'handleChangeEmail',
+													value: function handleChangeEmail(event) {
+																			this.setState({ email: event.target.value });
+																			console.log(this.state.email);
+													}
+							}, {
+													key: 'handleChangePassword',
+													value: function handleChangePassword(event) {
+																			this.setState({ password: event.target.value });
+																			console.log(this.state.password);
+													}
+							}, {
+													key: 'handleChangeConfirmPassword',
+													value: function handleChangeConfirmPassword(event) {
+																			this.setState({ confirmPass: event.target.value });
+																			console.log(this.state.confirmPass);
+													}
+							}, {
+													key: 'handleChangePhoneNumber',
+													value: function handleChangePhoneNumber(event) {
+																			this.setState({ phoneNumber: event.target.value });
+																			console.log(this.state.phoneNumber);
+													}
+							}, {
+													key: 'handleChangeLongtitude',
+													value: function handleChangeLongtitude(event) {
+																			this.setState({ longtitude: event.target.value });
+																			console.log(this.state.longtitude);
+													}
+							}, {
+													key: 'handleChangeLatitude',
+													value: function handleChangeLatitude(event) {
+																			this.setState({ latitude: event.target.value });
+																			console.log(this.state.latitude);
+													}
+							}, {
+													key: 'handleChangePaymentCash',
+													value: function handleChangePaymentCash(event) {
+																			this.setState({ cashPayment: event.target.value });
+																			console.log(this.state.cashPayment);
+													}
+							}, {
+													key: 'handleChangePaymentCreiditCard',
+													value: function handleChangePaymentCreiditCard(event) {
+																			this.setState({ creditCard: event.target.value });
+																			console.log(this.state.creditCard);
+													}
+							}, {
+													key: 'handleChangeUserBaker',
+													value: function handleChangeUserBaker(event) {
+																			this.setState({ bakerUser: event.target.value });
+																			console.log(this.state.bakerUser);
+													}
+							}, {
+													key: 'handleChangeUserCustomer',
+													value: function handleChangeUserCustomer(event) {
+																			this.setState({ customerUser: event.target.value });
+																			console.log(this.state.customerUser);
+													}
+							}, {
+													key: 'render',
+													value: function render() {
 	
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'h1',
-						null,
-						'Sign Up'
-					),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'label',
-						null,
-						'User Name:',
-						_react2.default.createElement('br', null),
-						_react2.default.createElement('input', { type: 'text', name: 'User Name', required: true, onChange: this.handleChangeUserName })
-					),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'label',
-						null,
-						'Email:',
-						_react2.default.createElement('br', null),
-						_react2.default.createElement('input', { type: 'email', name: 'Email', required: true, onChange: this.handleChangeEmail })
-					),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'label',
-						null,
-						'Password:',
-						_react2.default.createElement('br', null),
-						_react2.default.createElement('input', { type: 'password', name: 'Password', required: true, onChange: this.handleChangePassword })
-					),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'label',
-						null,
-						'Confirm Password:',
-						_react2.default.createElement('br', null),
-						_react2.default.createElement('input', { type: 'password', name: 'Confirm Password', required: true, onChange: this.handleChangeConfirmPassword })
-					),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'label',
-						null,
-						'Phone Number:',
-						_react2.default.createElement('br', null),
-						_react2.default.createElement('input', { type: 'text', name: 'Phone Number', required: true, onChange: this.handleChangePhoneNumber })
-					),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'label',
-						null,
-						'Location:',
-						_react2.default.createElement('br', null),
-						_react2.default.createElement('input', { type: 'text', name: 'latitude', required: true, onChange: this.handleChangeLocation }),
-						_react2.default.createElement('br', null),
-						_react2.default.createElement('input', { type: 'text', name: 'longtitude', required: true, onChange: this.handleChangeLocation })
-					),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'label',
-						null,
-						' Type Of Payment:',
-						_react2.default.createElement('br', null),
-						_react2.default.createElement(
-							'form',
-							{ className: 'form-group' },
-							_react2.default.createElement(
-								'select',
-								{ name: 'typeOfPayment', className: 'form-control selectpicker btn btn-default', required: true, onChange: this.handleChangeTypeOfPayment, value: this.state.typeOfPayment },
-								_react2.default.createElement(
-									'option',
-									{ value: 'Select' },
-									'Sellect Type Of Payment'
-								),
-								_react2.default.createElement(
-									'option',
-									{ value: 'Cash' },
-									'Cash'
-								),
-								_react2.default.createElement(
-									'option',
-									{ value: 'creditCard' },
-									'Credit Card'
-								)
-							)
-						)
-					),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement(
-						'label',
-						null,
-						' Type Of Payment:',
-						_react2.default.createElement('br', null),
-						_react2.default.createElement(
-							'form',
-							{ className: 'form-group' },
-							_react2.default.createElement(
-								'select',
-								{ name: 'typeOfPayment', className: 'form-control selectpicker btn btn-default', required: true, onChange: this.handleChangeTypeOfUser, value: this.state.typeOfUser },
-								_react2.default.createElement(
-									'option',
-									{ value: 'Select' },
-									'Who Are You !!'
-								),
-								_react2.default.createElement(
-									'option',
-									{ value: 'Baker' },
-									'Baker'
-								),
-								_react2.default.createElement(
-									'option',
-									{ value: 'Customer' },
-									'Customer'
-								)
-							)
-						)
-					),
-					_react2.default.createElement(
-						'button',
-						{ onClick: this.handleClick },
-						'Sign Up'
-					)
-				);
-			}
-		}]);
+																			return _react2.default.createElement(
+																									'div',
+																									null,
+																									_react2.default.createElement(
+																															'h1',
+																															null,
+																															'Sign Up'
+																									),
+																									_react2.default.createElement('br', null),
+																									_react2.default.createElement(
+																															'form',
+																															null,
+																															_react2.default.createElement(
+																																					'label',
+																																					null,
+																																					'User Name:',
+																																					_react2.default.createElement('br', null),
+																																					_react2.default.createElement('input', { type: 'text', name: 'User Name', required: true, value: this.state.userName, onChange: this.handleChangeuserName })
+																															),
+																															_react2.default.createElement('br', null),
+																															_react2.default.createElement(
+																																					'label',
+																																					null,
+																																					'Email:',
+																																					_react2.default.createElement('br', null),
+																																					_react2.default.createElement('input', { type: 'email', name: 'Email', required: true, value: this.state.email, onChange: this.handleChangeEmail })
+																															),
+																															_react2.default.createElement('br', null),
+																															_react2.default.createElement(
+																																					'label',
+																																					null,
+																																					'Password:',
+																																					_react2.default.createElement('br', null),
+																																					_react2.default.createElement('input', { type: 'password', name: 'Password', required: true, value: this.state.password, onChange: this.handleChangePassword })
+																															),
+																															_react2.default.createElement('br', null),
+																															_react2.default.createElement(
+																																					'label',
+																																					null,
+																																					'Confirm Password:',
+																																					_react2.default.createElement('br', null),
+																																					_react2.default.createElement('input', { type: 'password', name: 'Confirm Password', required: true, value: this.state.confirmPass, onChange: this.handleChangeConfirmPassword })
+																															),
+																															_react2.default.createElement('br', null),
+																															_react2.default.createElement(
+																																					'label',
+																																					null,
+																																					'Phone Number:',
+																																					_react2.default.createElement('br', null),
+																																					_react2.default.createElement('input', { type: 'text', name: 'Phone Number', required: true, value: this.state.phoneNumber, onChange: this.handleChangePhoneNumber })
+																															),
+																															_react2.default.createElement('br', null),
+																															_react2.default.createElement(
+																																					'label',
+																																					null,
+																																					'Location:',
+																																					_react2.default.createElement('br', null),
+																																					_react2.default.createElement('input', { type: 'text', name: 'latitude', required: true, value: this.state.latitude, onChange: this.handleChangeLatitude }),
+																																					_react2.default.createElement('br', null),
+																																					_react2.default.createElement('input', { type: 'text', name: 'longtitude', required: true, value: this.state.longtitude, onChange: this.handleChangeLongtitude })
+																															),
+																															_react2.default.createElement('br', null),
+																															_react2.default.createElement(
+																																					'label',
+																																					null,
+																																					' Type Of Payment:',
+																																					_react2.default.createElement('br', null),
+																																					_react2.default.createElement(
+																																											'form',
+																																											{ className: 'form-group1' },
+																																											_react2.default.createElement(
+																																																	'select',
+																																																	{ name: 'typeOfPayment', className: 'form-control selectpicker btn btn-default', required: true },
+																																																	_react2.default.createElement(
+																																																							'option',
+																																																							null,
+																																																							'Sellect Type Of Payment'
+																																																	),
+																																																	_react2.default.createElement(
+																																																							'option',
+																																																							{ value: this.state.cashPayment, onChange: this.handleChangePaymentCash },
+																																																							'Cash'
+																																																	),
+																																																	_react2.default.createElement(
+																																																							'option',
+																																																							{ value: this.state.creditCardPayment, onChange: this.handleChangePaymentCash },
+																																																							'Credit Card'
+																																																	)
+																																											)
+																																					)
+																															),
+																															_react2.default.createElement('br', null),
+																															_react2.default.createElement(
+																																					'label',
+																																					null,
+																																					' Type Of Payment:',
+																																					_react2.default.createElement('br', null),
+																																					_react2.default.createElement(
+																																											'form',
+																																											{ className: 'form-group2' },
+																																											_react2.default.createElement(
+																																																	'select',
+																																																	{ name: 'typeOfPayment', className: 'form-control selectpicker btn btn-default', required: true },
+																																																	_react2.default.createElement(
+																																																							'option',
+																																																							{ value: 'Who Are You' },
+																																																							'Who Are You !!'
+																																																	),
+																																																	_react2.default.createElement(
+																																																							'option',
+																																																							{ value: this.state.bakerUser, onChange: this.handleChangeUserBaker },
+																																																							'Baker'
+																																																	),
+																																																	_react2.default.createElement(
+																																																							'option',
+																																																							{ value: this.state.customerUser, onChange: this.handleChangeTypeOfUserCustomer },
+																																																							'Customer'
+																																																	)
+																																											)
+																																					)
+																															),
+																															_react2.default.createElement(
+																																					'button',
+																																					{ onClick: this.handleClick },
+																																					'Sign Up'
+																															)
+																									)
+																			);
+													}
+							}]);
 	
-		return SignUp;
+							return SignUp;
 	}(_react2.default.Component);
 	
 	exports.default = SignUp;

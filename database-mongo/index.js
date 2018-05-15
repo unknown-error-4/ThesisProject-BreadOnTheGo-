@@ -13,89 +13,80 @@ db.once('open', function() {
 
 ///////////////////////////////////////////////////////////
 
-var UserSchema = mongoose.Schema({
-  userName:{
-     type: String,
-        unique: true
-    },
-    email:{
-     type: String,
-          unique: true,
-          trim: true
+var userSchema = mongoose.Schema({
+  userName:String,
+  email:{
+    type: String,
+    trim: true
     },
     password:{
       type: String
     },
     phoneNumber: Number,
-    location: {
-      latitude: String,
-      longtitude: String
-    },
-    typeOfPayment:{
-    cash: String,
-    creditCard: String
-  },
-    typeOfUser:{
-      baker: String,
-      customer: String
-    }
+    latitude: String,
+    longtitude: String,
+    cashPayment: String,
+    creditCardPayment: String,
+    bakerUser: String,
+    customerUser: String
+
 
 });
 
-var User = mongoose.model('User', UserSchema);
+var User = mongoose.model('User', userSchema);
+///////////////////////////////////////////////////////////
+var saveUser =function(data,callback){
+  var NUser= new User(data);
+  NUser.save(function(err,data){
+    if(err){
+      callback(err,null)
+    }
+    callback(null,data)
+  })
+}
 
 ///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 
-var ProuductSchema=mongoose.Schema({
+
+var prouductSchema = mongoose.Schema({
   name:String,
-  type:String,
+  description:String,
   image:String,
   price:Number
-
-
 });
-var Prouduct=mongoose.model('Prouduct',ProuductSchema);
 
+var Prouduct = mongoose.model('Prouduct',prouductSchema);
 
 ///////////////////////////////////////////////////////////
 
-module.exports.Prouduct= Prouduct;
+var saveProuduct = function(data,callback){
+  var NewProuduct = new Prouduct(data);
+  NewProuduct.save(function(err,dataRes){
+    if(err){
+      console.log("err in saving product")
+      callback(err,null)
+    }
+    callback(null,dataRes)
+  });
+};
+
+///////////////////////////////////////////////////////////
+
+var selectAll = function(callback) {
+  Prouduct.find({}, function(err, items) {
+    if(err) {
+      callback(err, null);
+    } else {
+      callback(null, items);
+    }
+  });
+};
+
+///////////////////////////////////////////////////////////
+
+module.exports.Prouduct = Prouduct;
 module.exports.User = User;
-
-
-///////////////////////////////////////////////////////////
-// var selectAll = function(callback) {
-//   Prouduct.find({}, function(err, items) {
-//     if(err) {
-//       callback(err, null);
-//     } else {
-//       callback(null, items);
-//     }
-//   });
-// };
-// var saveProuduct =function(data,callback){
-//   var NewProuduct= new Prouduct(data);
-//   NewProuduct.save(function(err,data){
-//     if(err){
-//       callback(err,null)
-//     }
-//     callback(null,data)
-//   })
-// }
-//////////////////////////////////////////////////////////
-
-// var saveUser =function(data,callback){
-//   var NUser= new User(data);
-//   NUser.save(function(err,data){
-//     if(err){
-//       callback(err,null)
-//     }
-//     callback(null,data)
-//   })
-// }
-////////////////////////////////////////////////////////////////
-// module.exports.selectAll = selectAll;
-// module.export.saveProuduct= saveProuduct;
-
-
-// module.export.saveUser= saveUser;
+module.exports.saveUser = saveUser;
+module.exports.saveProuduct = saveProuduct;
+module.exports.selectAll = selectAll;

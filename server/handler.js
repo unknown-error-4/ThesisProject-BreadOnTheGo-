@@ -1,65 +1,82 @@
 var db =require('../database-mongo/index.js');
-
 var bcrypt = require('bcrypt');
 var helper=require('../helper/helperfunc.js')
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 var saltRounds = 10;
+////////////////////////////////////////////////////////////////////////////////////////////////////
+exports.SignUp = function (req, res) {
+  var data=req.body;
 
-exports.SignUp=function(req,res){
-  var userName =req.body.userName
-  var email =req.body.email
-  var password =req.body.password
-  var phoneNumber=req.body.phoneNumber
-  var  typeOfPayment =req.body.typeOfPayment
-  var typeOfUser =req.body.typeOfUser
-  console.log('here is data' , req.body)
-  db.User.find({ // searching for the username in the schema
-    userName: userName
-  }, function (err, data) {
-    if (err) {
-      res.sendStatus(404)
+bcrypt.hash(data.password,saltRounds,function(err,hash){
+  if(err){
+    console.log(err)
+  }if(data.userName === "" || data.password.length < 8 || data.phoneNumber.length <12){
+    res.send("Invalid Input")
+  // }else{
+  //   db.User.count({userName: data.userName}, function (err, count){
+  //   if(count>0){
+  //      res.send("exists")
     }
-  
-
-      else if (data ===data.userName) {
-        res.send("the username already exists pleas change it")
-      }
-      else {
-        bcrypt.genSalt(saltRounds, function (err, salt) {
-          if (err) {
-            throw err
+  else{
+       db.saveUser({
+          userName:data.userName,
+          password:hash,
+          phoneNumber:data.phoneNumber,
+          longitude: data.longitude,
+          laltitude: data.laltitude,
+          email:data.email,
+          cash: data.cashPayment,
+          creditCard: data.creditCardPayment,
+          baker: data.bakerUser,
+          customer: data.customerUser
+        },function(err,data){
+          if(err){
+            console.log(err)
           }
-          bcrypt.hash(password, salt, function (err, hash) {
-            if (err) {
-              throw err
-            }
-            var user = new db.User({
-              userName: userName,
-              email: email,
-              password: hash,
-              phoneNumber:phoneNumber,
-              typeOfPayment:typeOfPayment,
-              typeOfUser:typeOfUser
-            })
-            user.save(function (err, data) {
-              if (err) {
-                throw err
-              }
-              helper.createSession(req, res, data.userName)
-            })
-          })
+          res.send(data)
         })
       }
+    });
+   }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+exports.SavingProducts = function(req, res){
+  console.log("product responese")
+  var data = req.body;
+  db.saveProuduct({
+    name: data.name,
+    description: data.description,
+    image: data.image,
+    price: data.price
+  }, function(err, data){
+    if (err){
+      console.log(err)
+    }
+    res.send(data);
   })
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-exports.saveUser =function(data,callback){
-  var NUser= new User(data);
-  NUser.save(function(err,data){
-    if(err){
-      callback(err,null)
-    }
-    callback(null,data)
-  })
+ //function for signin
+
+exports.SignIn=function(req,res) {
+  var email =req.body.email;
+  var password=req.body.password;
+db.User.findOne(
+  {email:email},
+  function (err,data) {
+  if (err) {
+    console.log(err);
+  }else {
+    bcrypt.compare (password,data.password,function (err,found) {
+      if (found) {
+        helperfunc.createSession(req,res,data.email)
+      } else {
+        res.send("wrong Email or password or the username not exists")
+      }
+    })
+  }
+
+})
+
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////
