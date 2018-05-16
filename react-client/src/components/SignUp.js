@@ -103,7 +103,7 @@
 			handleChangePayment(event) {
 		    this.setState({typeOfPayment: event.target.value});
         console.log(this.state.typeOfPayment);
-        
+
 		  }
 
       handleChangeUser(event) {
