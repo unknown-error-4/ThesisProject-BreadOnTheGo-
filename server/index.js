@@ -9,7 +9,7 @@ var app = express();
 //to connect with react
 app.use(express.static(__dirname + '/../react-client/dist'));
 
-app.get('*', (req, res) => {
+app.get('/navbar', (req, res) => {
  res.sendFile(path.resolve(path.join(__dirname, '/../react-client/dist/index.html')));
 });
 /////////////////////////////////////////////////////////////
@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
      saveUninitialized: false // for the database
     }));
 /////////////////////////////////////////////////////////////
+
 app.post('/signup', handler.SignUp);
 app.post('/signin',handler.SignIn);
 app.post("/prouducts",handler.SavingProducts)

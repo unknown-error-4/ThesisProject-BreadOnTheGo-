@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import AppRoute from './components/AppRoute.jsx';
-import SignUp from './components/SignUp.js';
+
 import Products from './components/Products.jsx';
 import SignIn from './components/SignIn.js'
+
+import signUp from './components/signUp.jsx';
+import navbar from './components/navbar.jsx'
 
 
 class App extends React.Component {
@@ -20,7 +23,9 @@ class App extends React.Component {
   render () {
     return (<div>
       <AppRoute/>
-    </div>)
+    </div>
+    )
+
   }
 }
 
