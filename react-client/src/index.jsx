@@ -6,8 +6,9 @@ import AppRoute from './components/AppRoute.jsx';
 import Products from './components/Products.jsx';
 import SignIn from './components/SignIn.js'
 
-import signUp from './components/signUp.jsx';
+import signUp from './components/SignUp';
 import navbar from './components/navbar.jsx'
+import MapComponent from './components/MapComponent.jsx'
 
 
 class App extends React.Component {

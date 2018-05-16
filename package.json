@@ -23,6 +23,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.0",
     "express-session": "^1.15.6",
+    "google-maps-react": "^2.0.2",
     "history": "^4.7.2",
     "jquery": "^3.3.1",
     "mongoose": "^4.8.6",
