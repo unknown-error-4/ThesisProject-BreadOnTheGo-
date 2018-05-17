@@ -8,7 +8,8 @@ import SignIn from './components/SignIn.js'
 
 import signUp from './components/SignUp';
 import navbar from './components/navbar.jsx'
-import MapComponent from './components/MapComponent.jsx'
+import MapComponent from './components/MapComponent.jsx';
+import Profile from './components/Profile.jsx'
 
 
 class App extends React.Component {

@@ -7,6 +7,7 @@ import SignIn from './SignIn.js'
 import SignUp from './SignUp';
 import Navcom from './navbar.jsx';
 import MapComponent from './MapComponent.jsx';
+import Profile from './Profile.jsx'
 class AppRoute extends React.Component {
   constructor (props) {
     super(props)
@@ -24,6 +25,7 @@ class AppRoute extends React.Component {
             <Route exact path='/signin' component={SignIn} />
           <Route exact path='/' component={Navcom}/>
           <Route exact path='/map' component={MapComponent}/>
+          <Route exact path='/Profile' component={Profile}/>
         </Switch>
       </BrowserRouter>
     )

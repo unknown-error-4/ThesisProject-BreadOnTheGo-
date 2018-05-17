@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post('/signup', handler.SignUp);
 app.post('/signin',handler.SignIn);
 app.post("/prouducts",handler.SavingProducts)
-
+///////////////
 app.get('/signup',function(req,res){
   User.findOne({userName : req.params.userName}).exec(function (err, user) {
     if (err) {
@@ -44,14 +44,7 @@ app.get('/signup',function(req,res){
   })
 
 })
-
-
-
-
-
-
-
-/////////////////////////////////////////////////////////////
+//////////////
 app.listen(3000, function() {
   console.log('listening on port 3000!');
 });
