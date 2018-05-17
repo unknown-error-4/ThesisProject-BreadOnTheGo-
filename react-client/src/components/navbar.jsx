@@ -7,27 +7,31 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-
+import SignIn from './SignIn.js';
+import SignUp from './SignUp.js'
 class Navcom extends React.Component {
   constructor (props) {
     super(props)
    
   }
   render(){
-  	return(<Navbar inverse collapseOnSelect>
-  <Navbar.Header>
-    <Navbar.Brand>
-      <a href="#brand">React-Bootstrap</a>
-    </Navbar.Brand>
-    <Navbar.Toggle />
-  </Navbar.Header>
-  <Navbar.Collapse>
+  	return(
+      <Router>
+         <div> 
+      <Navbar inverse collapseOnSelect>
+        <Navbar.Header>
+        <Navbar.Brand>
+      <a href="#brand">BreadOnTheGo</a>
+      </Navbar.Brand>
+      <Navbar.Toggle />
+       </Navbar.Header>
+       <Navbar.Collapse>
     <Nav>
-      <NavItem eventKey={1} href="#">
-        Link
+      <NavItem eventKey={1} >
+        Home
       </NavItem>
-      <NavItem eventKey={2} href="#">
-        Link
+      <NavItem eventKey={2}>
+         Map
       </NavItem>
       <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
         <MenuItem eventKey={3.1}>Action</MenuItem>
@@ -38,15 +42,19 @@ class Navcom extends React.Component {
       </NavDropdown>
     </Nav>
     <Nav pullRight>
-      <NavItem eventKey={1} href="#">
-        Link Right
+      <NavItem eventKey={1}>
+         <Link to= "/SignIn">SignIn</Link>
       </NavItem>
-      <NavItem eventKey={2} href="#">
-        Link Right
+      <NavItem eventKey={2} >
+       <Link to= "/SignUp">SignUp</Link>
       </NavItem>
     </Nav>
   </Navbar.Collapse>
 </Navbar>
+<Route path="/SignIn"  component={SignIn}/>
+<Route path="/SignUp" component={SignUp} />
+</div>
+</Router>
   		)
   }
 }

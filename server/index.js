@@ -31,11 +31,19 @@ app.post('/signup', handler.SignUp);
 app.post('/signin',handler.SignIn);
 app.post("/prouducts",handler.SavingProducts)
 
+app.get('/signup',function(req,res){
+  User.findOne({userName : req.params.userName}).exec(function (err, user) {
+    if (err) {
+      res.json('err');
+    }
+    if (!User) {
+      res.json('No such username, please check username')
+    } else {
+      res.json(User)
+    }
+  })
 
-
-
-
-
+})
 
 
 

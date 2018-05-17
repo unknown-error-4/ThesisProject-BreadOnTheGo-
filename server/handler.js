@@ -10,7 +10,7 @@ exports.SignUp = function (req, res) {
 bcrypt.hash(data.password,saltRounds,function(err,hash){
   if(err){
     console.log(err)
-  }if(data.userName === "" || data.password.length < 8 || data.phoneNumber.length <12){
+  }if(data.userName === "" || data.password.length < 8){
     res.send("Invalid Input")
 
     }
