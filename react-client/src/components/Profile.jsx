@@ -31,11 +31,19 @@ class Profile extends React.Component {
   render(){
   	var user = this.state.user;
   	var userName = user.userName;
+  	var imgUrl=user.imgUrl
+  	var email=user.email
   	return(
-  		
- 		<div>	
-          <h1> {userName} </h1>
+ 		<div className="row">
+        <div className="col-md-3" style={{'paddingLeft':'20px'}}>
+          <img src="https://www.sarahotels.in/img/default-user.png"  width = '250px'/>
+          
         </div>
+        <div className='col-md-9'>
+          <h1> {userName} Profile</h1>
+          <p>{email}</p>
+        </div>
+  		</div>
   		
   	)
   }

@@ -94,8 +94,8 @@ exports.SignIn = function (req, res) {
 /////////////////////retrive function to retrive all user///////////////
 exports.retrieve = function (req, res) {
   var query = req.query;
-  console.log("afaq",query)
   db.User.find(query, function (err, response) {
+    console.log("afaq",query)
     if (err) {
       return res.status(500).json(err.message);
     }
@@ -107,8 +107,7 @@ exports.retrieve = function (req, res) {
 };
 ///////////// retrive function for profile page //////////////
 exports.retrieveOne = function (req, res) {
-  var query = {_id: req.params._id };
-   console.log("afaqsmadi",query)
+  var query = {id: req.params.id };
  db.User.findOne(query, function (err, response) {
     if (err) {
       return res.status(500).json(err.message);
