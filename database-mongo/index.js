@@ -68,7 +68,7 @@ var saveProuduct = function(data,callback){
   });
 };
 
-///////////////////////////////////////////////////////////
+///////////////////////////////////
 
 var selectAll = function(callback) {
   Prouduct.find({}, function(err, items) {
@@ -79,8 +79,6 @@ var selectAll = function(callback) {
     }
   });
 };
-////////////////retrive function///////////////
-
 
 
 //////////////////////////////////////////////
