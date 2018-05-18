@@ -1,9 +1,8 @@
 var db =require('../database-mongo/index.js');
 var bcrypt = require('bcrypt');
 var helper=require('../helper/helperfunc.js')
-////////////////////////////////////////////////////////////////////////////////////////////////////
 var saltRounds = 10;
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 exports.SignUp = function (req, res) {
   var data=req.body;
 
@@ -33,7 +32,6 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
       }
     });
    }
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 exports.SavingProducts = function(req, res){
   console.log("product responese")
@@ -83,3 +81,42 @@ exports.SignIn = function (req, res) {
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
+// exports.retrieve= function(req, res){
+//   console.log('db',db.User)
+//   db.User.find({req.body.userName},function(err, data){
+//     if(err){
+//       return handleError(err)
+//     }
+//     res.send(data)
+//     console.log(data)
+//   })
+// }
+/////////////////////retrive function to retrive all user///////////////
+exports.retrieve = function (req, res) {
+  var query = req.query;
+  console.log("afaq",query)
+  db.User.find(query, function (err, response) {
+    if (err) {
+      return res.status(500).json(err.message);
+    }
+    if (response.length === 0) {
+      return res.sendStatus(404);
+    }
+    res.json(response);
+  });
+};
+///////////// retrive function for profile page //////////////
+exports.retrieveOne = function (req, res) {
+  var query = {_id: req.params._id };
+   console.log("afaqsmadi",query)
+ db.User.findOne(query, function (err, response) {
+    if (err) {
+      return res.status(500).json(err.message);
+    }
+    if (!response) {
+      return res.sendStatus(404);
+    }
+    res.json(response);
+  });
+};
+/////////////////////////////////////////////////////

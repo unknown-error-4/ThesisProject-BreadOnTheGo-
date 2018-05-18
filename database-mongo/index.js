@@ -30,9 +30,8 @@ var userSchema = mongoose.Schema({
 
 
 });
-
 var User = mongoose.model('User', userSchema);
-///////////////////////////////////////////////////////////
+
 var saveUser =function(data,callback){
   var NUser= new User(data);
   NUser.save(function(err,data){
@@ -43,7 +42,7 @@ var saveUser =function(data,callback){
   })
 }
 
-///////////////////////////////////////////////////////////
+
 ///////////////////////////////////////////////////////////
 
 
