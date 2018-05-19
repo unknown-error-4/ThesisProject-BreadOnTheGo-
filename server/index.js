@@ -27,7 +27,9 @@ app.post('/signup', handler.SignUp);
 app.post('/signin',handler.SignIn);
 app.post("/prouducts",handler.SavingProducts)
 app.get("/profile",handler.retrieveOne) 
-app.get("/showProuduct",handler.showProuduct)
+app.get("/showProduct",handler.showProduct)
+app.get("/showOne",handler.retrieveOneProduct)
+app.get("/profiles",handler.retrieve)
 app.get('/*', (req, res) => {
  res.sendFile(path.resolve(path.join(__dirname, '/../react-client/dist/index.html')));
 });

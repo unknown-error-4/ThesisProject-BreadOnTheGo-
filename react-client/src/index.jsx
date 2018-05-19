@@ -2,14 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import AppRoute from './components/AppRoute.jsx';
-
 import Products from './components/Products.jsx';
 import SignIn from './components/SignIn.js'
-
 import signUp from './components/SignUp';
-import navbar from './components/navbar.jsx'
+import navbar from './components/navbar.jsx';
 import MapComponent from './components/MapComponent.jsx';
-import Profile from './components/Profile.jsx'
+import Profile from './components/Profile.jsx';
+import ProductList from './components/ProductList.jsx'
 
 
 class App extends React.Component {

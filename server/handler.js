@@ -119,16 +119,31 @@ exports.retrieveOne = function (req, res) {
   });
 };
 //////retrive all products  function to show products ////
-exports.showProuduct = function (req, res) {
+exports.showProduct = function (req, res) {
   var query = req.query;
-  console.log("Prouduct",query)
-  db.Prouduct.find(query, function (err, response) {
+  console.log("Prouduct arraived")
+  db.Prouduct.find({}, function (err, response) {
     if (err) {
       return res.status(500).json(err.message);
     }
     if (response.length === 0) {
       return res.sendStatus(404);
     }
+    res.send(response);
+  });
+};
+////////////retrive one product function ////////////
+exports.retrieveOneProduct = function (req, res) {
+  var query = {id: req.params.id };
+
+ db.Prouduct.findOne(query, function (err, response) {
+    if (err) {
+      return res.status(500).json(err.message);
+    }
+    if (!response) {
+      return res.sendStatus(404);
+    }
     res.json(response);
   });
 };
+///////////////////////////

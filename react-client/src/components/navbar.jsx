@@ -9,8 +9,7 @@ import {
 } from 'react-router-dom';
 import SignIn from './SignIn.js';
 import SignUp from './SignUp.js';
-import Profile from './Profile.jsx';
- // import styles from  './navbar.css' 
+import Profile from './Profile.jsx'; 
 class Navcom extends React.Component {
   constructor (props) {
     super(props)
@@ -20,7 +19,7 @@ class Navcom extends React.Component {
   	return(
       <Router>
          <div > 
-      <Navbar navbar-default >
+      <Navbar id='navb' >
         <Navbar.Header>
         <Navbar.Brand>
       <a href="#brand">BreadOnTheGo</a>
@@ -33,7 +32,7 @@ class Navcom extends React.Component {
         Home
       </NavItem>
       <NavItem eventKey={2}>
-         Map
+   
       </NavItem>
       <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
         <MenuItem eventKey={3.1}>Action</MenuItem>
@@ -56,9 +55,9 @@ class Navcom extends React.Component {
     </Nav>
   </Navbar.Collapse>
 </Navbar>
-<Route path="/Profile"  component={Profile}/>
-<Route path="/SignIn"  component={SignIn}/>
-<Route path="/SignUp" component={SignUp} />
+      <Route path="/Profile"  component={Profile}/>
+      <Route path="/SignIn"  component={SignIn}/>
+      <Route path="/SignUp" component={SignUp} />
 </div>
 </Router>
   		)
