@@ -25,29 +25,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /////////////////////////////////////////////////////////////
 app.post('/signup', handler.SignUp);
 app.post('/signin',handler.SignIn);
-<<<<<<< HEAD
 app.post("/prouducts",handler.SavingProducts)
-app.get("/profile",handler.retrieveOne) 
+app.get("/profile",handler.retrieveOne)
 app.get('/*', (req, res) => {
  res.sendFile(path.resolve(path.join(__dirname, '/../react-client/dist/index.html')));
 });
-//////////////
-=======
-app.post("/prouducts",handler.SavingProducts);
-app.post("/themap",handler.TheMap);
-
-
-
-
-
-
-
-
-
-
 
 /////////////////////////////////////////////////////////////
->>>>>>> map basic
 app.listen(3000, function() {
   console.log('listening on port 3000!');
 });
