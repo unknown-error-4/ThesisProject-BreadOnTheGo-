@@ -8,7 +8,9 @@ import {
   Link
 } from 'react-router-dom';
 import SignIn from './SignIn.js';
-import SignUp from './SignUp.js'
+import SignUp from './SignUp.js';
+import Profile from './Profile.jsx';
+ // import styles from  './navbar.css' 
 class Navcom extends React.Component {
   constructor (props) {
     super(props)
@@ -17,8 +19,8 @@ class Navcom extends React.Component {
   render(){
   	return(
       <Router>
-         <div> 
-      <Navbar inverse collapseOnSelect>
+         <div > 
+      <Navbar navbar-default >
         <Navbar.Header>
         <Navbar.Brand>
       <a href="#brand">BreadOnTheGo</a>
@@ -42,6 +44,9 @@ class Navcom extends React.Component {
       </NavDropdown>
     </Nav>
     <Nav pullRight>
+    <NavItem eventKey={1}>
+         <Link to= "/Profile">Profile</Link>
+      </NavItem>
       <NavItem eventKey={1}>
          <Link to= "/SignIn">SignIn</Link>
       </NavItem>
@@ -51,6 +56,7 @@ class Navcom extends React.Component {
     </Nav>
   </Navbar.Collapse>
 </Navbar>
+<Route path="/Profile"  component={Profile}/>
 <Route path="/SignIn"  component={SignIn}/>
 <Route path="/SignUp" component={SignUp} />
 </div>
