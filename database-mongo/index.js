@@ -23,8 +23,8 @@ var userSchema = mongoose.Schema({
       type: String
     },
     phoneNumber: Number,
-    latitude: String,
-    longtitude: String,
+    latitude: Number,
+    longtitude: Number,
     typeOfPayment: String,
     typeOfUser: String
 
