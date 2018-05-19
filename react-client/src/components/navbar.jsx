@@ -7,19 +7,26 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import SignIn from './SignIn.js';
-import SignUp from './SignUp.js';
-import Profile from './Profile.jsx'; 
+
+import SignIn from './SignIn.jsx';
+import SignUp from './SignUp.jsx';
+import Profile from './Profile.jsx';
+ // import styles from  './navbar.css'
+
 class Navcom extends React.Component {
   constructor (props) {
     super(props)
-   
+
   }
   render(){
   	return(
       <Router>
+
          <div > 
       <Navbar id='navb' >
+
+         <div >
+     
         <Navbar.Header>
         <Navbar.Brand>
       <a href="#brand">BreadOnTheGo</a>

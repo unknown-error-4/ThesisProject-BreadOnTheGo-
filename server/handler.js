@@ -146,4 +146,28 @@ exports.retrieveOneProduct = function (req, res) {
     res.json(response);
   });
 };
-///////////////////////////
+//////
+/////////////////////////////////////////////////////
+
+exports.TheMap = function (req, res) {
+function DistanceInKm(Latitude1,Longitude1,Latitude2,Longitude2) {
+        var radius = 6371; // Radius of the earth in km
+        var Latitude = deg2rad(Latitude2-Latitude1);  // deg2rad below
+        var Longitude = deg2rad(Longitude2-Longitude1);
+        var a =
+          Math.sin(Laltitude/2) * Math.sin(Laltitude/2) +
+          Math.cos(deg2rad(Latitude1)) * Math.cos(deg2rad(Latitude2)) *
+          Math.sin(Longitude/2) * Math.sin(Longitude/2);
+
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        var distance = radius * c; // Distance in km
+        return distance;
+      }
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
+ 
+
+

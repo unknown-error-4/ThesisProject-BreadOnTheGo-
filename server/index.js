@@ -30,10 +30,12 @@ app.get("/profile",handler.retrieveOne)
 app.get("/showProduct",handler.showProduct)
 app.get("/showOne",handler.retrieveOneProduct)
 app.get("/profiles",handler.retrieve)
+
 app.get('/*', (req, res) => {
  res.sendFile(path.resolve(path.join(__dirname, '/../react-client/dist/index.html')));
 });
-//////////////
+
+/////////////////////////////////////////////////////////////
 app.listen(3000, function() {
   console.log('listening on port 3000!');
 });
