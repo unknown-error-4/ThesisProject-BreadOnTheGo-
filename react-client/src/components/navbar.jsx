@@ -7,10 +7,10 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import SignIn from './SignIn.js';
-import SignUp from './SignUp.js';
+import SignIn from './SignIn.jsx';
+import SignUp from './SignUp.jsx';
 import Profile from './Profile.jsx';
- // import styles from  './navbar.css' 
+ // import styles from  './navbar.css'
 class Navcom extends React.Component {
   constructor (props) {
     super(props)
@@ -19,7 +19,7 @@ class Navcom extends React.Component {
   render(){
   	return(
       <Router>
-         <div > 
+         <div >
       <Navbar navbar-default >
         <Navbar.Header>
         <Navbar.Brand>

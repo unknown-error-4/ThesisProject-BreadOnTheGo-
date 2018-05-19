@@ -81,7 +81,6 @@ exports.SignIn = function (req, res) {
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-<<<<<<< HEAD
 // exports.retrieve= function(req, res){
 //   console.log('db',db.User)
 //   db.User.find({req.body.userName},function(err, data){
@@ -120,7 +119,6 @@ exports.retrieveOne = function (req, res) {
   });
 };
 /////////////////////////////////////////////////////
-=======
 
 exports.TheMap = function (req, res) {
 function DistanceInKm(Latitude1,Longitude1,Latitude2,Longitude2) {
@@ -141,7 +139,5 @@ function DistanceInKm(Latitude1,Longitude1,Latitude2,Longitude2) {
 function deg2rad(deg) {
   return deg * (Math.PI/180)
 }
+ 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
->>>>>>> map basic
