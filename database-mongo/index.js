@@ -47,7 +47,7 @@ var saveUser =function(data,callback){
 
 
 var prouductSchema = mongoose.Schema({
-  name:String,
+  name:{ type: String, unique: true }
   description:String,
   image:String,
   price:Number
@@ -68,7 +68,7 @@ var saveProuduct = function(data,callback){
   });
 };
 
-///////////////////////////////////////////////////////////
+///////////////////////////////////
 
 var selectAll = function(callback) {
   Prouduct.find({}, function(err, items) {
@@ -79,8 +79,6 @@ var selectAll = function(callback) {
     }
   });
 };
-////////////////retrive function///////////////
-
 
 
 //////////////////////////////////////////////

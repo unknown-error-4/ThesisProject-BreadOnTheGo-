@@ -5,9 +5,10 @@ import { HashRouter } from 'react-router-dom';
 import Products from './Products.jsx';
 import SignIn from './SignIn.jsx';
 import SignUp from './SignUp.jsx';
-import Navcom from './navbar.jsx';
-import Profile from './Profile.jsx'
-import TheMap from './TheMap.jsx';
+import Navcom from './navbar.jsx'
+import Profile from './Profile.jsx';
+import ProductList from './ProductList.jsx'
+
 
  class AppRoute extends React.Component {
   constructor (props) {
@@ -25,6 +26,7 @@ import TheMap from './TheMap.jsx';
           <Route exact path='/prouducts' component={Products} />
           <Route exact path='/signin' component={SignIn} />
           <Route exact path='/' component={Navcom}/>
+          <Route exact path='/ProductList' component={ProductList} />
             <Route exact path='/Profile' component={Profile}/>
            <Route exact path='/themap' component={TheMap}/>
          </Switch>
