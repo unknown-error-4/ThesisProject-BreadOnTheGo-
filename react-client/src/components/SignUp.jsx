@@ -11,6 +11,7 @@
 				super(props);
 
 				this.state = {
+          redirect: false,
 					userName: '',
 					email: '',
 					password: '',
@@ -114,7 +115,10 @@
 
 
 			render(){
-
+        const { redirect } = this.state;
+           if (redirect) {
+             return <Redirect to='/signin'/>;
+           }
 				return (
 					<div>
 					<h1>Sign Up</h1>
