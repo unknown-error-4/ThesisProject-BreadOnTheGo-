@@ -169,10 +169,9 @@ function deg2rad(deg) {
   return deg * (Math.PI/180)
 }
 /////////////////////////////////////////////////////
-
-exports.signout = function (req, res) { 
-  req.session.destroy(function () {
-    res.sendStatus(200)
+exports.signout=function(req,res){
+  req.session.destory(function(){
+    res.send("bye bye")
   })
 }
 
