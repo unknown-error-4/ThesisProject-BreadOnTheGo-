@@ -21,12 +21,9 @@ class Navcom extends React.Component {
   render(){
   	return(
       <Router>
-
          <div >
       <Navbar id='navb' >
-
- 
-        <Navbar.Header>
+         <Navbar.Header>
         <Navbar.Brand>
       <a href="#brand">BreadOnTheGo</a>
       </Navbar.Brand>
