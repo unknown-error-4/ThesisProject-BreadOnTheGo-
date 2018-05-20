@@ -22,11 +22,10 @@ class Navcom extends React.Component {
   	return(
       <Router>
 
-         <div > 
+         <div >
       <Navbar id='navb' >
 
-         <div >
-     
+ 
         <Navbar.Header>
         <Navbar.Brand>
       <a href="#brand">BreadOnTheGo</a>
@@ -39,7 +38,7 @@ class Navcom extends React.Component {
         Home
       </NavItem>
       <NavItem eventKey={2}>
-   
+
       </NavItem>
       <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
         <MenuItem eventKey={3.1}>Action</MenuItem>
