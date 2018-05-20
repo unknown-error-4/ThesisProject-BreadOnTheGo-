@@ -11,17 +11,17 @@
 				super(props);
 
 				this.state = {
-          redirect: false,
-					userName: '',
-					email: '',
-					password: '',
-					confirmPass:'',
-		      phoneNumber: '',
-		      latitude:'',
-		      longtitude:'',
-		      typeOfPayment: '',
-		      typeOfUser: ''
-          }
+					 redirect: false,
+					 userName: '',
+					 email: '',
+					 password: '',
+					 confirmPass:'',
+					 phoneNumber: '',
+					 latitude:'',
+					 longtitude:'',
+					 typeOfPayment: '',
+					 typeOfUser: ''
+         			 }
         this.handleChangeuserName = this.handleChangeuserName.bind(this);
 				this.handleChangeEmail = this.handleChangeEmail.bind(this);
 				this.handleChangePassword = this.handleChangePassword.bind(this);
