@@ -168,6 +168,12 @@ function DistanceInKm(Latitude1,Longitude1,Latitude2,Longitude2) {
 function deg2rad(deg) {
   return deg * (Math.PI/180)
 }
- 
+/////////////////////////////////////////////////////
 
+exports.signout = function (req, res) { 
+  req.session.destroy(function () {
+    res.sendStatus(200)
+  })
+}
 
+/////////////////////////////////////////////////////

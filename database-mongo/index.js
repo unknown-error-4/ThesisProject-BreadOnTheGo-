@@ -47,10 +47,10 @@ var saveUser =function(data,callback){
 
 
 var prouductSchema = mongoose.Schema({
-  name:{ type: String, unique: true }
-  description:String,
-  image:String,
-  price:Number
+  name: { type: String, unique: true },
+  description: String,
+  image: String,
+  price: Number
 });
 
 var Prouduct = mongoose.model('Prouduct',prouductSchema);
