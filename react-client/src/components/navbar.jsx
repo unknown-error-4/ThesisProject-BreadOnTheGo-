@@ -7,10 +7,12 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+
 import SignIn from './SignIn.jsx';
 import SignUp from './SignUp.jsx';
 import Profile from './Profile.jsx';
  // import styles from  './navbar.css'
+
 class Navcom extends React.Component {
   constructor (props) {
     super(props)
@@ -20,8 +22,8 @@ class Navcom extends React.Component {
   	return(
       <Router>
          <div >
-      <Navbar navbar-default >
-        <Navbar.Header>
+      <Navbar id='navb' >
+         <Navbar.Header>
         <Navbar.Brand>
       <a href="#brand">BreadOnTheGo</a>
       </Navbar.Brand>
@@ -33,7 +35,7 @@ class Navcom extends React.Component {
         Home
       </NavItem>
       <NavItem eventKey={2}>
-         Map
+
       </NavItem>
       <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
         <MenuItem eventKey={3.1}>Action</MenuItem>
@@ -56,9 +58,9 @@ class Navcom extends React.Component {
     </Nav>
   </Navbar.Collapse>
 </Navbar>
-<Route path="/Profile"  component={Profile}/>
-<Route path="/SignIn"  component={SignIn}/>
-<Route path="/SignUp" component={SignUp} />
+      <Route path="/Profile"  component={Profile}/>
+      <Route path="/SignIn"  component={SignIn}/>
+      <Route path="/SignUp" component={SignUp} />
 </div>
 </Router>
   		)

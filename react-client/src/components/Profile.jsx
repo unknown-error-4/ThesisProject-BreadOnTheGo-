@@ -33,6 +33,7 @@ class Profile extends React.Component {
   	var userName = user.userName;
   	var imgUrl=user.imgUrl
   	var email=user.email
+    var password=user.password
   	return(
  		<div className="row">
         <div className="col-md-3" style={{'paddingLeft':'20px'}}>
@@ -42,6 +43,7 @@ class Profile extends React.Component {
         <div className='col-md-9'>
           <h1> {userName} Profile</h1>
           <p>{email}</p>
+          <h1>{password}</h1>
         </div>
   		</div>
   		

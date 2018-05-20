@@ -1,3 +1,4 @@
+
 import React from 'react'
 import $ from 'jquery'
 import { BrowserRouter, Route, Link, IndexRoute, hashHistory, browserHistory, Switch } from 'react-router-dom'
@@ -11,6 +12,7 @@ import Profile from './Profile.jsx'
 import MapContainer from './MapContainer.jsx'
  
 class AppRoute extends React.Component {
+
   constructor (props) {
     super(props)
     this.state = {
@@ -28,6 +30,8 @@ class AppRoute extends React.Component {
           <Route exact path='/' component={Navcom}/>
           <Route exact path='/Profile' component={Profile}/>
           <Route exact path='/map' component={MapContainer}/>
+          <Route exact path='/ProductList' component={ProductList} />
+           
          </Switch>
       </BrowserRouter>
     )

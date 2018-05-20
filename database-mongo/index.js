@@ -23,8 +23,8 @@ var userSchema = mongoose.Schema({
       type: String
     },
     phoneNumber: Number,
-    latitude: String,
-    longtitude: String,
+    latitude: Number,
+    longtitude: Number,
     typeOfPayment: String,
     typeOfUser: String
 
@@ -47,10 +47,10 @@ var saveUser =function(data,callback){
 
 
 var prouductSchema = mongoose.Schema({
-  name:String,
-  description:String,
-  image:String,
-  price:Number
+  name: { type: String, unique: true },
+  description: String,
+  image: String,
+  price: Number
 });
 
 var Prouduct = mongoose.model('Prouduct',prouductSchema);
@@ -68,7 +68,7 @@ var saveProuduct = function(data,callback){
   });
 };
 
-///////////////////////////////////////////////////////////
+///////////////////////////////////
 
 var selectAll = function(callback) {
   Prouduct.find({}, function(err, items) {
@@ -79,8 +79,6 @@ var selectAll = function(callback) {
     }
   });
 };
-////////////////retrive function///////////////
-
 
 
 //////////////////////////////////////////////

@@ -11,16 +11,18 @@
 				super(props);
 
 				this.state = {
-					userName: '',
-					email: '',
-					password: '',
-					confirmPass:'',
-		      phoneNumber: '',
-		      latitude:'',
-		      longtitude:'',
-		      typeOfPayment: '',
-		      typeOfUser: ''
-          }
+					 redirect: false,
+					 userName: '',
+					 email: '',
+					 password: '',
+					 confirmPass:'',
+					 phoneNumber: '',
+					 latitude:'',
+					 longtitude:'',
+					 typeOfPayment: '',
+					 typeOfUser: ''
+         			 }
+
         this.handleChangeuserName = this.handleChangeuserName.bind(this);
 				this.handleChangeEmail = this.handleChangeEmail.bind(this);
 				this.handleChangePassword = this.handleChangePassword.bind(this);
@@ -114,6 +116,11 @@
 
 
 			render(){
+
+        const { redirect } = this.state;
+           if (redirect) {
+             return <Redirect to='/signin'/>;
+           }
 
 				return (
 					<div>
