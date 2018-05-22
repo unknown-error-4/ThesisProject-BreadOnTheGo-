@@ -8,9 +8,9 @@ import SignIn from './components/SignIn.jsx';
 import signUp from './components/SignUp.jsx';
 import navbar from './components/navbar.jsx';
 import Profile from './components/Profile.jsx';
-import MapContainer from './components/MapContainer.jsx';
-import ProductList from './components/ProductList.jsx'
-
+import TheMap from './components/TheMap.jsx'
+ import ProductList from './components/ProductList.jsx'
+import Home from './components/Home.jsx'
 
 
 class App extends React.Component {

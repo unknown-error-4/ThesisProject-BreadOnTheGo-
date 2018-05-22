@@ -8,9 +8,9 @@ import Products from './Products.jsx'
 import SignIn from './SignIn.jsx'
 import SignUp from './SignUp.jsx';
 import Navcom from './navbar.jsx';
-import Profile from './Profile.jsx'
-import MapContainer from './MapContainer.jsx'
- 
+import Profile from './Profile.jsx';
+import Home from './Home.jsx';
+
 class AppRoute extends React.Component {
 
   constructor (props) {
@@ -29,9 +29,9 @@ class AppRoute extends React.Component {
           <Route exact path='/signin' component={SignIn} />
           <Route exact path='/' component={Navcom}/>
           <Route exact path='/Profile' component={Profile}/>
-          <Route exact path='/map' component={MapContainer}/>
+          <Route exact path='/map' component={Home}/>
           <Route exact path='/ProductList' component={ProductList} />
-           
+
          </Switch>
       </BrowserRouter>
     )
