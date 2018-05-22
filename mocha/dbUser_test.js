@@ -1,12 +1,36 @@
-var assert = require('assert');
+var assert = require('chai').assert
 var mongoose = require('mongoose');
 var expect = require('chai').expect;
 var Test = require('../database-mongo/index.js');
-
+var controller = require('../server/handler.js')    
+var should = ('chai').should;
+var server = require('../server/index.js')
+ var handler = require('../server/handler')
+var chai = require('chai');  
+var assert = chai.assert;    // Using Assert style
+var expect = chai.expect;    // Using Expect style
+var should = chai.should(); 
+var chai = require('chai')
+var  chaiHttp = require('chai-http');
+ 
+chai.use(chaiHttp);
 
 //testing user schema
+describe('Signup', function(){
+  it('should be exist', function(){
+    should.exist(handler.Signup);
+  });
+})
 
-
+describe('SignUp',function (req,res){
+  it("it should sendstauts(404)",function(done){
+    chai.request(server).post("/signup").end(function(err,res){
+     
+          res.should.have.status(404)
+        done()
+    })
+  })
+})
 describe('User Model', function () {
   it('should be a Mongoose model', function () {
     expect(new Test.User()).to.be.instanceOf(mongoose.Model);
@@ -53,17 +77,17 @@ describe('User Model', function () {
     expect(Test.User.schema.paths.latitude).to.exist;
   });
    it('should have a `latitude` property that is a string', function () {
-     expect(Test.User.schema.paths.latitude.options.type.name).to.equal('String');
+     expect(Test.User.schema.paths.latitude.options.type.name).to.equal('Number');
   });
 //////////////////////////////////////////////////////////////////////////////
-	it('should have a `longtitude` property', function () {
+  it('should have a `longtitude` property', function () {
     expect(Test.User.schema.paths.longtitude).to.exist;
   });
    it('should have a `longtitude` property that is a string', function () {
-     expect(Test.User.schema.paths.longtitude.options.type.name).to.equal('String');
+     expect(Test.User.schema.paths.longtitude.options.type.name).to.equal('Number');
   });
 //////////////////////////////////////////////////////////////////////////////
-	it('should have a `typeOfPayment` property', function () {
+  it('should have a `typeOfPayment` property', function () {
     expect(Test.User.schema.paths.typeOfPayment).to.exist;
   });
    it('should have a `typeOfPayment` property that is a string', function () {
@@ -71,7 +95,7 @@ describe('User Model', function () {
   });
 
 ///////////////////////////////////////////////////////////////////////////////
-	it('should have a `typeOfUser` property', function () {
+  it('should have a `typeOfUser` property', function () {
     expect(Test.User.schema.paths.typeOfUser).to.exist;
   });
    it('should have a `typeOfUser` property that is a string', function () {
@@ -157,15 +181,68 @@ it('should have a `price` property', function () {
 
  describe('selectAll from Prouduct schema', function() {
   it('respond with all records', function() {
-  	var prouduct = Test.Prouduct.find();
+    var prouduct = Test.Prouduct.find();
     prouduct.exec({}, function(err) {
         if(err) {throw err;}
-        done();
+        // done();
   });
 });
 });
 
 
 });
+////////////////////////////////////////////////////////////////////////
+/////////////////////index.js functionality////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+describe('SavingProducts',function (req,res){
+  it("it should sendstauts(200)",function(done){
+    chai.request(server).post("/prouducts").end(function(err,res){
+     
+          res.should.have.status(200)
+        done()
+    })
+  })
+});
+
+describe('signup',function (req,res){
+  it("it should sendstauts(404)",function(done){
+    chai.request(server).post("/signup").end(function(err,res){
+          res.should.have.status(404)
+        done()
+    })
+  });
+});
+
+describe('signin',function (req,res){
+  it("it should sendstauts(200)",function(done){
+    chai.request(server).post("/signin").end(function(err,res){
+     
+          res.should.have.status(200)
+        done()
+    })
+  })
+});
+
+describe('profile',function (req,res){
+  it("it should sendstauts(200)",function(done){
+    chai.request(server).get("/profile").end(function(err,res){
+     
+          res.should.have.status(200)
+        done()
+    })
+  })
+});
+
+describe('*',function (req,res){
+  it("it should sendstauts(200)",function(done){
+    chai.request(server).get("/*").end(function(err,res){
+     
+          res.should.have.status(200)
+        done()
+    })
+  })
+})
+
 
 
