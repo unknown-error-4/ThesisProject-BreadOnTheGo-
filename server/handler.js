@@ -4,14 +4,12 @@ var helper=require('../helper/helperfunc.js')
 var saltRounds = 10;
 
 exports.SignUp = function (req, res) {
-  var data=req.body;
-
+var data=req.body;
 bcrypt.hash(data.password,saltRounds,function(err,hash){
   if(err){
     console.log(err)
   }if(data.userName === "" || data.password.length < 8){
     res.send("Invalid Input")
-
     }
   else{
        db.saveUser({
@@ -27,7 +25,8 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
           if(err){
             console.log(err)
           }
-          res.send(data)
+          helper.createSession(req,res,data)
+         // res.send(data)
         })
       }
     });
@@ -48,13 +47,11 @@ exports.SavingProducts = function(req, res){
     res.send(data);
   })
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////
- //function for signin
+// /////function for signin & create session
 exports.SignIn = function (req, res) {
 
   var email = req.body.email;
   var pass = req.body.password;
-
   db.User.findOne({email:email},function(err,data){
     if(err){
       console.log(err)
@@ -63,11 +60,8 @@ exports.SignIn = function (req, res) {
       bcrypt.compare(pass,data.password,function(err,isMatch){
           if(isMatch){
           console.log('access valid')
-          var obj = {
-              email : data.email,
-              valid : isMatch
-          }
-          res.send(obj)
+          helper.createSession(req,res,data)
+          console.log("gg")
           }
           else{
           console.log('wrong username or password')
@@ -77,21 +71,8 @@ exports.SignIn = function (req, res) {
     } else {console.log('username not existed')
             res.send(false)}
   });
-
 };
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-// exports.retrieve= function(req, res){
-//   console.log('db',db.User)
-//   db.User.find({req.body.userName},function(err, data){
-//     if(err){
-//       return handleError(err)
-//     }
-//     res.send(data)
-//     console.log(data)
-//   })
-// }
-/////////////////////retrive function to retrive all user///////////////
+//////////retrive function to retrive all user
 exports.retrieve = function (req, res) {
   var query = req.query;
   db.User.find(query, function (err, response) {
@@ -105,7 +86,7 @@ exports.retrieve = function (req, res) {
     res.json(response);
   });
 };
-///////////// retrive function for profile page(user) //////////////
+///////////retrive function for profile page(user) 
 exports.retrieveOne = function (req, res) {
   var query = {id: req.params.id };
  db.User.findOne(query, function (err, response) {
@@ -118,7 +99,7 @@ exports.retrieveOne = function (req, res) {
     res.json(response);
   });
 };
-//////retrive all products  function to show products ////
+//////retrive all products  function to show products 
 exports.showProduct = function (req, res) {
   var query = req.query;
   console.log("Prouduct arraived")
@@ -132,7 +113,7 @@ exports.showProduct = function (req, res) {
     res.send(response);
   });
 };
-////////////retrive one product function ////////////
+////////retrive one product function
 exports.retrieveOneProduct = function (req, res) {
   var query = {id: req.params.id };
 
@@ -146,33 +127,39 @@ exports.retrieveOneProduct = function (req, res) {
     res.json(response);
   });
 };
-//////
-/////////////////////////////////////////////////////
-
-exports.TheMap = function (req, res) {
-function DistanceInKm(Latitude1,Longitude1,Latitude2,Longitude2) {
-        var radius = 6371; // Radius of the earth in km
-        var Latitude = deg2rad(Latitude2-Latitude1);  // deg2rad below
-        var Longitude = deg2rad(Longitude2-Longitude1);
-        var a =
-          Math.sin(Laltitude/2) * Math.sin(Laltitude/2) +
-          Math.cos(deg2rad(Latitude1)) * Math.cos(deg2rad(Latitude2)) *
-          Math.sin(Longitude/2) * Math.sin(Longitude/2);
-
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        var distance = radius * c; // Distance in km
-        return distance;
-      }
-}
-
-function deg2rad(deg) {
-  return deg * (Math.PI/180)
-}
-/////////////////////////////////////////////////////
-exports.signout=function(req,res){
-  req.session.destory(function(){
-    res.send("bye bye")
+/////////this function to upload image 
+exports.upload = function(req,res){
+ var image = req.body.image
+  var save = new db.User({
+    image: image
+  })
+  save.save(function (err, data) {
+    if (err) {
+      throw err
+    } else {
+      // console.log('saved!')
+      res.send(data)
+    }
   })
 }
-
-/////////////////////////////////////////////////////
+//////////////
+// exports.updateImage=function(req,res){
+// db.User.update({username: req.session.user}, { $set: { image: image }}, function (err, data) {
+//     if (err) {
+//       throw err
+//     } else {
+//       res.send(data)
+//     }
+//   })
+// }
+/////////////////////
+exports.getImage = function(req,res){
+  db.User.find({},function(err,data){
+    if(err){
+      throw err
+    }else{
+      res.send(data)
+    }
+  })
+}
+/////////////
