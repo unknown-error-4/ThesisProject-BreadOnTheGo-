@@ -3,29 +3,26 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import AppRoute from './components/AppRoute.jsx';
 import Products from './components/Products.jsx';
-
-import SignIn from './components/SignIn.jsx';
-import signUp from './components/SignUp.jsx';
+import SignIn from './components/SignIn.js'
+import signUp from './components/SignUp';
 import navbar from './components/navbar.jsx';
+import MapComponent from './components/MapComponent.jsx';
 import Profile from './components/Profile.jsx';
-import MapContainer from './components/MapContainer.jsx';
-import ProductList from './components/ProductList.jsx'
-
-
-
+import ProductList from './components/ProductList.jsx';
+import SearchProduct from './components/SearchProduct.jsx';
+import image from './components/image.jsx'
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
 
-    };
-  };
+    }
+  }
 
 
 
   render () {
-    return (
-      <div>
+    return (<div>
       <AppRoute/>
     </div>
     )
