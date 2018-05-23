@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import Columns from 'react-columns';
- import TheMap from './TheMap.jsx'; //the map component where we will get the location using Geolocation
+import TheMap from './TheMap.jsx'; //the map component where we will get the location using Geolocation
 
 
 
@@ -54,7 +53,7 @@ class Home extends React.Component {
 
       },
       success: (data) => {
-        this.setState({mechs : data})
+
         console.log('success', data)
       },
       error: (err) => {

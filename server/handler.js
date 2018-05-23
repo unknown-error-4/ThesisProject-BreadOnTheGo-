@@ -3,51 +3,36 @@ var bcrypt = require('bcrypt');
 var helper=require('../helper/helperfunc.js')
 var saltRounds = 10;
 
- 
-exports.Signup = function (req, res) {
-console.log("ress" , req.body)
-var username = req.body.userName
-var data=req.body;
-db.User.find({ // searching for the username in the schema
-  userName: username
-}, function (err, data) {
-  if (err) {
-    res.sendStatus(404)
-  } else {
-    if (data.length > 0) { // if the username found in the schema, then send error, if not save his/her name and hash his/her password
-      res.sendStatus(404)
-    } else {
-      bcrypt.genSalt(saltRounds, function (err, salt) {
-        if (err) {
-          throw err
-        }
-        bcrypt.hash(password, salt, function (err, hash) {
-          if (err) {
-            throw err
-          }
-          var user = new db.User({
-            userName:data.userName,
-         password:hash,
-         phoneNumber:data.phoneNumber,
-         longitude: data.longitude,
-         laltitude: data.laltitude,
-         email:data.email,
-         typeOfPayment: data.typeOfPayment,
-         typeOfUser: data.typeOfUser
-          })
-          user.save(function (err, data) {
-            if (err) {
-              throw err
-            }
-            helper.createSession(req, res, data.username)
-          })
-         })
-      })
-    }
-  }
-})
-}
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// exports.SignUp = function (req, res) {
+// var data=req.body;
+// bcrypt.hash(data.password,saltRounds,function(err,hash){
+//  if(err){
+//    console.log(err)
+//  }if(data.userName === "" || data.password.length < 8){
+//    res.send("Invalid Input")
+//    }
+//  else{
+//       db.saveUser({
+//          userName:data.userName,
+//          password:hash,
+//          phoneNumber:data.phoneNumber,
+//          longitude: data.longitude,
+//          laltitude: data.laltitude,
+//          email:data.email,
+//          typeOfPayment: data.typeOfPayment,
+//          typeOfUser: data.typeOfUser
+//        },function(err,data){
+//          if(err){
+//            console.log(err)
+//          }
+//          helper.createSession(req,res,data)
+//         // res.send(data)
+//        })
+//      }
+//    });
+//   }
+  ////////////////////////////////////////////////////////////////////////////////////////////////////
 exports.SavingProducts = function(req, res){
   console.log("product responese")
   var data = req.body;
@@ -102,7 +87,7 @@ exports.retrieve = function (req, res) {
     res.json(response);
   });
 };
-///////////retrive function for profile page(user) 
+///////////retrive function for profile page(user)
 exports.retrieveOne = function (req, res) {
   var query = {id: req.params.id };
  db.User.findOne(query, function (err, response) {
@@ -115,7 +100,7 @@ exports.retrieveOne = function (req, res) {
     res.json(response);
   });
 };
-//////retrive all products  function to show products 
+//////retrive all products  function to show products
 exports.showProduct = function (req, res) {
   var query = req.query;
   console.log("Prouduct arraived")
@@ -143,22 +128,22 @@ exports.retrieveOneProduct = function (req, res) {
     res.json(response);
   });
 };
-/////////this function to upload image 
-exports.upload = function(req,res){
- var image = req.body.image
-  var save = new db.User({
-    image: image
-  })
-  save.save(function (err, data) {
-    if (err) {
-      throw err
-    } else {
-      // console.log('saved!')
-      res.send(data)
-    }
-  })
-}
-//////////////
+/////////this function to upload image
+// exports.upload = function(req,res){
+//  var image = req.body.image
+//   var save = new db.User({
+//     image: image
+//   })
+//   save.save(function (err, data) {
+//     if (err) {
+//       throw err
+//     } else {
+//       // console.log('saved!')
+//       res.send(data)
+//     }
+//   })
+// }
+////////////
 // exports.updateImage=function(req,res){
 // db.User.update({username: req.session.user}, { $set: { image: image }}, function (err, data) {
 //     if (err) {
@@ -168,14 +153,14 @@ exports.upload = function(req,res){
 //     }
 //   })
 // }
-/////////////////////
-exports.getImage = function(req,res){
-  db.User.find({},function(err,data){
-    if(err){
-      throw err
-    }else{
-      res.send(data)
-    }
-  })
-}
+// ///////////////////
+// exports.getImage = function(req,res){
+//   db.User.find({},function(err,data){
+//     if(err){
+//       throw err
+//     }else{
+//       res.send(data)
+//     }
+//   })
+// }
 /////////////
