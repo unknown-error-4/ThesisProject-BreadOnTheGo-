@@ -60,7 +60,7 @@ onMarkerClick(props, marker, e){
           <div>
           {this.getLoc()}
 
-            <Map style={{width:"60%",height:"30%"}} google={this.props.google} zoom={7}
+            <Map style={{width:"90%",height:"30%"}} google={this.props.google} zoom={7}
                 initialCenter={{  lat:31.963158 ,lng:35.930359}}>
 
                 <Marker position={{lat:this.props.laltitude,lng:this.props.longitude}}

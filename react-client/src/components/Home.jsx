@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import Columns from 'react-columns';
- import TheMap from './TheMap.jsx'; //the map component where we will get the location using Geolocation
-
+//import Columns from 'react-columns';
+import TheMap from './TheMap.jsx';  
 
 
 class Home extends React.Component {

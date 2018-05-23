@@ -24,15 +24,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
     }));
 /////////////////////////////////////////////////////////////
 
-app.post('/signup', handler.SignUp);
+// app.post('/signup', handler.SignUp);
 app.post('/signin',handler.SignIn);
 app.post("/prouducts",handler.SavingProducts)
-app.get("/profile",handler.retrieveOne) 
+app.get("/profile",handler.retrieveOne)
 app.get("/showProduct",handler.showProduct)
 app.get("/showOne",handler.retrieveOneProduct)
 app.get("/profiles",handler.retrieve)
-app.post("/upload",handler.upload)
-app.get("/upload",handler.getImage)
+// app.post("/upload",handler.upload)
+// app.get("/upload",handler.getImage)
 // app.get("/upload",handler.updateImage)
 app.get('/*', (req, res) => {
  res.sendFile(path.resolve(path.join(__dirname, '/../react-client/dist/index.html')));
@@ -43,11 +43,11 @@ app.listen(3000, function() {
 });
 
 /////////////////////////////////////////////////////////////
-const PORT = process.env.PORT || 3000
-
-if (!module.parent) {
-  app.listen(PORT, () => {
-    console.log(`The Port : ${PORT}`)
-  })
-}
-module.exports = app
+// const PORT = process.env.PORT || 3000
+//
+// if (!module.parent) {
+//   app.listen(PORT, () => {
+//     console.log(`The Port : ${PORT}`)
+//   })
+// }
+// module.exports = app
