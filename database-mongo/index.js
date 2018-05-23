@@ -11,7 +11,7 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-///////////////////////////////////////////////////////////
+/////////////////////////hi//////////////////////////////////
 
 var userSchema = mongoose.Schema({
   userName:String,
@@ -23,10 +23,11 @@ var userSchema = mongoose.Schema({
       type: String
     },
     phoneNumber: Number,
-    latitude: Number,
-    longtitude: Number,
+    latitude: String,
+    longtitude: String,
     typeOfPayment: String,
-    typeOfUser: String
+    typeOfUser: String,
+    image:String
 
 
 });
@@ -41,16 +42,12 @@ var saveUser =function(data,callback){
     callback(null,data)
   })
 }
-
-
-///////////////////////////////////////////////////////////
-
-
+////////////////////////
 var prouductSchema = mongoose.Schema({
-  name: { type: String, unique: true },
-  description: String,
-  image: String,
-  price: Number
+  name:{ type: String, unique: true },
+  description:String,
+  img : {type: String },
+  price:Number
 });
 
 var Prouduct = mongoose.model('Prouduct',prouductSchema);
@@ -79,7 +76,6 @@ var selectAll = function(callback) {
     }
   });
 };
-
 
 //////////////////////////////////////////////
 
