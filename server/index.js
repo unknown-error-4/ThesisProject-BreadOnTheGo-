@@ -4,10 +4,12 @@ var bodyParser = require('body-parser');
 var handler =require('./handler');
 var path = require('path');
 var items = require('../database-mongo');
-var app = express();
+const parentModule = require('parent-module');
+ var app = express();
 // var multer  =   require('multer');
 //to connect with react
 app.use(express.static(__dirname + '/../react-client/dist'));
+
 /////////////////////////////////////////////////////////////
 
 app.use(bodyParser.json());
@@ -21,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
      saveUninitialized: false // for the database
     }));
 /////////////////////////////////////////////////////////////
+
 app.post('/signup', handler.SignUp);
 app.post('/signin',handler.SignIn);
 app.post("/prouducts",handler.SavingProducts)
@@ -38,3 +41,13 @@ app.get('/*', (req, res) => {
 app.listen(3000, function() {
   console.log('listening on port 3000!');
 });
+
+/////////////////////////////////////////////////////////////
+const PORT = process.env.PORT || 3000
+
+if (!module.parent) {
+  app.listen(PORT, () => {
+    console.log(`The Port : ${PORT}`)
+  })
+}
+module.exports = app

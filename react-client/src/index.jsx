@@ -6,11 +6,15 @@ import Products from './components/Products.jsx';
 import SignIn from './components/SignIn.js'
 import signUp from './components/SignUp';
 import navbar from './components/navbar.jsx';
-import MapComponent from './components/MapComponent.jsx';
-import Profile from './components/Profile.jsx';
-import ProductList from './components/ProductList.jsx';
-import SearchProduct from './components/SearchProduct.jsx';
+ import Profile from './components/Profile.jsx';
+ import SearchProduct from './components/SearchProduct.jsx';
 import image from './components/image.jsx'
+import TheMap from './components/TheMap.jsx'
+ import ProductList from './components/ProductList.jsx'
+import Home from './components/Home.jsx'
+
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);

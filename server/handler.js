@@ -3,34 +3,50 @@ var bcrypt = require('bcrypt');
 var helper=require('../helper/helperfunc.js')
 var saltRounds = 10;
 
-exports.SignUp = function (req, res) {
+ 
+exports.Signup = function (req, res) {
+console.log("ress" , req.body)
+var username = req.body.userName
 var data=req.body;
-bcrypt.hash(data.password,saltRounds,function(err,hash){
-  if(err){
-    console.log(err)
-  }if(data.userName === "" || data.password.length < 8){
-    res.send("Invalid Input")
-    }
-  else{
-       db.saveUser({
-          userName:data.userName,
-          password:hash,
-          phoneNumber:data.phoneNumber,
-          longitude: data.longitude,
-          laltitude: data.laltitude,
-          email:data.email,
-          typeOfPayment: data.typeOfPayment,
-          typeOfUser: data.typeOfUser
-        },function(err,data){
-          if(err){
-            console.log(err)
+db.User.find({ // searching for the username in the schema
+  userName: username
+}, function (err, data) {
+  if (err) {
+    res.sendStatus(404)
+  } else {
+    if (data.length > 0) { // if the username found in the schema, then send error, if not save his/her name and hash his/her password
+      res.sendStatus(404)
+    } else {
+      bcrypt.genSalt(saltRounds, function (err, salt) {
+        if (err) {
+          throw err
+        }
+        bcrypt.hash(password, salt, function (err, hash) {
+          if (err) {
+            throw err
           }
-          helper.createSession(req,res,data)
-         // res.send(data)
-        })
-      }
-    });
-   }
+          var user = new db.User({
+            userName:data.userName,
+         password:hash,
+         phoneNumber:data.phoneNumber,
+         longitude: data.longitude,
+         laltitude: data.laltitude,
+         email:data.email,
+         typeOfPayment: data.typeOfPayment,
+         typeOfUser: data.typeOfUser
+          })
+          user.save(function (err, data) {
+            if (err) {
+              throw err
+            }
+            helper.createSession(req, res, data.username)
+          })
+         })
+      })
+    }
+  }
+})
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 exports.SavingProducts = function(req, res){
   console.log("product responese")
