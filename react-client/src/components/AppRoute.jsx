@@ -37,7 +37,7 @@ class AppRoute extends React.Component {
           <Route exact path='/searchProduct'component={SearchProduct}/>
           <Route exact path ='/image' component={image}/>
           <Route exact path='/productList' component={ProductList} />
-           <Route exact path='/Home' component={Home}/>
+           <Route exact path='/map' component={Home}/>
          </Switch>
 
       </BrowserRouter>
