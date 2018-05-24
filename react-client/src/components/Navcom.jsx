@@ -8,54 +8,59 @@ import {
   Link
 } from 'react-router-dom';
 import SignIn from './SignIn.js';
-import SignUp from './SignUp.js';
+import SignUpB from './SignUpB.js';
+import SignUpC from './SignUpC.js';
 import Profile from './Profile.jsx';
-import SearchProduct from './SearchProduct.jsx' 
+import SearchProduct from './SearchProduct.jsx'
+import Home from './Home.jsx'
+
+
+
 class Navcom extends React.Component {
   constructor (props) {
-    super(props)
-   
+    super(props);
+
+
   }
   render(){
   	return(
-    <Router>
-       <div > 
+      <div>
+     <Router>
+       <div>
     <Navbar id='navb' >
       <Navbar.Header>
       <Navbar.Brand>
-    <a href="#brand">BreadOnTheGo</a>
+    <a>BreadOnTheGo</a>
     </Navbar.Brand>
     <Navbar.Toggle />
      </Navbar.Header>
      <Navbar.Collapse>
   <Nav>
-    <NavItem eventKey={1} >
-      Home
-    </NavItem>
-    <NavItem eventKey={2}>
-       <Link to= "/SearchProduct">product</Link>
-    </NavItem>
   </Nav>
   <Nav pullRight>
-  <NavItem eventKey={1}>
-       <Link to= "/Profile">Profile</Link>
-    </NavItem>
-      <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-    <MenuItem eventKey={3.1}><Link to= "/SignIn">SignIn</Link></MenuItem>
-    <MenuItem eventKey={3.2}><Link to= "/SignUp">SignUp</Link></MenuItem>
-    <MenuItem eventKey={3.3}>logOut</MenuItem>
-    <MenuItem divider />
+    <NavItem eventKey={2}>
+         <Link to= "/SignIn">Sign In</Link>
+      </NavItem>
+      <NavDropdown eventKey={3} title="Join Us" id="basic-nav-dropdown">
+    <MenuItem eventKey={3.1}><Link to= "/signupB">Sign Up as Bakery</Link></MenuItem>
+    <MenuItem eventKey={3.2}><Link to= "/signupC">Sign Up as Customer</Link></MenuItem>
+     <MenuItem divider />
     </NavDropdown>
-
   </Nav>
 </Navbar.Collapse>
 </Navbar>
     <Route path="/Profile"  component={Profile}/>
     <Route path="/SignIn"  component={SignIn}/>
-    <Route path="/SignUp" component={SignUp} />
+    <Route exact path='/signupB' component={SignUpB} />
+    <Route exact path='/signupC' component={SignUpC} />
     <Route path='/SearchProduct' component={SearchProduct}/>
+    <Route path='/home' component={Home}/>
 </div>
+
 </Router>
+
+</div>
+
   		)
   }
 }

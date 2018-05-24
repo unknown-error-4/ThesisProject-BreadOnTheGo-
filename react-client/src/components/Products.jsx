@@ -2,6 +2,7 @@ import React from'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import {Redirect} from "react-router-dom";
+import NavcomSigned from './NavcomSigned.jsx';
 
 class Products extends React.Component{
 
@@ -37,7 +38,7 @@ class Products extends React.Component{
           var that = this
   				$.ajax({
   					type:'POST',
-  					url: '/prouducts',
+  					url: '/products',
   					data:{
   						name: that.state.name,
   						description: that.state.description,
@@ -60,6 +61,9 @@ class Products extends React.Component{
 
           return (
             <div>
+            <div>
+            <NavcomSigned/>
+            </div>
             <h1>Add Your Products</h1>
             <br/>
             <label> Name of Prouduct :
