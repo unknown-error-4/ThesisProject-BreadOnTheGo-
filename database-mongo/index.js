@@ -11,7 +11,7 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-/////////////////////////hi//////////////////////////////////
+///////////////////////// User's Schema /////////////////////////
 
 var userSchema = mongoose.Schema({
   userName:String,
@@ -26,12 +26,12 @@ var userSchema = mongoose.Schema({
     latitude: String,
     longtitude: String,
     typeOfPayment: String,
-    typeOfUser: String,
     image:String
-
-
 });
+
 var User = mongoose.model('User', userSchema);
+
+/////////////////////////Save User/////////////////////////
 
 var saveUser =function(data,callback){
   var NUser= new User(data);
@@ -42,7 +42,40 @@ var saveUser =function(data,callback){
     callback(null,data)
   })
 }
-////////////////////////
+
+///////////////////////// Bakery's Schema /////////////////////////
+
+var bakerySchema = mongoose.Schema({
+  bakeryName:String,
+  email:{
+    type: String,
+    trim: true
+    },
+    password:{
+      type: String
+    },
+    phoneNumber: Number,
+    latitude: String,
+    longtitude: String,
+    typeOfPayment: String,
+    image:String
+});
+
+var Bakery = mongoose.model('Bakery', bakerySchema);
+
+/////////////////////////Save Bakery/////////////////////////
+
+var saveBakery =function(data,callback){
+  var NBakery= new User(data);
+  NBakery.save(function(err,data){
+    if(err){
+      callback(err,null)
+    }
+    callback(null,data)
+  })
+}
+///////////////////////// Prouducts' Schema /////////////////////////
+
 var prouductSchema = mongoose.Schema({
   name:{ type: String, unique: true },
   description:String,
@@ -52,7 +85,7 @@ var prouductSchema = mongoose.Schema({
 
 var Prouduct = mongoose.model('Prouduct',prouductSchema);
 
-///////////////////////////////////////////////////////////
+///////////////////////// Save Prouducts' /////////////////////////
 
 var saveProuduct = function(data,callback){
   var NewProuduct = new Prouduct(data);
@@ -65,7 +98,7 @@ var saveProuduct = function(data,callback){
   });
 };
 
-///////////////////////////////////
+///////////////////////// selectAll Prouducts /////////////////////////
 
 var selectAll = function(callback) {
   Prouduct.find({}, function(err, items) {
@@ -82,5 +115,7 @@ var selectAll = function(callback) {
 module.exports.Prouduct = Prouduct;
 module.exports.User = User;
 module.exports.saveUser = saveUser;
+module.exports.Bakery = Bakery;
+module.exports.saveBakery = saveBakery;
 module.exports.saveProuduct = saveProuduct;
 module.exports.selectAll = selectAll;
