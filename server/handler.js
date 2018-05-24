@@ -4,34 +4,34 @@ var helper=require('../helper/helperfunc.js')
 var saltRounds = 10;
 
 
-// exports.SignUp = function (req, res) {
-// var data=req.body;
-// bcrypt.hash(data.password,saltRounds,function(err,hash){
-//  if(err){
-//    console.log(err)
-//  }if(data.userName === "" || data.password.length < 8){
-//    res.send("Invalid Input")
-//    }
-//  else{
-//       db.saveUser({
-//          userName:data.userName,
-//          password:hash,
-//          phoneNumber:data.phoneNumber,
-//          longitude: data.longitude,
-//          laltitude: data.laltitude,
-//          email:data.email,
-//          typeOfPayment: data.typeOfPayment,
-//          typeOfUser: data.typeOfUser
-//        },function(err,data){
-//          if(err){
-//            console.log(err)
-//          }
-//          helper.createSession(req,res,data)
-//         // res.send(data)
-//        })
-//      }
-//    });
-//   }
+exports.SignUp = function (req, res) {
+var data=req.body;
+bcrypt.hash(data.password,saltRounds,function(err,hash){
+ if(err){
+   console.log(err)
+ }if(data.userName === "" || data.password.length < 8){
+   res.send("Invalid Input")
+   }
+ else{
+      db.saveUser({
+         userName:data.userName,
+         password:hash,
+         phoneNumber:data.phoneNumber,
+         longitude: data.longitude,
+         laltitude: data.laltitude,
+         email:data.email,
+         typeOfPayment: data.typeOfPayment,
+         typeOfUser: data.typeOfUser
+       },function(err,data){
+         if(err){
+           console.log(err)
+         }
+         helper.createSession(req,res,data)
+        // res.send(data)
+       })
+     }
+   });
+  }
   ////////////////////////////////////////////////////////////////////////////////////////////////////
 exports.SavingProducts = function(req, res){
   console.log("product responese")
