@@ -4,14 +4,17 @@ var helper=require('../helper/helperfunc.js')
 var saltRounds = 10;
 
 
+
 exports.SignUpUser = function (req, res) {
+
 var data=req.body;
 bcrypt.hash(data.password,saltRounds,function(err,hash){
  if(err){
    console.log(err)
  }if(data.userName === "" || data.password.length < 8){
    res.send("Invalid Input")
-   //console.log()
+
+
    }
  else{
       db.saveUser({
@@ -33,6 +36,7 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
      }
    });
   }
+
   ////////////////////////////////////////////////////////////////////////////////////////////////////
   exports.SignUpBakery = function (req, res) {
   var data=req.body;
@@ -61,6 +65,7 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
        }
      });
     }
+
   ////////////////////////////////////////////////////////////////////////////////////////////////////
 exports.SavingProducts = function(req, res){
   console.log("product responese")

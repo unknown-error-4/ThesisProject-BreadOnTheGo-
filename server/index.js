@@ -24,8 +24,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
     }));
 /////////////////////////////////////////////////////////////
 
+
 app.post('/signupuser', handler.SignUpUser);
 app.post('/signupbakery', handler.SignUpBakery);
+
 app.post('/signin',handler.SignIn);
 app.post("/prouducts",handler.SavingProducts)
 app.get("/profile",handler.retrieveOne)

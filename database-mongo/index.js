@@ -14,19 +14,20 @@ db.once('open', function() {
 ///////////////////////// User's Schema /////////////////////////
 
 var userSchema = mongoose.Schema({
- userName:String,
- email:{
-   type: String,
-   trim: true
-   },
-   password:{
-     type: String
-   },
-   phoneNumber: Number,
-   latitude: String,
-   longtitude: String,
-   typeOfPayment: String,
-   image:String
+
+  userName:String,
+  email:{
+    type: String,
+    trim: true
+    },
+    password:{
+      type: String
+    },
+    phoneNumber: Number,
+    latitude: String,
+    longtitude: String,
+    typeOfPayment: String,
+    image:String
 });
 
 var User = mongoose.model('User', userSchema);
@@ -60,18 +61,20 @@ var bakerySchema = mongoose.Schema({
    typeOfRecievingPayment: String
  });
 
+
 var Bakery = mongoose.model('Bakery', bakerySchema);
 
 /////////////////////////Save Bakery/////////////////////////
 
 var saveBakery =function(data,callback){
- var NBakery= new User(data);
- NBakery.save(function(err,data){
-   if(err){
-     callback(err,null)
-   }
-   callback(null,data)
- })
+
+  var NBakery= new User(data);
+  NBakery.save(function(err,data){
+    if(err){
+      callback(err,null)
+    }
+    callback(null,data)
+  })
 }
 ///////////////////////// Prouducts' Schema /////////////////////////
 
