@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import TheMap from './TheMap.jsx'; //the map component where we will get the location using Geolocation
-
-
-
-class Home extends React.Component {
+import TheMap from './TheMap.jsx';
+import NavcomSigned from './NavcomSigned.jsx'
+ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       longitude: 0,
-      laltitude: 0
+      laltitude: 0,
 
     }
    this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
@@ -68,9 +66,34 @@ class Home extends React.Component {
 
 
     return (
-      <div className="container" style={{'marginTop':'50px'}}>
-              <TheMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
-            </div>
+          <div>
+          <div>
+          <NavcomSigned/>
+          </div>
+          <div className="container" style={{'marginTop':'50px'}}>
+          <TheMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
+          </div>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <div>
+          <button type="submit" className="btn btn-warning btn-block btn-lg" style={{color:'black', marginBottom: '5px'}}>Get me the nearest bakeries!</button>
+          </div>
+          </div>
           )
   }
 }
