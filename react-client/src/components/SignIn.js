@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import {Redirect} from "react-router-dom";
 import {Button} from 'react-bootstrap'
+import Home from './Home.jsx';
+
 
 
 class SignIn extends React.Component {
@@ -11,8 +13,9 @@ class SignIn extends React.Component {
     super(props);
 
     this.state = {
+      redirect: false,
       email: '',
-    password: ''
+      password: ''
     }
     this.handleChangeEmail= this.handleChangeEmail.bind(this)
     this.handleChangepassword= this.handleChangepassword.bind(this)
@@ -45,6 +48,7 @@ class SignIn extends React.Component {
               console.log(data)
               if(data){
                 console.log('correct signin');
+                window.location.href = "/home";
 
               } else{
                 this.setState({mssg: 'Invalid Email or password'})
@@ -58,12 +62,15 @@ class SignIn extends React.Component {
   }
 
   render () {
-
+    const { redirect } = this.state;
+       if (redirect) {
+         return <Redirect to='/home'/>;
+       }
     return(
       <div>
     <div className="modal-dialog modal-login">
         <div className="modal-content">
-            <div className="modal-header">              
+            <div className="modal-header">
                 <h4 className="modal-title"> Login</h4>
                 <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
@@ -75,26 +82,26 @@ class SignIn extends React.Component {
                     </div>
                     <div className="form-group">
                         <i className="fa fa-lock"></i>
-                        <input type="password" name="Password" className="form-control" placeholder="Password" required="required" onChange={this.handleChangepassword}/>                 
+                        <input type="password" name="Password" className="form-control" placeholder="Password" required="required" onChange={this.handleChangepassword}/>
                     </div>
                     <div className="form-group">
                         <input type="submit" className="btn btn-primary btn-block btn-lg" onClick = {this.handleSubmit} value="Login"/>
                     </div>
-                </form>             
-                
+                </form>
+
             </div>
             <div className="modal-footer">
                 <a href="#">Forgot Password?</a>
             </div>
         </div>
     </div>
-</div>     
-       
+</div>
+
 )
   }
 }
 
-   
+
 export default SignIn;
 
 ////////////////////
