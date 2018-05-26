@@ -6,14 +6,12 @@ var saltRounds = 10;
 
 
 exports.SignUpUser = function (req, res) {
-
 var data=req.body;
 bcrypt.hash(data.password,saltRounds,function(err,hash){
  if(err){
    console.log(err)
  }if(data.userName === "" || data.password.length < 8){
    res.send("Invalid Input")
-
 
    }
  else{
@@ -162,6 +160,8 @@ exports.retrieveOneProduct = function (req, res) {
     res.json(response);
   });
 };
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 /////////this function to upload image
 // exports.upload = function(req,res){
 //  var image = req.body.image
