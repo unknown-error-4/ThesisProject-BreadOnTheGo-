@@ -8,7 +8,7 @@ import NavcomSigned from './NavcomSigned.jsx'
     super(props);
     this.state = {
       longitude: 0,
-      laltitude: 0,
+      laltitude: 0
 
     }
    this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
