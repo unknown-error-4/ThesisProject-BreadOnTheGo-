@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import TheMap from './TheMap.jsx';
 import NavcomSigned from './NavcomSigned.jsx'
-import BakeriesList from './BakeriesList.jsx';
 
  class Home extends React.Component {
   constructor(props) {
@@ -11,7 +10,7 @@ import BakeriesList from './BakeriesList.jsx';
     this.state = {
       longitude: 0,
       laltitude: 0,
-      bakeries:[]
+      
 
     }
    this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
