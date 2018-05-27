@@ -1,5 +1,5 @@
 exports.createSession = function (req, res, newUser) {
- req.session.regenerate(function () {
+  return req.session.regenerate(function () {
    req.session.user = newUser
    // console.log("hello here",newUser)
     res.sendStatus(201) // after create session for him we let him loggin from here by sending sendStatus 201 to the success function in the front end.
@@ -21,3 +21,4 @@ exports.checkUser = (req, res, next) => {
  } else {
    next()
  }
+}
