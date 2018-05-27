@@ -107,7 +107,7 @@
 	render(){
     const { redirect } = this.state;
        if (redirect) {
-         return <Redirect to='/signin'/>;
+         return <Redirect to='/signinb'/>;
        }
 	return (
 		<div className ="container">

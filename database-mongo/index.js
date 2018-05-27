@@ -58,7 +58,8 @@ var bakerySchema = mongoose.Schema({
    phoneNumber: Number,
    latitude: String,
    longtitude: String,
-   typeOfRecievingPayment: String
+   typeOfRecievingPayment: String,
+
  });
 
 
@@ -140,7 +141,7 @@ var saveOrder = function(data,callback){
 };
 
 ///////////////////////// selectAll Orders /////////////////////////
-//it will be appeared to the bakery :: 
+//it will be appeared to the bakery ::
 var selectAll = function(callback) {
  Orders.find({}, function(err, data) {
    if(err) {

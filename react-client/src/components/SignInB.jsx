@@ -4,11 +4,10 @@ import $ from 'jquery';
 import {Redirect} from "react-router-dom";
 import {Button} from 'react-bootstrap'
 import Home from './Home.jsx';
+import Products from './Products.jsx';
 
 
-
-
-class SignIn extends React.Component {
+class SignInB extends React.Component {
   constructor(props){
 
     super(props);
@@ -38,7 +37,7 @@ class SignIn extends React.Component {
       var that=this;
     $.ajax({
       type : 'POST',
-      url: '/signin',
+      url: '/signinb',
       data: {
         email: that.state.email,
         password: that.state.password,
@@ -49,7 +48,7 @@ class SignIn extends React.Component {
               console.log(data)
               if(data){
                 console.log('correct signin');
-                window.location.href = "/navsigned";
+                window.location.href = "/products";
 
               } else{
                 this.setState({mssg: 'Invalid Email or password'})
@@ -65,7 +64,7 @@ class SignIn extends React.Component {
   render () {
     const { redirect } = this.state;
        if (redirect) {
-         return <Redirect to='/navsigned'/>;
+         return <Redirect to='/products'/>;
        }
     return(
       <div>
@@ -103,7 +102,7 @@ class SignIn extends React.Component {
 }
 
 
-export default SignIn;
+export default SignInB;
 
 ////////////////////
     //   <div>
