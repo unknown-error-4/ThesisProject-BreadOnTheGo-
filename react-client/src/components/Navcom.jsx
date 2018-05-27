@@ -10,9 +10,7 @@ import {
 import SignIn from './SignIn.js';
 import SignUpB from './SignUpB.js';
 import SignUpC from './SignUpC.js';
-import Profile from './Profile.jsx';
-import SearchProduct from './SearchProduct.jsx'
-import Home from './Home.jsx'
+
 
 
 
@@ -53,13 +51,10 @@ class Navcom extends React.Component {
   </Nav>
 </Navbar.Collapse>
 </Navbar>
-    <Route path="/Profile"  component={Profile}/>
-    <Route path="/SignIn"  component={SignIn}/>
+     <Route path="/SignIn"  component={SignIn}/>
     <Route exact path='/signupB' component={SignUpB} />
     <Route exact path='/signupC' component={SignUpC} />
-    <Route path='/SearchProduct' component={SearchProduct}/>
-    <Route path='/home' component={Home}/>
-</div>
+ </div>
 
 </Router>
 
@@ -69,3 +64,10 @@ class Navcom extends React.Component {
   }
 }
 export default Navcom;
+
+// for speraiting sign in :::
+// <NavDropdown eventKey={4} title="Sign In As" id="basic-nav-dropdown">
+// <MenuItem eventKey={4.1}><Link to= "/signupB">Sign In as Bakery</Link></MenuItem>
+// <MenuItem eventKey={4.2}><Link to= "/signupC">Sign In as Customer</Link></MenuItem>
+//  <MenuItem divider />
+// </NavDropdown>

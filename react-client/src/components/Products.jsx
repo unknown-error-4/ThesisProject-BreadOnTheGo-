@@ -2,7 +2,6 @@ import React from'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import {Redirect} from "react-router-dom";
-import NavcomSigned from './NavcomSigned.jsx';
 
 class Products extends React.Component{
 
@@ -35,26 +34,26 @@ class Products extends React.Component{
            }
 
         handleClick(){
-         var that = this
-                 $.ajax({
-                     type:'POST',
-                     url: '/products',
-                     data:{
-                         name: that.state.name,
-                         description: that.state.description,
-                         image: that.state.image,
-                         price: that.state.price
-                     },
-                     success: (data) => {
-             that.setState({message: data})
-                         console.log("Success in prouduct POST!", data);
-             alert ('Your Product Added')
-                     },
-                     error(err){
-                         console.log("Error in prouduct POST!",err);
-                     }
-                 })
-             }
+          var that = this
+  				$.ajax({
+  					type:'POST',
+  					url: '/products',
+  					data:{
+  						name: that.state.name,
+  						description: that.state.description,
+  						image: that.state.image,
+  						price: that.state.price
+  					},
+  					success: (data) => {
+              that.setState({message: data})
+  						console.log("Success in prouduct POST!", data);
+              alert ('Your Product Added')
+  					},
+  					error(err){
+  						console.log("Error in prouduct POST!",err);
+  					}
+  				})
+  			}
 
 
 

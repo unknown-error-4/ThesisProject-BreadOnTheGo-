@@ -76,6 +76,8 @@ import BakeriesList from './BakeriesList.jsx';
 
         <div>
           <div>
+          <div className="container" style={{'marginTop':'50px'}}>
+          <TheMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
           <h1>Home</h1>
           <div >
           <form onSubmit={this.handleSubmit}>

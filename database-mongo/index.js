@@ -137,7 +137,7 @@ var saveOrder = function(data,callback){
 };
 
 ///////////////////////// selectAll Orders /////////////////////////
-//it will be appeared to the bakery :: 
+//it will be appeared to the bakery ::
 
 var selectAll = function(callback) {
  Orders.find({}, function(err, data) {
