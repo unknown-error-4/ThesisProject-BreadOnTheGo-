@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import {Redirect} from "react-router-dom";
-import {Button} from 'react-bootstrap'
+import {Button} from 'react-bootstrap';
 import Home from './Home.jsx';
 
 
@@ -48,14 +48,16 @@ class SignIn extends React.Component {
               console.log(data)
               if(data){
                 console.log('correct signin');
-                window.location.href = "/home";
+                window.location.href = "/navsignedC";
 
               } else{
-                this.setState({mssg: 'Invalid Email or password'})
+                this.setState({mssg: 'Invalid Email or password'});
+                alert('user name or password is not correct!!');
               }
             },
             error: (err) => {
               console.log('err', err);
+              alert('user name is not existe !!');
             }
           });
           event.preventDefault();
@@ -64,7 +66,7 @@ class SignIn extends React.Component {
   render () {
     const { redirect } = this.state;
        if (redirect) {
-         return <Redirect to='/home'/>;
+         return <Redirect to='/navsigned'/>;
        }
     return(
       <div>

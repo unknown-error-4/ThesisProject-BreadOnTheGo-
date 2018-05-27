@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import TheMap from './TheMap.jsx';
-import NavcomSigned from './NavcomSigned.jsx'
- class Home extends React.Component {
+  class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,9 +66,6 @@ import NavcomSigned from './NavcomSigned.jsx'
 
     return (
           <div>
-          <div>
-          <NavcomSigned/>
-          </div>
           <div className="container" style={{'marginTop':'50px'}}>
           <TheMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
           </div>

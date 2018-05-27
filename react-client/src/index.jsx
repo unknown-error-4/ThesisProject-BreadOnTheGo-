@@ -9,9 +9,10 @@ import SignUpC from './components/SignUpC.js';
 import Navcom from './components/Navcom.jsx';
 import Profile from './components/Profile.jsx';
 import TheMap from './components/TheMap.jsx'
-import ProductList from './components/ProductList.jsx'
-import Home from './components/Home.jsx';
-import NavcomSigned from './components/NavcomSigned.jsx';
+ import Home from './components/Home.jsx';
+import NavcomSignedC from './components/NavcomSignedC.jsx';
+import NavcomSignedB from './components/NavcomSignedB.jsx';
+import OrderList from './components/OrderList.jsx';
 
 class App extends React.Component {
   constructor(props){

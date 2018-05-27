@@ -7,15 +7,15 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import SignIn from './SignIn.js';
-import SignUpB from './SignUpB.js';
-import SignUpC from './SignUpC.js';
-import Profile from './Profile.jsx';
+ import Profile from './Profile.jsx';
+import SearchProduct from './SearchProduct.jsx';
+import Home from './Home.jsx';
 
 
 
 
-class NavcomSigned extends React.Component {
+
+class NavcomSignedC extends React.Component {
   constructor (props) {
     super(props);
     this.state ={
@@ -40,20 +40,29 @@ class NavcomSigned extends React.Component {
     <Navbar.Toggle />
      </Navbar.Header>
      <Navbar.Collapse>
-  <Nav pullRight>
+
+  <Nav pullLeft>
   <NavItem eventKey={1}>
+       <Link to= "/showProduct">Let's Order</Link>
+    </NavItem>
+  <NavItem eventKey={2}>
        <Link to= "/Profile">Profile</Link>
     </NavItem>
     <NavItem eventKey={3}>
-         <Link to= "/"><a href = '#' >Log Out</a></Link>
+         <Link to= "/home">Nearest Bakery</Link>
+      </NavItem>
+  </Nav>
+  <Nav pullRight>
+  
+      <NavItem eventKey={2}>
+           <Link to= "/">Log Out</Link>
       </NavItem>
   </Nav>
 </Navbar.Collapse>
 </Navbar>
+     <Route path="/home"component={Home}/>
     <Route path="/Profile"component={Profile}/>
-    <Route path="/SignIn"component={SignIn}/>
-    <Route exact path='/signupB' component={SignUpB} />
-    <Route exact path='/signupC' component={SignUpC} />
+    <Route exact path='/showProduct' component={SearchProduct}/>
  </div>
 
 </Router>
@@ -63,4 +72,4 @@ class NavcomSigned extends React.Component {
   		)
   }
 }
-export default NavcomSigned;
+export default NavcomSignedC;

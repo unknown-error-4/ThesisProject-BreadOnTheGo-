@@ -81,8 +81,8 @@ var saveBakery =function(data,callback){
 var prouductSchema = mongoose.Schema({
  name:{ type: String, unique: true },
  description:String,
- img : {type: String },
- price:Number
+ img : { data: Buffer, type: String },
+ price: Number
 });
 
 var Prouduct = mongoose.model('Prouduct',prouductSchema);
@@ -133,7 +133,7 @@ var saveOrder = function(data,callback){
 };
 
 ///////////////////////// selectAll Orders /////////////////////////
-//it will be appeared to the bakery :: 
+//it will be appeared to the bakery ::
 var selectAll = function(callback) {
  Orders.find({}, function(err, data) {
    if(err) {

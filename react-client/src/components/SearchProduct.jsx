@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button,  Panel, ListGroupItem, PanelGroup, FormControl, FormGroup } from 'react-bootstrap';
+
 class SearchProduct extends React.Component {
   constructor(props) {
     super(props);
@@ -48,7 +49,7 @@ class SearchProduct extends React.Component {
           if(data[i].name===that.state.value){
             x.push(data[i])
           }
-         
+
         }
          that.setState({products:x})
           console.log('products= ', that.state.sItem)
@@ -56,11 +57,15 @@ class SearchProduct extends React.Component {
     })
   }
 
+  // handleKeyPress(e){
+  //   this.setState({value:e.target.value})
+  // }
+
   render(){
     var r=this;
     return(
       <div>
-        <h1> search </h1>
+
         <FormGroup bsSize="large">
           <FormControl
             value={this.state.value}
@@ -78,19 +83,34 @@ class SearchProduct extends React.Component {
 
            <h1> {y.name}</h1>
            <h1> {y.price} </h1>
+           <h1> {y.description} </h1>
+           <h1> {y.image} </h1>
            </div>
          <div>
           <hr/>
-           <hr/> 
+           <hr/>
            </div>
-            </div> 
+            </div>
         )
       }
       )}
       </div>
+
+
       </div>
     )
   }
 
 }
 export default SearchProduct;
+
+
+// <label>
+// <input type="radio" name="fb" value="small" />
+// <img src="https://d2gk7xgygi98cy.cloudfront.net/6667-3-large.jpg" />
+// </label>
+
+// <img onClick={this.handleKeyPress}
+// src="https://d2gk7xgygi98cy.cloudfront.net/6667-3-large.jpg"
+// alt="HTML5"
+// style={{width: 200, height: 200, position: 'absolute', top: this.props.top, left: this.props.left}}/>

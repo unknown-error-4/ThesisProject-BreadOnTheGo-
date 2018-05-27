@@ -2,7 +2,6 @@ import React from'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import {Redirect} from "react-router-dom";
-import NavcomSigned from './NavcomSigned.jsx';
 
 class Products extends React.Component{
 
@@ -48,6 +47,7 @@ class Products extends React.Component{
   					success: (data) => {
               that.setState({message: data})
   						console.log("Success in prouduct POST!", data);
+              alert ('Your Product Added')
   					},
   					error(err){
   						console.log("Error in prouduct POST!",err);
@@ -61,9 +61,7 @@ class Products extends React.Component{
 
           return (
             <div>
-            <div>
-            <NavcomSigned/>
-            </div>
+
             <h1>Add Your Products</h1>
             <br/>
             <label> Name of Prouduct :

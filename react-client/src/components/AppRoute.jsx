@@ -8,13 +8,13 @@ import SignUpB from './SignUpB.js';
 import SignUpC from './SignUpC.js';
 import Navcom from './Navcom.jsx';
 import Profile from './Profile.jsx';
-import ProductList from './ProductList.jsx';
-import SearchProduct from './SearchProduct.jsx';
+ import SearchProduct from './SearchProduct.jsx';
 import image from './image.jsx';
 import TheMap from './TheMap.jsx'
 import Home from './Home.jsx'
-import NavcomSigned from './NavcomSigned.jsx';
-
+import NavcomSignedC from './NavcomSignedC.jsx';
+import NavcomSignedB from './NavcomSignedB.jsx';
+import OrderList from './OrderList.jsx';
 
 
 
@@ -41,9 +41,10 @@ class AppRoute extends React.Component {
           <Route exact path='/profile' component={Profile}/>
           <Route exact path='/searchProduct'component={SearchProduct}/>
           <Route exact path ='/image' component={image}/>
-          <Route exact path='/productList' component={ProductList} />
-          <Route exact path='/home' component={Home}/>
-          <Route exact path='/navsigned' component={NavcomSigned}/>
+           <Route exact path='/home' component={Home}/>
+          <Route exact path='/navsignedC' component={NavcomSignedC}/>
+          <Route exact path='/navsignedB' component={NavcomSignedB}/>
+          <Route exact path='/orderList' component={OrderList} />
 
          </Switch>
 
