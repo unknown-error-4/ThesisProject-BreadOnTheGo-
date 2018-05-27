@@ -14,8 +14,6 @@ db.once('open', function() {
 ///////////////////////// User's Schema /////////////////////////
 
 var userSchema = mongoose.Schema({
-<<<<<<< a04692bdefab171054d41b82b79a3bc9133246e7
-
   userName:String,
   email:{
     type: String,
@@ -29,21 +27,6 @@ var userSchema = mongoose.Schema({
     longtitude: String,
     typeOfPayment: String,
     image:String
-=======
- userName:String,
- email:{
-   type: String,
-   trim: true
-   },
-   password:{
-     type: String
-   },
-   phoneNumber: Number,
-   latitude: String,
-   longtitude: String,
-   typeOfPayment: String,
-   image:String
->>>>>>> change in db
 });
 
 var User = mongoose.model('User', userSchema);
@@ -58,7 +41,7 @@ var saveUser =function(data,callback){
    }
    callback(null,data)
  })
-<<<<<<< a04692bdefab171054d41b82b79a3bc9133246e7
+
 }
 
 ///////////////////////// Bakery's Schema /////////////////////////
@@ -79,13 +62,14 @@ var bakerySchema = mongoose.Schema({
  });
 
 
+
 var Bakery = mongoose.model('Bakery', bakerySchema);
 
 /////////////////////////Save Bakery/////////////////////////
 
 var saveBakery =function(data,callback){
 
-  var NBakery= new User(data);
+  var NBakery= new Bakery(data);
   NBakery.save(function(err,data){
     if(err){
       callback(err,null)
@@ -93,40 +77,10 @@ var saveBakery =function(data,callback){
     callback(null,data)
   })
 }
-=======
+
 }
 
-///////////////////////// Bakery's Schema /////////////////////////
 
-var bakerySchema = mongoose.Schema({
- bakeryName:String,
- email:{
-   type: String,
-   trim: true
-   },
-   password:{
-     type: String
-   },
-   phoneNumber: Number,
-   latitude: String,
-   longtitude: String,
-   typeOfRecievingPayment: String
- });
-
-var Bakery = mongoose.model('Bakery', bakerySchema);
-
-/////////////////////////Save Bakery/////////////////////////
-
-var saveBakery =function(data,callback){
- var NBakery= new User(data);
- NBakery.save(function(err,data){
-   if(err){
-     callback(err,null)
-   }
-   callback(null,data)
- })
-}
->>>>>>> change in db
 ///////////////////////// Prouducts' Schema /////////////////////////
 
 var prouductSchema = mongoose.Schema({
@@ -135,6 +89,7 @@ var prouductSchema = mongoose.Schema({
  img : {type: String },
  price:Number
 });
+
 
 var Prouduct = mongoose.model('Prouduct',prouductSchema);
 
@@ -167,6 +122,7 @@ var selectAll = function(callback) {
 var ordersSchema = mongoose.Schema({
  order: Array
 });
+
 
 var Orders = mongoose.model('Orders',ordersSchema);
 
