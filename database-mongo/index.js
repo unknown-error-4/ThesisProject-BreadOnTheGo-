@@ -87,8 +87,8 @@ var saveBakery =function(data,callback){
 var prouductSchema = mongoose.Schema({
  name:{ type: String, unique: true },
  description:String,
- img : {type: String },
- price:Number
+ img : { data: Buffer, type: String },
+ price: Number
 });
 
 

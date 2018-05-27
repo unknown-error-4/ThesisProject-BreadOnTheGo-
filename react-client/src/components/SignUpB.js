@@ -53,6 +53,7 @@
             this.setState({mssg : "This username is already used"})
           }else if(data !== 'Invalid Input'){
             this.setState({redirect: true})
+            
           } else{
             this.setState({mssg : data})
             //window.location.href = "http://localhost:3000/login";
@@ -61,6 +62,7 @@
         },
         error: (err) => {
           console.log('err', err);
+
         }
       });
       event.preventDefault();

@@ -80,7 +80,7 @@ exports.SavingProducts = function(req, res){
     res.send(data);
   })
 }
-// /////function for signin & create session
+////////function for signin & create session
 exports.SignIn = function (req, res) {
 
   var email = req.body.email;
