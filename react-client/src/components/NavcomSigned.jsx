@@ -45,7 +45,7 @@ class NavcomSigned extends React.Component {
        <Link to= "/Profile">Profile</Link>
     </NavItem>
     <NavItem eventKey={3}>
-         <Link to= "/"><a href = '#' >Log Out</a></Link>
+         <Link to= "/">Log Out</Link>
       </NavItem>
   </Nav>
 </Navbar.Collapse>

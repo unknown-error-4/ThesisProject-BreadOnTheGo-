@@ -12,6 +12,9 @@ import TheMap from './components/TheMap.jsx'
 import ProductList from './components/ProductList.jsx'
 import Home from './components/Home.jsx';
 import NavcomSigned from './components/NavcomSigned.jsx';
+import BakeriesList from './components/BakeriesList.jsx';
+import Bakery from './components/Bakery.jsx';
+import SignInB from './components/SignInB.jsx';
 
 class App extends React.Component {
   constructor(props){

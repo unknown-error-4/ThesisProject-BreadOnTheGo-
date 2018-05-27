@@ -59,7 +59,7 @@ var bakerySchema = mongoose.Schema({
    latitude: String,
    longtitude: String,
    typeOfRecievingPayment: String,
-   
+
  });
 
 
@@ -69,7 +69,7 @@ var Bakery = mongoose.model('Bakery', bakerySchema);
 
 var saveBakery =function(data,callback){
 
-  var NBakery= new User(data);
+  var NBakery= new Bakery(data);
   NBakery.save(function(err,data){
     if(err){
       callback(err,null)
