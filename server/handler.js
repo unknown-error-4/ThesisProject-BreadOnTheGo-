@@ -131,11 +131,15 @@ exports.SignInB = function (req, res) {
   });
 };
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-exports.logout=function(req, res) {
+
+
+
+exports.logout=function(req,res) {
   req.session.destroy(function() {
    res.sendStatus(200);
  });
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //////////retrive function to retrive all user
@@ -157,6 +161,7 @@ exports.retrieve = function (req, res) {
 ///////////retrive function for profile page(user)
 exports.retrieveOne = function (req, res) {
   var query = {id: req.params.id };
+  console.log(query)
  db.User.findOne(query, function (err, response) {
     if (err) {
       return res.status(500).json(err.message);

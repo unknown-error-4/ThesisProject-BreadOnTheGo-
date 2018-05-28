@@ -17,8 +17,7 @@ import NavcomSigned from './NavcomSigned.jsx';
 import BakeriesList from './BakeriesList.jsx';
 import Bakery from './Bakery.jsx';
 import SignInB from './SignInB.jsx'
-
-
+import Logout from './Logout.jsx'
 
 
 
@@ -46,7 +45,7 @@ class AppRoute extends React.Component {
           <Route exact path ='/image' component={image}/>
           <Route exact path='/productList' component={ProductList} />
           <Route exact path='/home' component={Home}/>
-
+          <Route exact path="/logout" component={Logout} />
           <Route exact path='/navsigned' component={NavcomSigned}/>
 
          </Switch>
