@@ -4,13 +4,14 @@
     import {Redirect} from "react-router-dom";
 
 
-		class SignUp extends React.Component {
+		class SignUpB extends React.Component {
 
 			constructor(props){
 
 				super(props);
 
 				this.state = {
+          redirect: false,
 					userName: '',
 					email: '',
 					password: '',
@@ -18,8 +19,7 @@
 		      phoneNumber: '',
 		      latitude:'',
 		      longtitude:'',
-		      typeOfPayment: '',
-		      typeOfUser: ''
+          typeOfRecievingPayment: ''
           }
         this.handleChangeuserName = this.handleChangeuserName.bind(this);
 				this.handleChangeEmail = this.handleChangeEmail.bind(this);
@@ -28,8 +28,7 @@
 				this.handleChangePhoneNumber = this.handleChangePhoneNumber.bind(this);
 				this.handleChangeLongtitude = this.handleChangeLongtitude.bind(this);
         this.handleChangeLatitude = this.handleChangeLatitude.bind(this);
-				this.handleChangePayment = this.handleChangePayment.bind(this);
-        this.handleChangeUser = this.handleChangeUser.bind(this);
+        this.handleChangePay = this.handleChangePay.bind(this);
         this.handleClick = this.handleClick.bind(this)
 			}
 
@@ -38,7 +37,7 @@
 
 				$.ajax({
 					type:'POST',
-					url: '/signup',
+					url: '/signupbakery',
 					data:{
 						userName:that.state.userName,
 						email: that.state.email,
@@ -47,9 +46,7 @@
 						phoneNumber: that.state.phoneNumber,
 		        latitude: that.state.latitude,
 		        longtitude: that.state.longtitude,
-            typeOfPayment: that.state.typeOfPayment,
-            typeOfUser: that.state.typeOfUser
-
+            typeOfRecievingPayment: that.state.typeOfRecievingPayment
 						},
           success: (data) => {
           if(data === 'exists'){
@@ -100,30 +97,27 @@
 		    this.setState({latitude: event.target.value});
         console.log(this.state.latitude);
 		  }
-			handleChangePayment(event) {
-		    this.setState({typeOfPayment: event.target.value});
-        console.log(this.state.typeOfPayment);
-
-		  }
-
-      handleChangeUser(event) {
-		    this.setState({typeOfUser: event.target.value});
-        console.log(this.state.typeOfUser);
+      handleChangePay(event) {
+		    this.setState({typeOfRecievingPayment: event.target.value});
+        console.log(this.state.typeOfRecievingPayment);
 		  }
 
 
 
 	render(){
-
+    const { redirect } = this.state;
+       if (redirect) {
+         return <Redirect to='/signin'/>;
+       }
 	return (
 		<div className ="container">
 			<div className="row main">
 				<div className="panel-heading">
 	               <div className="panel-title text-center">
-	               		<h1 className="title">Sign Up</h1>
+	               		<h1 className="title"></h1>
 	               		<hr />
 	               	</div>
-	            </div> 
+	            </div>
 			<div className="main-login main-center">
 				<form className="form-horizontal" method="post" action="#">
 					<div className="form-group">
@@ -191,39 +185,25 @@
 								</div>
 							</div>
 						</div>
-						<div className="form-group">
-							<label for="username" className="cols-sm-2 control-label">Type Of Payment:</label>
+            <div className="form-group">
+							<label for="username" className="cols-sm-2 control-label">Type Of Recieving Payment:</label>
 							<div className="cols-sm-10">
 								<div className="input-group">
 									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
-									<select className = "typeOfPayment" className="form-control selectpicker btn btn-default" value= {this.state.typeOfPayment} onChange={this.handleChangePayment} required>
-								            <option>Sellect Type Of Payment</option>
+									<select className = "typeOfPayment" className="form-control selectpicker btn btn-default" value= {this.state.typeOfRecievingPayment} onChange={this.handleChangePay} required>
+								            <option>Sellect Type Of Recieving Payment</option>
 								            <option>Cash</option>
 								            <option>Credit Card</option>
+                            <option>Both</option>
 						          </select>
-									
-								</div>
-							</div>
-						</div>
-						<div className="form-group">
-							<label for="username" className="cols-sm-2 control-label">Who Are You !!:</label>
-							<div className="cols-sm-10">
-								<div className="input-group">
-									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
-                                    <select name = "typeOfUser" className="form-control selectpicker btn btn-default" value={this.state.typeOfUser} onChange={this.handleChangeUser} required>								            <option>Sellect Type Of Payment</option>
-								      <option >Baker </option>
-		                              <option >Customer</option>      
-						          </select>
-									
+
 								</div>
 							</div>
 						</div>
 						<div className="form-group ">
-							<button type="button" className="btn btn-primary btn-lg btn-block login-button" onClick = {this.handleClick}>Sign Up</button>
+							<button type="button" value="sign uo"  id="submit" onClick = {this.handleClick}>Sign Up</button>
 						</div>
-						<div className="login-register">
-				            <a href="index.php">Login</a>
-				         </div>
+
 					</form>
 				</div>
 			</div>
@@ -235,7 +215,7 @@
 
 			}
 
-			export default SignUp;		
+			export default SignUpB;
 // ////////////////////////////////////////
 // 					<div>
 // 					<h1>Sign Up</h1>
@@ -294,4 +274,3 @@
 // 					<button onClick = {this.handleClick}>Sign Up</button>
 //           </form>
 // 					</div>
-

@@ -1,5 +1,8 @@
 import React from 'react';
 import { Button,  Panel, ListGroupItem, PanelGroup, FormControl, FormGroup } from 'react-bootstrap';
+import Rating from './Rating.jsx'
+
+
 class SearchProduct extends React.Component {
   constructor(props) {
     super(props);
@@ -55,7 +58,6 @@ class SearchProduct extends React.Component {
       }
     })
   }
-
   render(){
     var r=this;
     return(
@@ -69,15 +71,16 @@ class SearchProduct extends React.Component {
           />
         </FormGroup>
       <Button  onClick={this.getItem}>SEARCH</Button>
+
       <div activeKey={this.state.activeKey}
         onSelect={this.handleSelect}>
       {this.state.products.map(function(y){
         return(
           <div>
-          <div id="border" >
-
+          <div  id="border" >
            <h1> {y.name}</h1>
            <h1> {y.price} </h1>
+           <div> <Rating/></div>
            </div>
          <div>
           <hr/>

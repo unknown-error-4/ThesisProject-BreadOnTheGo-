@@ -14,36 +14,67 @@
 </head>
 <body>
 
+        <div className="container">
+            <div className="col-md-3"></div>
+            <div className="col-md-6">
+                    <div className="row myborder">
+                        <h4 style="color: #7EB59E; margin: initial; margin-bottom: 10px;">Sign Up Now</h4><hr>
+                        <div className="input-group margin-bottom-20">
+                        <span className="input-group-addon"><i className="glyphicon glyphicon-user mycolor"></i></span>
+                        <input size="60" maxlength="255" className="form-control" placeholder="User Name" name="User Name" value = {this.state.userName} onChange={this.handleChangeuserName}/>                                                        
+                    </div> 
 
-<!-- Modal HTML -->
-<div>
-    <div class="modal-dialog modal-login">
-        <div class="modal-content">
-            <div class="modal-header">              
-                <h4 class="modal-title"> Login</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form action="/login" method="post">
-                    <div class="form-group">
-                        <i class="fa fa-user"></i>
-                        <input type="text" name="username" class="form-control" placeholder="Username" required="required">
+
+                    <div className="input-group margin-bottom-20">
+                        <span className="input-group-addon"><i className="fa fa-envelope fa"></i></span>
+                        <input size="60" maxlength="255" className="form-control" placeholder="Email" name="Email"  value = {this.state.email} onChange={this.handleChangeEmail} />                                   
                     </div>
-                    <div class="form-group">
-                        <i class="fa fa-lock"></i>
-                        <input type="password" name="Password" class="form-control" placeholder="Password" required="required">                 
+
+
+                    <div className="input-group margin-bottom-20">
+                        <span className="input-group-addon"><i className="glyphicon glyphicon-lock mycolor"></i></span>
+                        <input size="60" maxlength="255" className="form-control" type="password" value = {this.state.password} name="password" placeholder="Enter your Password" onChange={this.handleChangePassword}/> 
+                    </div>     
+
+                    <div className="input-group margin-bottom-20">
+                        <span className="input-group-addon"><i className="glyphicon glyphicon-lock mycolor"></i></span>
+                        <input size="60" maxlength="255" className="form-control" type="password" value = {this.state.confirmPass} name="confirm" id="confirm"  placeholder="Confirm your Password" onChange={this.handleChangeConfirmPassword}/> 
+                    </div> 
+
+                    <div className="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i className="glyphicon glyphicon-envelope mycolor"></i></span>
+                        <input size="60" maxlength="255" className="form-control" name="latitude" id="latitude"value = {this.state.latitude}  placeholder="Enter your latitude" onChange={this.handleChangeLatitude}/>                                   
                     </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">
+
+
+                    <div className="input-group margin-bottom-20">
+                        <span className="input-group-addon"><i className="glyphicon glyphicon-envelope mycolor"></i></span>
+                        <input size="60" maxlength="255" className="form-control"  name="longtitude" id="longtitude" value = {this.state.longtitude}  placeholder="Enter your longtitude" onChange={this.handleChangeLongtitude}/>                                   
                     </div>
-                </form>             
-                
-            </div>
-            <div class="modal-footer">
-                <a href="#">Forgot Password?</a>
-            </div>
-        </div>
+
+                    <div className="input-group margin-bottom-20">
+                        <span className="input-group-addon"><i class="glyphicon glyphicon-phone mycolor"></i></span>
+                        <input size="60" maxlength="255" className="form-control"name="Phone Number" placeholder="Enter your phoneNumber" value = {this.state.phoneNumber} onChange={this.handleChangePhoneNumber}/>
+                    </div>
+
+                    <div className="input-group margin-bottom-20">
+                        <span className="input-group-addon"><i className="glyphicon glyphicon-envelope mycolor"></i></span>
+                        <select className = "typeOfPayment" className="form-control selectpicker btn btn-default" value= {this.state.typeOfRecievingPayment} onChange={this.handleChangePay} >
+                            <option>Sellect Type Of Recieving Payment</option>
+                            <option>Cash</option>
+                            <option>Credit Card</option>
+                            <option>Both</option>
+                        </select>
+                    </div>
+
+                    <div className="row">
+                        <div className="col-md-12">
+                           <button className="btn-u pull-left" type="submit" onClick = {this.handleClick}>Sign Up</button>
+                        </div>
+                    </div>
+                    </div>
+                    <div className="col-md-2"></div>
     </div>
-</div>     
+    </div>     
 </body>
 </html>                            
