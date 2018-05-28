@@ -11,7 +11,7 @@ import SignIn from './SignIn.js';
 import SignUpB from './SignUpB.js';
 import SignUpC from './SignUpC.js';
 import Profile from './Profile.jsx';
-
+import Logout from './Logout.jsx';
 
 
 
@@ -45,7 +45,9 @@ class NavcomSigned extends React.Component {
        <Link to= "/Profile">Profile</Link>
     </NavItem>
     <NavItem eventKey={3}>
-         <Link to= "/">Log Out</Link>
+    <Link to="/logout">
+    Logout
+   </Link>
       </NavItem>
   </Nav>
 </Navbar.Collapse>
@@ -54,6 +56,7 @@ class NavcomSigned extends React.Component {
     <Route path="/SignIn"component={SignIn}/>
     <Route exact path='/signupB' component={SignUpB} />
     <Route exact path='/signupC' component={SignUpC} />
+    <Route exact path='/logout' component={Logout} />
  </div>
 
 </Router>

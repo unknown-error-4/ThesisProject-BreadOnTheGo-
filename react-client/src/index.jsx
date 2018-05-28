@@ -15,7 +15,7 @@ import NavcomSigned from './components/NavcomSigned.jsx';
 import BakeriesList from './components/BakeriesList.jsx';
 import Bakery from './components/Bakery.jsx';
 import SignInB from './components/SignInB.jsx';
-
+import Logout from './components/Logout.jsx';
 class App extends React.Component {
   constructor(props){
     super(props);
