@@ -14,7 +14,7 @@ exports.isLoggedIn = function (req, res) {
  return false
 }
 
-// this is the middle ware we will call it before rendering the main page
+// this is the middle ware we will call it before rendering the main page//hi
 exports.checkUser = (req, res, next) => {
  if (!exports.isLoggedIn(req)) {
    res.sendStatus(404)
