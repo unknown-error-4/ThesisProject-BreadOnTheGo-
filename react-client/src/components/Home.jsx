@@ -65,41 +65,14 @@ import BakeriesList from './BakeriesList.jsx';
     event.preventDefault();
   }
 
-  render () {
+
+
+    render () {
 
 
 
     return (
-           <div>
-          <div>
-          <NavcomSigned/>
-          </div>
-          <div className="container" style={{'marginTop':'50px'}}>
-          <TheMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
-          </div>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <div>
-          <button type="submit" className="btn btn-warning btn-block btn-lg" style={{color:'black', marginBottom: '5px'}}>Get me the nearest bakeries!</button>
-          </div>
-          </div>
-          )
-       <div className="container" style={{'marginTop':'50px'}}>
+      <div className="container" style={{'marginTop':'50px'}}>
 
         <div>
           <div>
@@ -118,9 +91,8 @@ import BakeriesList from './BakeriesList.jsx';
           </div>
           </div>
         </div>)
-   }
+  }
 }
-
 
 
 export default Home;
