@@ -8,8 +8,8 @@ import TheMap from './TheMap.jsx';
   constructor(props) {
     super(props);
     this.state = {
-      longitude: 0,
-      laltitude: 0,
+      longtitude: 0,
+      latitude: 0,
       bakeries:[]
 
     }
@@ -23,20 +23,20 @@ import TheMap from './TheMap.jsx';
 //This function will be passed to the child component TheMap, where we will call it and pass the user longitude and laltitude so change them in the state of this component, which will make them accessible in the ajax post request.
 
   setLngLat(lng, lat){
-      this.setState({longitude: lng,
-                     laltitude: lat})
+      this.setState({longtitude: lng,
+                     latitude: lat})
   }
 
   //here we will change this.state.longitude when ever the value of the textbox is changed
   handleChangesLongitude(event) {
-    this.setState({longitude: event.target.value})
-    console.log(this.state.longitude)
+    this.setState({longtitude: event.target.value})
+    console.log(this.state.longtitude)
 
   }
 
   handleChangesLaltitude(event) {
-    this.setState({laltitude: event.target.value})
-    console.log(this.state.laltitude)
+    this.setState({latitude: event.target.value})
+    console.log(this.state.latitude)
 
   }
 
@@ -48,8 +48,8 @@ import TheMap from './TheMap.jsx';
       url: '/Home',
       data: {
 
-        longitude: this.state.longitude,
-        laltitude: this.state.laltitude
+        longitude: this.state.longtitude,
+        laltitude: this.state.latitude
 
       },
       success: (data) => {
@@ -84,9 +84,9 @@ import TheMap from './TheMap.jsx';
           </div>
           <div style={{margin: '15px'}}>
           <h4>Choose a Bakery</h4>
-          <BakeriesList bakeries={this.state.bakeries} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
+          <BakeriesList bakeries={this.state.bakeries} longitude={this.state.longtitude} laltitude={this.state.latitude}/>
           </div>
-          <TheMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
+          <TheMap setLngLat={this.setLngLat} longitude={this.state.longtitude} laltitude={this.state.latitude}/>
           </div>
           </div>
           </div>

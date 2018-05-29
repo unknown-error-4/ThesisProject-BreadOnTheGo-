@@ -23,8 +23,8 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
          userName:data.userName,
          password:hash,
          phoneNumber:data.phoneNumber,
-         longitude: data.longitude,
-         laltitude: data.laltitude,
+         longtitude: data.longtitude,
+         latitude: data.latitude,
          email:data.email,
          typeOfPayment: data.typeOfPayment,
 
@@ -42,6 +42,7 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
    });
   }
 
+
   ////////// SignUp Bakery //////////
   exports.SignUpBakery = function (req, res) {
   var data=req.body;
@@ -56,8 +57,8 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
            bakeryName:data.userName,
            password:hash,
            phoneNumber:data.phoneNumber,
-           longitude: data.longitude,
-           laltitude: data.laltitude,
+           longtitude: data.longtitude,
+           latitude: data.latitude,
            email:data.email,
            typeOfRecievingPayment: data.typeOfRecievingPayment
           },function(err,data){
@@ -70,7 +71,8 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
        }
      });
     }
-    //////////////////////
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 //////////SavingProducts//////////
 exports.SavingProducts = function(req, res){
@@ -246,6 +248,47 @@ exports.SavingOrders = function(req, res){
   }, function(err, data){
     if (err){
       console.log(err)
+///////////////////////////////////////////////////////////////////////////////////////////////////
+var DistanceInKm =function(lat1,lon1,lat2,lon2) {
+          var radius = 6371;
+          var Latitude = deg2rad(lat2-lat1);
+          var Longtitude = deg2rad(lon2-lon1);
+          var a =
+            Math.sin(Latitude/2) * Math.sin(Latitude/2) +
+            Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+            Math.sin(Longtitude/2) * Math.sin(Longtitude/2);
+
+          var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+          var distance = radius * c; // Distance in km
+          return distance;
+        }
+
+      function deg2rad(deg) {
+        return deg * (Math.PI/180)
+      }
+////////////////////////////////////////////////////////////////////////////////////////////////////
+exports.distancebetweenBAndC=function(req, res){
+  user=req.body;
+    db.Bakery.find({},'username longitude laltitude distance phonenumber email',function(err,bakeries){
+      for (var i = 0; i < bakeries.length; i++) {
+        var dis = DistanceInKm(user.latitude , user.longtitude, bakeries[i].latitude, bakeries[i].longtitude)
+        bakeries[i].distance = dis
+      }
+        function compare(a,b) {
+          if (a.distance < b.distance)
+            return -1;
+          if (a.distance > b.distance)
+            return 1;
+          return 0;
+        }
+
+    bakeries.sort(compare);
+
+
+    var arr=[];
+
+    for (var i = 0; i < 3; i++) {
+      arr.push(bakeries[i])
     }
     res.send(data);
   })
