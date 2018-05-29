@@ -19,8 +19,8 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
          userName:data.userName,
          password:hash,
          phoneNumber:data.phoneNumber,
-         longitude: data.longitude,
-         laltitude: data.laltitude,
+         longtitude: data.longtitude,
+         latitude: data.latitude,
          email:data.email,
          typeOfPayment: data.typeOfPayment,
 
@@ -51,8 +51,8 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
            bakeryName:data.userName,
            password:hash,
            phoneNumber:data.phoneNumber,
-           longitude: data.longitude,
-           laltitude: data.laltitude,
+           longtitude: data.longtitude,
+           latitude: data.latitude,
            email:data.email,
            typeOfRecievingPayment: data.typeOfRecievingPayment
           },function(err,data){
@@ -79,8 +79,8 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
            bakeryName:data.userName,
            password:hash,
            phoneNumber:data.phoneNumber,
-           longitude: data.longitude,
-           laltitude: data.laltitude,
+           longtitude: data.longtitude,
+           latitude: data.latitude,
            email:data.email,
            typeOfRecievingPayment: data.typeOfRecievingPayment
           },function(err,data){
@@ -247,12 +247,12 @@ exports.retrieveOneProduct = function (req, res) {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 var DistanceInKm =function(lat1,lon1,lat2,lon2) {
           var radius = 6371;
-          var Laltitude = deg2rad(lat2-lat1);
-          var Longitude = deg2rad(lon2-lon1);
+          var Latitude = deg2rad(lat2-lat1);
+          var Longtitude = deg2rad(lon2-lon1);
           var a =
-            Math.sin(Laltitude/2) * Math.sin(Laltitude/2) +
+            Math.sin(Latitude/2) * Math.sin(Latitude/2) +
             Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-            Math.sin(Longitude/2) * Math.sin(Longitude/2);
+            Math.sin(Longtitude/2) * Math.sin(Longtitude/2);
 
           var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
           var distance = radius * c; // Distance in km
@@ -267,7 +267,7 @@ exports.distancebetweenBAndC=function(req, res){
   user=req.body;
     db.Bakery.find({},'username longitude laltitude distance phonenumber email',function(err,bakeries){
       for (var i = 0; i < bakeries.length; i++) {
-        var dis = DistanceInKm(user.laltitude , user.longitude, bakeries[i].laltitude, bakeries[i].longitude)
+        var dis = DistanceInKm(user.latitude , user.longtitude, bakeries[i].latitude, bakeries[i].longtitude)
         bakeries[i].distance = dis
       }
         function compare(a,b) {
@@ -314,7 +314,7 @@ exports.upload = function(req,res){
     }
   })
 }
-///////// this function to upload image 
+///////// this function to upload image
 // exports.updateImage=function(req,res){
 // db.User.update({username: req.session.user}, { $set: { image: image }}, function (err, data) {
 //     if (err) {
@@ -336,7 +336,7 @@ exports.getImage = function(req,res){
 }
 ///////////////////////
 exports.updateImage = function (req, res) {
-  var updateImage={  
+  var updateImage={
     image: req.body.image
   }
  db.User.findOneAndUpdate({id:req.body.id},updateImage,function(err,data){
@@ -353,13 +353,13 @@ exports.updateImage = function (req, res) {
        }
         })
     }
-        
+
   })
 }
 
 ///////////// to update Rating//////////////////////
 exports.updateRating = function (req, res) {
-  var updaterating={  
+  var updaterating={
     rating: req.body.rating
   }
   console.log("updaterating",updaterating)
@@ -378,7 +378,7 @@ exports.updateRating = function (req, res) {
         })
     }
 
-        
+
   })
 }
 //////////////////////////////

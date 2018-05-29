@@ -34,7 +34,7 @@ function success(pos) {
 // if a location is found it will save it in the state
 that.setState({
  lat:crd.latitude,
- lng:crd.longitude
+ lng:crd.longtitude
 })
 
 that.props.setLngLat(crd.longitude, crd.latitude)
@@ -75,7 +75,7 @@ onMarkerClick(props, marker, e){
            //the map component which is made thanks to google maps react library
                initialCenter={{  lat:31.963158 ,lng:35.930359}}>
 
-               <Marker position={{lat:this.props.laltitude,lng:this.props.longitude}}
+               <Marker position={{lat:this.props.latitude,lng:this.props.longtitude}}
                // a marker on the map that will show you your current location
                  onClick={this.onMarkerClick} name={"Your locatoin"}
                   />
