@@ -1,3 +1,6 @@
+
+
+
 exports.createSession = function (req, res, newUser) {
  req.session.regenerate(function () {
    req.session.user = newUser

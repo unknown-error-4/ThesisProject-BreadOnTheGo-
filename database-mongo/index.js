@@ -52,12 +52,10 @@ var bakerySchema = mongoose.Schema({
    type: String,
    trim: true
    },
-   password:{
-     type: String
-   },
+   password: String,
    phoneNumber: Number,
-   latitude: String,
-   longtitude: String,
+   latitude: Number,
+   longtitude: Number,
    typeOfRecievingPayment: String
  });
 
@@ -118,7 +116,8 @@ var selectAll = function(callback) {
 ///////////////////////// Orders' Schema /////////////////////////
 
 var ordersSchema = mongoose.Schema({
- order: Array
+  name: String,
+  price: Number
 });
 
 var Orders = mongoose.model('Orders',ordersSchema);

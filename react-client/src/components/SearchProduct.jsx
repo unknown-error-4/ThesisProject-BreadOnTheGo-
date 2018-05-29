@@ -1,7 +1,11 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Button,  Panel, ListGroupItem, PanelGroup, FormControl, FormGroup } from 'react-bootstrap';
 import Rating from './Rating.jsx'
 
+=======
+import { Button,  Panel, ListGroupItem, PanelGroup, FormControl, FormGroup , Image} from 'react-bootstrap';
+>>>>>>> orderComponent
 
 class SearchProduct extends React.Component {
   constructor(props) {
@@ -29,6 +33,7 @@ class SearchProduct extends React.Component {
       method: 'GET',
     })
     .done (function (data) {
+      console.log(data)
       that.setState({
         products: data
       });
@@ -58,14 +63,29 @@ class SearchProduct extends React.Component {
       }
     })
   }
-<<<<<<< HEAD
-=======
 
-  // handleKeyPress(e){
-  //   this.setState({value:e.target.value})
-  // }
+///make the order ///
+// handleClick(event){
+//
+//   $.ajax ({
+//     type: 'POST',
+//     url: '/showProduct',
+//     data: {
+//       name: y.name,
+//       price: y.price
+//     },
+//     success: (data) => {
+//       console.log('order added',data)
+//       alert('Added to Your Cart');
+//     },
+//     error:(err) => {
+//       console.log('Failed in adding product to the Cart',err);
+//     }
+//   });
+//   event.preventDefault();
+// }
 
->>>>>>> connectingApp1
+
   render(){
     var r=this;
     return(
@@ -81,15 +101,18 @@ class SearchProduct extends React.Component {
       <Button  onClick={this.getItem}>SEARCH</Button>
 
       <div activeKey={this.state.activeKey}
-        onSelect={this.handleSelect}>
+        onSelect={this.handleSelect}/>
       {this.state.products.map(function(y){
         return(
           <div>
+          
+
           <div  id="border" >
            <h1> {y.name}</h1>
            <h1> {y.price} </h1>
            <h1> {y.description} </h1>
-           <h1> {y.image} </h1>
+           <Image src={y.image}  thumbnail style={{weight : 50 , height : "60px"}} />
+           <button type ='button'  >Add to Cart</button>
            <div> <Rating/></div>
            </div>
          <div>
@@ -103,20 +126,10 @@ class SearchProduct extends React.Component {
       </div>
 
 
-      </div>
     )
   }
 
 }
 export default SearchProduct;
 
-
-// <label>
-// <input type="radio" name="fb" value="small" />
-// <img src="https://d2gk7xgygi98cy.cloudfront.net/6667-3-large.jpg" />
-// </label>
-
-// <img onClick={this.handleKeyPress}
-// src="https://d2gk7xgygi98cy.cloudfront.net/6667-3-large.jpg"
-// alt="HTML5"
-// style={{width: 200, height: 200, position: 'absolute', top: this.props.top, left: this.props.left}}/>
+// onClick = {this.handleClick.bind}

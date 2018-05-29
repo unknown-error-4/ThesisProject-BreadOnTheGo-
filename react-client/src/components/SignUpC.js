@@ -55,7 +55,7 @@
             this.setState({redirect: true})
           } else{
             this.setState({mssg : data})
-            //window.location.href = "http://localhost:3000/login";
+            window.location.href = "http://localhost:3000/signin";
           }
           console.log('success', data)
         },
