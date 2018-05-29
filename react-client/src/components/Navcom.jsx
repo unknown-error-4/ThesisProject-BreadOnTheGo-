@@ -29,7 +29,8 @@ class Navcom extends React.Component {
        <div>
     <Navbar id='navb' >
       <Navbar.Header>
-      <Navbar.Brand >
+       <Navbar.Brand >
+ 
     <a>BreadOnTheGo</a>
     </Navbar.Brand>
     <Navbar.Toggle />
@@ -39,10 +40,13 @@ class Navcom extends React.Component {
   </Nav>
   <Nav pullRight>
     <NavItem eventKey={2}>
-         <Link  to= "/SignIn"><div id="link">Sign In</div></Link>
+          <Link  to= "/SignIn"><div id="link">Sign In</div></Link>
       </NavItem>
       <NavDropdown eventKey={3} title="Join Us" id="basic-nav-dropdown" >
-    <MenuItem eventKey={3.1}><Link to= "/signupB">Sign Up as Bakery</Link></MenuItem>
+          <Link to= "/SignIn">Sign In</Link>
+      </NavItem>
+      <NavDropdown eventKey={3} title="Join Us" id="basic-nav-dropdown">
+     <MenuItem eventKey={3.1}><Link to= "/signupB">Sign Up as Bakery</Link></MenuItem>
     <MenuItem eventKey={3.2}><Link to= "/signupC">Sign Up as Customer</Link></MenuItem>
      <MenuItem divider />
     </NavDropdown>

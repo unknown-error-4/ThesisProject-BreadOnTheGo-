@@ -15,10 +15,11 @@ import TheMap from './TheMap.jsx'
 import Home from './Home.jsx'
 import NavcomSigned from './NavcomSigned.jsx';
 import Rating from './Rating.jsx';
-
-
-
-
+import BakeriesList from './BakeriesList.jsx';
+import Bakery from './Bakery.jsx';
+import SignInB from './SignInB.jsx'
+import Logout from './Logout.jsx'
+ 
 
 
 
@@ -38,14 +39,16 @@ class AppRoute extends React.Component {
           <Route exact path='/signupC' component={SignUpC} />
           <Route exact path='/products' component={Products} />
           <Route exact path='/signin' component={SignIn} />
+          <Route exact path='/signinb' component={SignInB} />
           <Route exact path='/' component={Navcom}/>
           <Route exact path='/profilePage' component={Profile}/>
           <Route exact path='/searchProduct'component={SearchProduct}/>
           <Route exact path ='/image' component={image}/>
           <Route exact path='/productList' component={ProductList} />
           <Route exact path='/home' component={Home}/>
-          <Route exact path='/navsigned' component={NavcomSigned}/>
           <Route exact path ='/Rating' component={Rating}/>
+          <Route exact path="/logout" component={Logout} />
+          <Route exact path='/navsigned' component={NavcomSigned}/>
 
          </Switch>
 

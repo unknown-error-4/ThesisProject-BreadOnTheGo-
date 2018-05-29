@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import TheMap from './TheMap.jsx';
 import NavcomSigned from './NavcomSigned.jsx'
- class Home extends React.Component {
+import BakeriesList from './BakeriesList.jsx';
+
+  class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       longitude: 0,
-      laltitude: 0
+      laltitude: 0,
+      bakeries:[]
 
     }
    this.handleChangesLongitude = this.handleChangesLongitude.bind(this)
@@ -43,7 +46,7 @@ import NavcomSigned from './NavcomSigned.jsx'
   handleSubmit(event) {
     $.ajax({
       type : 'POST',
-      url: '/',
+      url: '/Home',
       data: {
 
         longitude: this.state.longitude,
@@ -51,10 +54,11 @@ import NavcomSigned from './NavcomSigned.jsx'
 
       },
       success: (data) => {
-
+        this.setState({bakeries:data})
         console.log('success', data)
       },
       error: (err) => {
+        console.log(data)
         console.log('err', err);
       }
     });
@@ -66,7 +70,7 @@ import NavcomSigned from './NavcomSigned.jsx'
 
 
     return (
-          <div>
+           <div>
           <div>
           <NavcomSigned/>
           </div>
@@ -95,7 +99,26 @@ import NavcomSigned from './NavcomSigned.jsx'
           </div>
           </div>
           )
-  }
+       <div className="container" style={{'marginTop':'50px'}}>
+
+        <div>
+          <div>
+          <h1>Home</h1>
+          <div >
+          <form onSubmit={this.handleSubmit}>
+
+            <button type="submit" className="btn btn-warning btn-block btn-lg" style={{color:'black', marginBottom: '10px'}}>Get me the nearest bakeries!</button>
+          </form>
+          </div>
+          <div style={{margin: '15px'}}>
+          <h4>Choose a Bakery</h4>
+          <BakeriesList bakeries={this.state.bakeries} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
+          </div>
+          <TheMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
+          </div>
+          </div>
+        </div>)
+   }
 }
 
 

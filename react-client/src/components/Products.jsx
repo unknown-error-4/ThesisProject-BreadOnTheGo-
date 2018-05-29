@@ -2,6 +2,7 @@ import React from'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import {Redirect} from "react-router-dom";
+import NavcomSigned from './NavcomSigned.jsx';
 
 class Products extends React.Component{
 
@@ -33,7 +34,7 @@ class Products extends React.Component{
              this.setState({image: event.target.value});
            }
 
-       handleClick(){
+        handleClick(){
          var that = this
                  $.ajax({
                      type:'POST',
@@ -57,11 +58,12 @@ class Products extends React.Component{
 
 
 
+
        render(){
 
-         return (
-           <div>
 
+          return (
+            <div>
            <h1>Add Your Products</h1>
            <br/>
            <label> Name of Prouduct :

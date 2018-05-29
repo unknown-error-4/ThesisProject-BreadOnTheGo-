@@ -204,8 +204,8 @@
 						</div>
 
 						<div className="form-group ">
-							<button type="button" className="btn btn-lg btn-block login-button" onClick = {this.handleClick}>Sign Up</button>
-						</div>
+							<button type="button" className="btn btn-primary btn-lg btn-block login-button" onClick = {this.handleClick}>Sign Up</button>
+ 						</div>
 
 					</form>
 				</div>

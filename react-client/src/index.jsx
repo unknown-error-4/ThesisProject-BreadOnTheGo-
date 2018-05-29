@@ -13,6 +13,11 @@ import ProductList from './components/ProductList.jsx'
 import Home from './components/Home.jsx';
 import NavcomSigned from './components/NavcomSigned.jsx';
 import Rating from './components/Rating.jsx';
+import BakeriesList from './components/BakeriesList.jsx';
+import Bakery from './components/Bakery.jsx';
+import SignInB from './components/SignInB.jsx';
+import Logout from './components/Logout.jsx';
+ 
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -20,6 +25,7 @@ class App extends React.Component {
 
     };
   };
+
   render () {
     return (
       <div>

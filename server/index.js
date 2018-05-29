@@ -26,6 +26,7 @@ app.use(morgan('dev'))
     }));
 /////////////////////////////////////////////////////////////
 
+
 app.post('/signupuser', handler.SignUpUser);
 app.post('/signupbakery', handler.SignUpBakery);
 app.post('/signin',handler.SignIn);
@@ -39,6 +40,16 @@ app.put("/updateImage",handler.updateImage)
 // app.put("/upload",handler.upload)
 // // app.get("/getImage",handler.getImage)
 app.get('/showUser',handler.showUser)
+
+
+ app.post('/signinb',handler.SignInB);
+ app.post('/Home', handler.distancebetweenBAndC);
+app.get('/logout',handler.logout);
+ // app.post("/upload",handler.upload)
+// app.get("/upload",handler.getImage)
+// app.get("/upload",handler.updateImage)
+
+
 app.get('/*', (req, res) => {
  res.sendFile(path.resolve(path.join(__dirname, '/../react-client/dist/index.html')));
 });

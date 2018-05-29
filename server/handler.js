@@ -4,6 +4,7 @@ var helper=require('../helper/helperfunc.js')
 var saltRounds = 10;
 
 
+
 exports.SignUpUser = function (req, res) {
 var data=req.body;
 bcrypt.hash(data.password,saltRounds,function(err,hash){
@@ -11,7 +12,7 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
    console.log(err)
  }if(data.userName === "" || data.password.length < 8){
    res.send("Invalid Input")
-   //console.log()
+
    }
  else{
       db.saveUser({
@@ -22,8 +23,10 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
          laltitude: data.laltitude,
          email:data.email,
          typeOfPayment: data.typeOfPayment,
+
          typeOfUser: data.typeOfUser,
          image:data.image
+
        },function(err,data){
          if(err){
            console.log(err)
@@ -34,7 +37,7 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
      }
    });
   }
-  ////////////////////////////////////////////////////////////////////////////////////////////////////
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
   exports.SignUpBakery = function (req, res) {
   var data=req.body;
   bcrypt.hash(data.password,saltRounds,function(err,hash){
@@ -62,7 +65,36 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
        }
      });
     }
-  ////////////////////////////////////////////////////////////////////////////////////////////////////
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+  exports.SignUpBakery = function (req, res) {
+  var data=req.body;
+  bcrypt.hash(data.password,saltRounds,function(err,hash){
+   if(err){
+     console.log(err)
+   }if(data.userName === "" || data.password.length < 8){
+     res.send("Invalid Input")
+     }
+   else{
+        db.saveBakery({
+           bakeryName:data.userName,
+           password:hash,
+           phoneNumber:data.phoneNumber,
+           longitude: data.longitude,
+           laltitude: data.laltitude,
+           email:data.email,
+           typeOfRecievingPayment: data.typeOfRecievingPayment
+          },function(err,data){
+           if(err){
+             console.log(err)
+           }
+           helper.createSession(req,res,data)
+          // res.send(data)
+         })
+       }
+     });
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 exports.SavingProducts = function(req, res){
   console.log("product responese")
   var data = req.body;
@@ -92,6 +124,31 @@ exports.SignIn = function (req, res) {
           if(isMatch){
           console.log('access valid')
           helper.createSession(req,res,data)
+          console.log("zz")
+          }
+          else{
+          console.log('wrong username or password')
+          res.send(isMatch)
+          }
+        })
+    } else {console.log('username not exist22')
+            res.send(false)}
+  });
+};
+///////////////////////////////////////////////////////////////////////////////////////////////////
+exports.SignInB = function (req, res) {
+
+  var email = req.body.email;
+  var pass = req.body.password;
+  db.Bakery.findOne({email:email},function(err,data){
+    if(err){
+      console.log(err)
+    }
+    if(data){
+      bcrypt.compare(pass,data.password,function(err,isMatch){
+          if(isMatch){
+          console.log('access valid')
+          helper.createSession(req,res,data)
           console.log("gg")
           }
           else{
@@ -99,15 +156,28 @@ exports.SignIn = function (req, res) {
           res.send(isMatch)
           }
         })
-    } else {console.log('username not existed')
+    } else {console.log('username not existe10')
             res.send(false)}
   });
 };
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+exports.logout=function(req,res) {
+  req.session.destroy(function() {
+   res.sendStatus(200);
+ });
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 //////////retrive function to retrive all user
 exports.retrieve = function (req, res) {
   var query = req.query;
   db.User.find(query, function (err, response) {
     console.log("afaq",query)
+
     if (err) {
       return res.status(500).json(err.message);
     }
@@ -117,10 +187,11 @@ exports.retrieve = function (req, res) {
     res.json(response);
   });
 };
+
 ///////////retrive function for profile page(user)
 exports.retrieveOne = function (req, res) {
   var query = {id: req.params.id };
-  console.log(query,'quyey')
+
  db.User.findOne(query, function (err, response) {
 
     if (err) {
@@ -173,6 +244,62 @@ exports.retrieveOneProduct = function (req, res) {
     res.json(response);
   });
 };
+///////////////////////////////////////////////////////////////////////////////////////////////////
+var DistanceInKm =function(lat1,lon1,lat2,lon2) {
+          var radius = 6371;
+          var Laltitude = deg2rad(lat2-lat1);
+          var Longitude = deg2rad(lon2-lon1);
+          var a =
+            Math.sin(Laltitude/2) * Math.sin(Laltitude/2) +
+            Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+            Math.sin(Longitude/2) * Math.sin(Longitude/2);
+
+          var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+          var distance = radius * c; // Distance in km
+          return distance;
+        }
+
+      function deg2rad(deg) {
+        return deg * (Math.PI/180)
+      }
+////////////////////////////////////////////////////////////////////////////////////////////////////
+exports.distancebetweenBAndC=function(req, res){
+  user=req.body;
+    db.Bakery.find({},'username longitude laltitude distance phonenumber email',function(err,bakeries){
+      for (var i = 0; i < bakeries.length; i++) {
+        var dis = DistanceInKm(user.laltitude , user.longitude, bakeries[i].laltitude, bakeries[i].longitude)
+        bakeries[i].distance = dis
+      }
+        function compare(a,b) {
+          if (a.distance < b.distance)
+            return -1;
+          if (a.distance > b.distance)
+            return 1;
+          return 0;
+        }
+
+    bakeries.sort(compare);
+
+
+    var arr=[];
+
+    for (var i = 0; i < 3; i++) {
+      arr.push(bakeries[i])
+    }
+
+    res.send(arr);
+
+  })
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
 /////////this function to upload image
 exports.upload = function(req,res){
  var image = req.body.image

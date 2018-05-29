@@ -107,8 +107,9 @@
 	render(){
     const { redirect } = this.state;
        if (redirect) {
-         return <Redirect to='/signin'/>;
-       }
+
+         return <Redirect to='/signinb'/>;
+        }
 	return (
 		<div className ="container">
 			<div className="row main">
@@ -201,7 +202,8 @@
 							</div>
 						</div>
 						<div className="form-group ">
-							<button type="button" value="sign uo"  id="submit" onClick = {this.handleClick}>Sign Up</button>
+
+							<button type="button" className="btn btn-primary btn-lg btn-block login-button" onClick = {this.handleClick}>Sign Up</button>
 						</div>
 
 					</form>
