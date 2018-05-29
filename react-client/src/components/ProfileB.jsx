@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from './Image.jsx'
 
 
 class ProfileB extends React.Component {
@@ -34,17 +35,21 @@ class ProfileB extends React.Component {
   	var imgUrl=bakery.imgUrl
   	var email=bakery.email
     var phoneNumber=bakery.phoneNumber
+    var image = bakery.image
   	return(
- 		<div className="row">
-        <div className="col-md-3" style={{'paddingLeft':'20px'}}>
-          <img src="https://www.sarahotels.in/img/default-user.png"  width = '250px'/>
-        </div>
-        <div className='col-md-9'>
-          <p>Bakery Name : {bakeryName}</p>
-          <p>Email : {email}</p>
-          <p>Phone Number : {phoneNumber}</p>
-        </div>
-  		</div>
+      <div className="row">
+          <div className="col-md-3" >
+           <Image image={image}/>
+
+          <div className='col-md-9'>
+            <h1>Bakery Name :  {bakeryName} Profile</h1>
+            <p>Email :{email}</p>
+            <p>Phone Number : {phoneNumber}</p>
+            </div>
+          </div>
+    		</div>
+
+
 
   	)
   }

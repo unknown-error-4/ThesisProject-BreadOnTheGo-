@@ -4,8 +4,7 @@ import { BrowserRouter, Route, Link, IndexRoute, hashHistory, browserHistory, Sw
 import { HashRouter } from 'react-router-dom'
 import Products from './Products.jsx'
 import SignIn from './SignIn.js';
-import SignInB from './SignInB.jsx'
-import SignUpB from './SignUpB.js';
+ import SignUpB from './SignUpB.js';
 import SignUpC from './SignUpC.js';
 import Navcom from './Navcom.jsx';
 import Profile from './Profile.jsx';
@@ -48,10 +47,9 @@ class AppRoute extends React.Component {
           <Route exact path='/profileB' component={ProfileB}/>
           <Route exact path='/searchProduct'component={SearchProduct}/>
           <Route exact path ='/image' component={image}/>
-           <Route exact path='/navsignedC' component={NavcomSignedC}/>
+          <Route exact path='/navsignedC' component={NavcomSignedC}/>
           <Route exact path='/navsignedB' component={NavcomSignedB}/>
           <Route exact path='/orderList' component={OrderList} />
-          <Route exact path='/productList' component={ProductList} />
           <Route exact path='/home' component={Home}/>
           <Route exact path ='/Rating' component={Rating}/>
           <Route exact path="/logout" component={Logout} />

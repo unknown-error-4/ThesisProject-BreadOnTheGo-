@@ -10,7 +10,8 @@ import {
 import ProfileB from './ProfileB.jsx';
 import OrderList from './OrderList.jsx';
 import Products from './Products.jsx';
-import SearchProduct from './SearchProduct.jsx';
+import Logout from './Logout.jsx';
+
 
 
 
@@ -47,23 +48,23 @@ class NavcomSignedB extends React.Component {
            <Link to= "/products">Add Products</Link>
       </NavItem>
       <NavItem eventKey={3}>
-            <Link to= "/showProduct">Show Me My Products</Link>
-      </NavItem>
-      <NavItem eventKey={4}>
              <Link to= "/orderList">Check the Order</Link>
       </NavItem>
-  </Nav>
-  <Nav pullRight>
-      <NavItem eventKey={2}>
-           <Link to= "/">Log Out</Link>
-      </NavItem>
-  </Nav>
+        </Nav>
+      <Nav pullRight>
+        <NavItem eventKey={1}>
+        <Link to="/logout">
+            Logout
+        </Link>
+         </NavItem>
+        </Nav>
 </Navbar.Collapse>
 </Navbar>
-     <Route exact path='/showProduct' component={SearchProduct}/>
      <Route path="/products"  component={Products}/>
      <Route path="/orderList"  component={OrderList}/>
      <Route path="/profileB"component={ProfileB}/>
+     <Route exact path='/logout' component={Logout} />
+
   </div>
 
 </Router>

@@ -35,17 +35,18 @@ class Profile extends React.Component {
    	var imgUrl=user.imgUrl
   	var email=user.email
     var image=user.image
+    var phoneNumber=user.phoneNumber
+
   	return(
  		<div className="row">
         <div className="col-md-3" >
          <Image image={image}/>
 
         <div className='col-md-9'>
-          <h1> {userName} Profile</h1>
-          <p>{email}</p>
-
+          <h1>User Name :  {userName} Profile</h1>
+          <p>Email :{email}</p>
+          <p>Phone Number : {phoneNumber}</p>
           </div>
-
         </div>
   		</div>
 

@@ -56,7 +56,8 @@ var bakerySchema = mongoose.Schema({
    phoneNumber: Number,
    latitude: Number,
    longtitude: Number,
-   typeOfRecievingPayment: String
+   typeOfRecievingPayment: String,
+   image:''
  });
 
 var Bakery = mongoose.model('Bakery', bakerySchema);

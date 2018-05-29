@@ -1,12 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
 import { Button,  Panel, ListGroupItem, PanelGroup, FormControl, FormGroup } from 'react-bootstrap';
 import Rating from './Rating.jsx'
-
-=======
-import { Button,  Panel, ListGroupItem, PanelGroup, FormControl, FormGroup , Image} from 'react-bootstrap';
->>>>>>> orderComponent
-
 class SearchProduct extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +10,7 @@ class SearchProduct extends React.Component {
     }
     this.handleChange=this.handleChange.bind(this);
     this.getItem=this.getItem.bind(this);
+    this.handleClick=this.handleClick.bind(this);
   }
 
   handleChange(e){
@@ -65,25 +60,25 @@ class SearchProduct extends React.Component {
   }
 
 ///make the order ///
-// handleClick(event){
-//
-//   $.ajax ({
-//     type: 'POST',
-//     url: '/showProduct',
-//     data: {
-//       name: y.name,
-//       price: y.price
-//     },
-//     success: (data) => {
-//       console.log('order added',data)
-//       alert('Added to Your Cart');
-//     },
-//     error:(err) => {
-//       console.log('Failed in adding product to the Cart',err);
-//     }
-//   });
-//   event.preventDefault();
-// }
+handleClick(event){
+
+  $.ajax ({
+    type: 'POST',
+    url: '/showProduct',
+    data: {
+      name: y.name,
+      price: y.price
+    },
+    success: (data) => {
+      console.log('order added',data)
+      alert('Added to Your Cart');
+    },
+    error:(err) => {
+      console.log('Failed in adding product to the Cart',err);
+    }
+  });
+  event.preventDefault();
+}
 
 
   render(){
@@ -105,14 +100,14 @@ class SearchProduct extends React.Component {
       {this.state.products.map(function(y){
         return(
           <div>
-          
+
 
           <div  id="border" >
-           <h1> {y.name}</h1>
-           <h1> {y.price} </h1>
-           <h1> {y.description} </h1>
-           <Image src={y.image}  thumbnail style={{weight : 50 , height : "60px"}} />
-           <button type ='button'  >Add to Cart</button>
+           <h1>Product Name : {y.name}</h1>
+           <h1>Price : {y.price} </h1>
+           <h1>Description : {y.description} </h1>
+           <h1><img src={y.image}  thumbnail style={{weight : 50 , height : "60px"}} /></h1>
+           <button type ='button' onClick= {this.handleClick} >Add to Cart</button>
            <div> <Rating/></div>
            </div>
          <div>
@@ -131,5 +126,3 @@ class SearchProduct extends React.Component {
 
 }
 export default SearchProduct;
-
-// onClick = {this.handleClick.bind}

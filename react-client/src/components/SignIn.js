@@ -4,12 +4,7 @@ import $ from 'jquery';
 import {Redirect} from "react-router-dom";
 import {Button} from 'react-bootstrap';
 import Home from './Home.jsx';
-<<<<<<< HEAD
-
-
-=======
 import NavcomSignedC from './NavcomSignedC.jsx'
->>>>>>> orderComponent
 
 class SignIn extends React.Component {
   constructor(props){
@@ -54,7 +49,7 @@ class SignIn extends React.Component {
                 console.log('correct signin');
                 window.location.href = "/navsignedC";
 
- 
+
               } else{
                 this.setState({mssg: 'Invalid Email or password'});
                 alert('user name or password is not correct!!');

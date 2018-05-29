@@ -52,24 +52,18 @@ class NavcomSignedC extends React.Component {
          <Link to= "/home">Nearest Bakery</Link>
       </NavItem>
   </Nav>
-  <Nav pullRight>
-
-      <NavItem eventKey={2}>
-           <Link to= "/">Log Out</Link>
-      </NavItem>
-
-         <Link to= "/"><a href = '#' >Log Out</a></Link>
-     <Link to="/logout">
-    Logout
-   </Link>
+      <Nav pullRight>
+      <NavItem eventKey={1}>
+      <Link to="/logout">
+          Logout
+      </Link>
        </NavItem>
   </Nav>
 </Navbar.Collapse>
 </Navbar>
-     <Route path="/home"component={Home}/>
+    <Route path="/home"component={Home}/>
     <Route path="/Profile"component={Profile}/>
     <Route exact path='/showProduct' component={SearchProduct}/>
- </div>
      <Route exact path='/logout' component={Logout} />
   </div>
 

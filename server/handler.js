@@ -183,7 +183,7 @@ exports.retrieveBakereis = function (req, res) {
 };
 ///////////retrive function for Bakery profile  //////////
 exports.retrieveOneBakery = function (req, res) {
-  var query = {id: req.session.id };
+  var query = {id: req.params.id };
   console.log(query , 'here is sessionB');
  db.Bakery.findOne(query, function (err, response) {
     if (err) {
