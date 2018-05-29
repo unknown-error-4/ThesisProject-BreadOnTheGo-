@@ -23,7 +23,10 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
          laltitude: data.laltitude,
          email:data.email,
          typeOfPayment: data.typeOfPayment,
-         typeOfUser: data.typeOfUser
+
+         typeOfUser: data.typeOfUser,
+         image:data.image
+
        },function(err,data){
          if(err){
            console.log(err)
@@ -34,8 +37,35 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
      }
    });
   }
-
-  ////////////////////////////////////////////////////////////////////////////////////////////////////
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
+  exports.SignUpBakery = function (req, res) {
+  var data=req.body;
+  bcrypt.hash(data.password,saltRounds,function(err,hash){
+   if(err){
+     console.log(err)
+   }if(data.userName === "" || data.password.length < 8){
+     res.send("Invalid Input")
+     }
+   else{
+        db.saveBakery({
+           bakeryName:data.userName,
+           password:hash,
+           phoneNumber:data.phoneNumber,
+           longitude: data.longitude,
+           laltitude: data.laltitude,
+           email:data.email,
+           typeOfRecievingPayment: data.typeOfRecievingPayment
+          },function(err,data){
+           if(err){
+             console.log(err)
+           }
+           helper.createSession(req,res,data)
+          // res.send(data)
+         })
+       }
+     });
+    }
+   ////////////////////////////////////////////////////////////////////////////////////////////////////
   exports.SignUpBakery = function (req, res) {
   var data=req.body;
   bcrypt.hash(data.password,saltRounds,function(err,hash){
@@ -161,8 +191,9 @@ exports.retrieve = function (req, res) {
 ///////////retrive function for profile page(user)
 exports.retrieveOne = function (req, res) {
   var query = {id: req.params.id };
-  console.log(query)
+
  db.User.findOne(query, function (err, response) {
+
     if (err) {
       return res.status(500).json(err.message);
     }
@@ -177,6 +208,19 @@ exports.showProduct = function (req, res) {
   var query = req.query;
   console.log("Prouduct arraived")
   db.Prouduct.find({}, function (err, response) {
+    if (err) {
+      return res.status(500).json(err.message);
+    }
+    if (response.length === 0) {
+      return res.sendStatus(404);
+    }
+    res.send(response);
+  });
+};
+////////////////////////
+exports.showUser = function (req, res) {
+  var query = req.query;
+  db.User.find({}, function (err, response) {
     if (err) {
       return res.status(500).json(err.message);
     }
@@ -257,21 +301,20 @@ exports.distancebetweenBAndC=function(req, res){
 
 
 /////////this function to upload image
-// exports.upload = function(req,res){
-//  var image = req.body.image
-//   var save = new db.User({
-//     image: image
-//   })
-//   save.save(function (err, data) {
-//     if (err) {
-//       throw err
-//     } else {
-//       // console.log('saved!')
-//       res.send(data)
-//     }
-//   })
-// }
-////////////
+exports.upload = function(req,res){
+ var image = req.body.image
+  var save = new db.User({
+    image: image
+  })
+  save.save(function (err, data) {
+    if (err) {
+      throw err
+    } else {
+      res.send(data)
+    }
+  })
+}
+///////// this function to upload image 
 // exports.updateImage=function(req,res){
 // db.User.update({username: req.session.user}, { $set: { image: image }}, function (err, data) {
 //     if (err) {
@@ -282,13 +325,60 @@ exports.distancebetweenBAndC=function(req, res){
 //   })
 // }
 // ///////////////////
-// exports.getImage = function(req,res){
-//   db.User.find({},function(err,data){
-//     if(err){
-//       throw err
-//     }else{
-//       res.send(data)
-//     }
-//   })
-// }
-/////////////
+exports.getImage = function(req,res){
+  db.User.find({},function(err,data){
+    if(err){
+      throw err
+    }else{
+      res.send(data)
+    }
+  })
+}
+///////////////////////
+exports.updateImage = function (req, res) {
+  var updateImage={  
+    image: req.body.image
+  }
+ db.User.findOneAndUpdate({id:req.body.id},updateImage,function(err,data){
+    if(err){
+      res.json('err');
+    }
+   else{
+       data.save(function(err,data){
+        if(err){
+          return handleError(err)
+        }
+        else{
+        res.json(data);
+       }
+        })
+    }
+        
+  })
+}
+
+///////////// to update Rating//////////////////////
+exports.updateRating = function (req, res) {
+  var updaterating={  
+    rating: req.body.rating
+  }
+  console.log("updaterating",updaterating)
+ db.Prouduct.findOneAndUpdate({id:req.body.id},updaterating,function(err,data){
+    if(err){
+      res.json('err');
+    }
+   else{
+       data.save(function(err,data){
+        if(err){
+          return handleError(err)
+        }
+        else{
+        res.json(data);
+       }
+        })
+    }
+
+        
+  })
+}
+//////////////////////////////

@@ -7,7 +7,6 @@ import Home from './Home.jsx';
 
 
 
-
 class SignIn extends React.Component {
   constructor(props){
 
@@ -49,8 +48,9 @@ class SignIn extends React.Component {
               console.log(data)
               if(data){
                 console.log('correct signin');
-                window.location.href = "/navsigned";
 
+                window.location.href = "/navsigned";
+ 
               } else{
                 this.setState({mssg: 'Invalid Email or password'})
               }
@@ -65,7 +65,9 @@ class SignIn extends React.Component {
   render () {
     const { redirect } = this.state;
        if (redirect) {
-         return <Redirect to='/navsigned'/>;
+
+         return <Redirect to='/home'/>;
+
        }
     return(
       <div>

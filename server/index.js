@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var handler =require('./handler');
 var path = require('path');
 var items = require('../database-mongo');
+var morgan =require('morgan')
 const parentModule = require('parent-module');
  var app = express();
 // var multer  =   require('multer');
@@ -14,6 +15,7 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(morgan('dev'))
 ////////////////////////////////////////////////////////////
 // session ::
     // authinticate transzction between Server and client ..
@@ -28,17 +30,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post('/signupuser', handler.SignUpUser);
 app.post('/signupbakery', handler.SignUpBakery);
 app.post('/signin',handler.SignIn);
-app.post('/signinb',handler.SignInB);
-app.post("/prouducts",handler.SavingProducts);
-app.post('/Home', handler.distancebetweenBAndC);
+app.post("/products",handler.SavingProducts)
+app.get("/profile",handler.retrieveOne)
+app.get("/showProduct",handler.showProduct)
+app.get("/showOne",handler.retrieveOneProduct)
+app.get("/profiles",handler.retrieve)
+app.put("/updateRating",handler.updateRating)
+app.put("/updateImage",handler.updateImage)
+// app.put("/upload",handler.upload)
+// // app.get("/getImage",handler.getImage)
+app.get('/showUser',handler.showUser)
+
+
+ app.post('/signinb',handler.SignInB);
+ app.post('/Home', handler.distancebetweenBAndC);
 app.get('/logout',handler.logout);
-app.get("/profile",handler.retrieveOne);
-app.get("/showProduct",handler.showProduct);
-app.get("/showOne",handler.retrieveOneProduct);
-app.get("/profiles",handler.retrieve);
-// app.post("/upload",handler.upload)
+ // app.post("/upload",handler.upload)
 // app.get("/upload",handler.getImage)
 // app.get("/upload",handler.updateImage)
+
+
 app.get('/*', (req, res) => {
  res.sendFile(path.resolve(path.join(__dirname, '/../react-client/dist/index.html')));
 });

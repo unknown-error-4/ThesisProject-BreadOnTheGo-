@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from './Image.jsx'
 
 
 class Profile extends React.Component {
@@ -34,16 +35,17 @@ class Profile extends React.Component {
   	var imgUrl=user.imgUrl
   	var email=user.email
     var password=user.password
+    var image=user.image
   	return(
  		<div className="row">
-        <div className="col-md-3" style={{'paddingLeft':'20px'}}>
-          <img src="https://www.sarahotels.in/img/default-user.png"  width = '250px'/>
-          
-        </div>
+        <div className="col-md-3" >
+         <Image image={image}/>
+        
         <div className='col-md-9'>
           <h1> {userName} Profile</h1>
           <p>{email}</p>
-          <h1>{password}</h1>
+
+          </div>
         </div>
   		</div>
   		

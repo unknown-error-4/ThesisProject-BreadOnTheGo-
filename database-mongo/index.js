@@ -14,20 +14,20 @@ db.once('open', function() {
 ///////////////////////// User's Schema /////////////////////////
 
 var userSchema = mongoose.Schema({
+ userName:String,
+ email:{
+   type: String,
+   trim: true
+   },
+   password:{
+     type: String
+   },
+   phoneNumber: Number,
+   latitude: String,
+   longtitude: String,
+   typeOfPayment: String,
+   image:''
 
-  userName:String,
-  email:{
-    type: String,
-    trim: true
-    },
-    password:{
-      type: String
-    },
-    phoneNumber: Number,
-    latitude: String,
-    longtitude: String,
-    typeOfPayment: String,
-    image:String
 });
 
 var User = mongoose.model('User', userSchema);
@@ -58,12 +58,14 @@ var bakerySchema = mongoose.Schema({
    phoneNumber: Number,
    latitude: String,
    longtitude: String,
-   typeOfRecievingPayment: String,
-
+   typeOfRecievingPayment: String
  });
 
-
 var Bakery = mongoose.model('Bakery', bakerySchema);
+
+
+
+
 
 /////////////////////////Save Bakery/////////////////////////
 
@@ -77,13 +79,14 @@ var saveBakery =function(data,callback){
     callback(null,data)
   })
 }
-///////////////////////// Prouducts' Schema /////////////////////////
+ ///////////////////////// Prouducts' Schema /////////////////////////
 
 var prouductSchema = mongoose.Schema({
  name:{ type: String, unique: true },
  description:String,
  img : {type: String },
- price:Number
+  price:Number,
+ rating:Number
 });
 
 var Prouduct = mongoose.model('Prouduct',prouductSchema);
@@ -134,7 +137,8 @@ var saveOrder = function(data,callback){
 };
 
 ///////////////////////// selectAll Orders /////////////////////////
-//it will be appeared to the bakery ::
+//it will be appeared to the bakery :: 
+
 var selectAll = function(callback) {
  Orders.find({}, function(err, data) {
    if(err) {
