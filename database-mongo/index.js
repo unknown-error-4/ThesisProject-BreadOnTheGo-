@@ -52,13 +52,13 @@ var bakerySchema = mongoose.Schema({
    type: String,
    trim: true
    },
-   password:{
-     type: String
-   },
+   password: String,
    phoneNumber: Number,
    latitude: Number,
    longtitude: Number,
-   typeOfRecievingPayment: String
+   typeOfRecievingPayment: String,
+   image:''
+
  });
 
 var Bakery = mongoose.model('Bakery', bakerySchema);
@@ -118,7 +118,8 @@ var selectAll = function(callback) {
 ///////////////////////// Orders' Schema /////////////////////////
 
 var ordersSchema = mongoose.Schema({
- order: Array
+  name: String,
+  price: Number
 });
 
 var Orders = mongoose.model('Orders',ordersSchema);
@@ -138,6 +139,7 @@ var saveOrder = function(data,callback){
 
 ///////////////////////// selectAll Orders /////////////////////////
 //it will be appeared to the bakery ::
+
 var selectAll = function(callback) {
  Orders.find({}, function(err, data) {
    if(err) {

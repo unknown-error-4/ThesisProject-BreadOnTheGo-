@@ -35,6 +35,7 @@ class SignUpC extends React.Component {
   handleClick(event){
     var that = this
 
+
     $.ajax({
       type:'POST',
       url: '/signupuser',
@@ -47,7 +48,7 @@ class SignUpC extends React.Component {
         latitude: that.state.latitude,
         longtitude: that.state.longtitude,
         typeOfPayment: that.state.typeOfPayment
-        },
+         },
       success: (data) => {
       if(data === 'exists'){
         this.setState({mssg : "This username is already used"})

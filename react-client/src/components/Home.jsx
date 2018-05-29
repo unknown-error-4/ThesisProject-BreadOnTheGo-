@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import TheMap from './TheMap.jsx';
-import NavcomSigned from './NavcomSigned.jsx'
-import BakeriesList from './BakeriesList.jsx';
+ import BakeriesList from './BakeriesList.jsx';
 
   class Home extends React.Component {
   constructor(props) {
@@ -73,13 +72,13 @@ import BakeriesList from './BakeriesList.jsx';
 
     return (
       <div className="container" style={{'marginTop':'50px'}}>
-
         <div>
           <div>
+          <div className="container" style={{'marginTop':'50px'}}>
+          <TheMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
           <h1>Home</h1>
-          <div >
+          <div>
           <form onSubmit={this.handleSubmit}>
-
             <button type="submit" className="btn btn-warning btn-block btn-lg" style={{color:'black', marginBottom: '10px'}}>Get me the nearest bakeries!</button>
           </form>
           </div>
@@ -90,7 +89,9 @@ import BakeriesList from './BakeriesList.jsx';
           <TheMap setLngLat={this.setLngLat} longitude={this.state.longtitude} laltitude={this.state.latitude}/>
           </div>
           </div>
-        </div>)
+          </div>
+        </div>
+      )
   }
 }
 

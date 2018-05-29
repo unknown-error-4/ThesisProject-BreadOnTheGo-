@@ -32,23 +32,24 @@ class Profile extends React.Component {
   render(){
   	var user = this.state.user;
   	var userName = user.userName;
-  	var imgUrl=user.imgUrl
+   	var imgUrl=user.imgUrl
   	var email=user.email
-    var password=user.password
     var image=user.image
+    var phoneNumber=user.phoneNumber
+
   	return(
  		<div className="row">
         <div className="col-md-3" >
          <Image image={image}/>
-        
-        <div className='col-md-9'>
-          <h1> {userName} Profile</h1>
-          <p>{email}</p>
 
+        <div className='col-md-9'>
+          <h1>User Name :  {userName} Profile</h1>
+          <p>Email :{email}</p>
+          <p>Phone Number : {phoneNumber}</p>
           </div>
         </div>
   		</div>
-  		
+
   	)
   }
 
