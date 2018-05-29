@@ -14,6 +14,7 @@ db.once('open', function() {
 ///////////////////////// User's Schema /////////////////////////
 
 var userSchema = mongoose.Schema({
+
   userName:String,
   email:{
     type: String,
@@ -41,7 +42,6 @@ var saveUser =function(data,callback){
    }
    callback(null,data)
  })
-
 }
 
 ///////////////////////// Bakery's Schema /////////////////////////
@@ -52,16 +52,12 @@ var bakerySchema = mongoose.Schema({
    type: String,
    trim: true
    },
-   password:{
-     type: String
-   },
+   password: String,
    phoneNumber: Number,
-   latitude: String,
-   longtitude: String,
-   typeOfRecievingPayment: String,
-
+   latitude: Number,
+   longtitude: Number,
+   typeOfRecievingPayment: String
  });
-
 
 
 var Bakery = mongoose.model('Bakery', bakerySchema);
@@ -78,19 +74,14 @@ var saveBakery =function(data,callback){
     callback(null,data)
   })
 }
-
-}
-
-
 ///////////////////////// Prouducts' Schema /////////////////////////
 
 var prouductSchema = mongoose.Schema({
- name:{ type: String, unique: true },
- description:String,
- img : { data: Buffer, type: String },
+ name: String,
+ description: String,
+ image : String ,
  price: Number
 });
-
 
 var Prouduct = mongoose.model('Prouduct',prouductSchema);
 
@@ -121,9 +112,9 @@ var selectAll = function(callback) {
 ///////////////////////// Orders' Schema /////////////////////////
 
 var ordersSchema = mongoose.Schema({
- order: Array
+  name: String,  
+  price: Number
 });
-
 
 var Orders = mongoose.model('Orders',ordersSchema);
 

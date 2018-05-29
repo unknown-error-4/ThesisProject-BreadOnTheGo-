@@ -3,7 +3,8 @@ import $ from 'jquery'
 import { BrowserRouter, Route, Link, IndexRoute, hashHistory, browserHistory, Switch } from 'react-router-dom'
 import { HashRouter } from 'react-router-dom'
 import Products from './Products.jsx'
-import SignIn from './SignIn.js'
+import SignIn from './SignIn.js';
+import SignInB from './SignInB.jsx'
 import SignUpB from './SignUpB.js';
 import SignUpC from './SignUpC.js';
 import Navcom from './Navcom.jsx';
@@ -15,8 +16,7 @@ import Home from './Home.jsx'
 import NavcomSignedC from './NavcomSignedC.jsx';
 import NavcomSignedB from './NavcomSignedB.jsx';
 import OrderList from './OrderList.jsx';
-
-
+import ProfileB from './ProfileB.jsx';
 
 
 
@@ -40,6 +40,7 @@ class AppRoute extends React.Component {
           <Route exact path='/signinb' component={SignInB} />
           <Route exact path='/' component={Navcom}/>
           <Route exact path='/profile' component={Profile}/>
+          <Route exact path='/profileB' component={ProfileB}/>
           <Route exact path='/searchProduct'component={SearchProduct}/>
           <Route exact path ='/image' component={image}/>
            <Route exact path='/home' component={Home}/>

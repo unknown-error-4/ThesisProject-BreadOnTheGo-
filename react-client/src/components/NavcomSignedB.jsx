@@ -7,7 +7,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import Profile from './Profile.jsx';
+import ProfileB from './ProfileB.jsx';
 import OrderList from './OrderList.jsx';
 import Products from './Products.jsx';
 import SearchProduct from './SearchProduct.jsx';
@@ -20,15 +20,12 @@ class NavcomSignedB extends React.Component {
   constructor (props) {
     super(props);
     this.state ={
-    //  redirect: false
+
     }
 
   }
   render(){
-    // const { redirect } = this.state;
-    //    if (redirect) {
-    //      return <Redirect to='/'/>;
-    //    }
+
   	return(
       <div>
      <Router>
@@ -44,7 +41,7 @@ class NavcomSignedB extends React.Component {
 
   <Nav pullLeft>
       <NavItem eventKey={1}>
-         <Link to= "/Profile">Profile</Link>
+         <Link to= "/profileB">Profile</Link>
       </NavItem>
       <NavItem eventKey={2}>
            <Link to= "/products">Add Products</Link>
@@ -66,7 +63,7 @@ class NavcomSignedB extends React.Component {
      <Route exact path='/showProduct' component={SearchProduct}/>
      <Route path="/products"  component={Products}/>
      <Route path="/orderList"  component={OrderList}/>
-     <Route path="/Profile"component={Profile}/>
+     <Route path="/profileB"component={ProfileB}/>
   </div>
 
 </Router>

@@ -24,18 +24,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
     }));
 /////////////////////////////////////////////////////////////
 
-
+// it should be the same in the ajax call
 app.post('/signupuser', handler.SignUpUser);
 app.post('/signupbakery', handler.SignUpBakery);
 app.post('/signin',handler.SignIn);
 app.post('/signinb',handler.SignInB);
-app.post("/prouducts",handler.SavingProducts);
-app.post('/Home', handler.distancebetweenBAndC);
-app.get('/logout',handler.logout);
-app.get("/profile",handler.retrieveOne);
-app.get("/showProduct",handler.showProduct);
-app.get("/showOne",handler.retrieveOneProduct);
-app.get("/profiles",handler.retrieve);
+app.post("/products",handler.SavingProducts)
+app.get("/Profile",handler.retrieveOne)
+app.get("/ProfileB",handler.retrieveOneBakery)
+app.get("/showProduct",handler.showProduct)
+app.get("/showOne",handler.retrieveOneProduct)
+app.get("/profiles",handler.retrieve)
+app.post("/orders",handler.SavingOrders)
+app.get("/orders",handler.retrieveOneC)
+
 // app.post("/upload",handler.upload)
 // app.get("/upload",handler.getImage)
 // app.get("/upload",handler.updateImage)

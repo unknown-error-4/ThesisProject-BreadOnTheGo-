@@ -58,13 +58,13 @@ class Products extends React.Component{
 
 
         render(){
-
+  
           return (
             <div>
 
             <h1>Add Your Products</h1>
             <br/>
-            <label> Name of Prouduct :
+            <label> Name of Product :
             <br/>
             <input type="text" name="User Name" required onChange={this.handleChangename}/>
             </label>

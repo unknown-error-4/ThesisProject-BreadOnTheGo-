@@ -1,26 +1,26 @@
 import React from 'react';
 
 
-class Profile extends React.Component {
+class ProfileB extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user:[]
+      bakery:[]
     }
   }
 
   componentDidMount() {
     var that = this;
-    var user = this.props.userName
+    var user = this.props.bakeryName
     console.log(user);
     $.ajax({
-      url: '/Profile',
+      url: '/ProfileB',
       method: 'GET',
     })
     .done (function (data) {
       console.log(data)
       that.setState({
-        user: data
+        bakery: data
       });
     })
     .fail(function( jqXHR, textStatus ) {
@@ -29,21 +29,20 @@ class Profile extends React.Component {
   }
 
   render(){
-  	var user = this.state.user;
-  	var userName = user.userName;
-  	var imgUrl=user.imgUrl;
-  	var email=user.email;
-    var phoneNumber=user.phoneNumber;
+  	var bakery = this.state.bakery;
+  	var bakeryName = bakery.bakeryName;
+  	var imgUrl=bakery.imgUrl
+  	var email=bakery.email
+    var phoneNumber=bakery.phoneNumber
   	return(
  		<div className="row">
         <div className="col-md-3" style={{'paddingLeft':'20px'}}>
           <img src="https://www.sarahotels.in/img/default-user.png"  width = '250px'/>
-
         </div>
         <div className='col-md-9'>
-          <h1>Name : {userName}</h1>
+          <p>Bakery Name : {bakeryName}</p>
           <p>Email : {email}</p>
-          <h1>Phone Number : {phoneNumber}</h1>
+          <p>Phone Number : {phoneNumber}</p>
         </div>
   		</div>
 
@@ -51,4 +50,4 @@ class Profile extends React.Component {
   }
 
 }
-export default Profile;
+export default ProfileB;

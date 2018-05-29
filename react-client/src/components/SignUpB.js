@@ -12,7 +12,7 @@
 
 				this.state = {
           redirect: false,
-					userName: '',
+					bakeryName: '',
 					email: '',
 					password: '',
 					confirmPass:'',
@@ -21,7 +21,7 @@
 		      longtitude:'',
           typeOfRecievingPayment: ''
           }
-        this.handleChangeuserName = this.handleChangeuserName.bind(this);
+        this.handleChangebakeryName = this.handleChangebakeryName.bind(this);
 				this.handleChangeEmail = this.handleChangeEmail.bind(this);
 				this.handleChangePassword = this.handleChangePassword.bind(this);
 				this.handleChangeConfirmPassword = this.handleChangeConfirmPassword.bind(this);
@@ -39,7 +39,7 @@
 					type:'POST',
 					url: '/signupbakery',
 					data:{
-						userName:that.state.userName,
+						bakeryName:that.state.bakeryName,
 						email: that.state.email,
 						password: that.state.password,
             confirmPass: that.state.confirmPass,
@@ -50,13 +50,13 @@
 						},
           success: (data) => {
           if(data === 'exists'){
-            this.setState({mssg : "This username is already used"})
+            this.setState({mssg : "This bakeryName is already used"})
           }else if(data !== 'Invalid Input'){
             this.setState({redirect: true})
-            
+
           } else{
             this.setState({mssg : data})
-            //window.location.href = "http://localhost:3000/login";
+            window.location.href = "http://localhost:3000/signinb";
           }
           console.log('success', data)
         },
@@ -70,9 +70,9 @@
 
 
 
-			handleChangeuserName(event) {
-		    this.setState({userName: event.target.value});
-        console.log (this.state.userName);
+			handleChangebakeryName(event) {
+		    this.setState({bakeryName: event.target.value});
+        console.log (this.state.bakeryName);
 
 		  }
 			handleChangeEmail(event) {
@@ -116,7 +116,7 @@
 			<div className="row main">
 				<div className="panel-heading">
 	               <div className="panel-title text-center">
-	               		<h1 className="title"></h1>
+	               		<h1 className="title">Sign Up as Bakery</h1>
 	               		<hr />
 	               	</div>
 	            </div>
@@ -127,7 +127,7 @@
 						<div className="cols-sm-10">
 							<div className="input-group">
 								<span className="input-group-addon"><i className="fa fa-user fa" aria-hidden="true"></i></span>
-								<input type="text" className="form-control"  name="User Name" id="name" value = {this.state.userName} placeholder="Enter your Username" onChange={this.handleChangeuserName}/>
+								<input type="text" className="form-control"  name="bakeryName Name" id="name" value = {this.state.bakeryName} placeholder="Enter your bakeryName" onChange={this.handleChangebakeryName}/>
 							</div>
 						</div>
 					</div>
@@ -161,7 +161,7 @@
 							</div>
 						</div>
 						<div className="form-group">
-							<label for="username" className="cols-sm-2 control-label">Phone Number</label>
+							<label for="bakeryName" className="cols-sm-2 control-label">Phone Number</label>
 							<div className="cols-sm-10">
 								<div className="input-group">
 									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
@@ -170,7 +170,7 @@
 							</div>
 						</div>
 						<div className="form-group">
-							<label for="username" className="cols-sm-2 control-label">Location</label>
+							<label for="bakeryName" className="cols-sm-2 control-label">Location</label>
 							<div className="cols-sm-10">
 								<div className="input-group">
 									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
@@ -179,7 +179,7 @@
 							</div>
 						</div>
 						<div className="form-group">
-							<label for="username" className="cols-sm-2 control-label">longtitude</label>
+							<label for="bakeryName" className="cols-sm-2 control-label">longtitude</label>
 							<div className="cols-sm-10">
 								<div className="input-group">
 									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
@@ -188,7 +188,7 @@
 							</div>
 						</div>
             <div className="form-group">
-							<label for="username" className="cols-sm-2 control-label">Type Of Recieving Payment:</label>
+							<label for="bakeryName" className="cols-sm-2 control-label">Type Of Recieving Payment:</label>
 							<div className="cols-sm-10">
 								<div className="input-group">
 									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
@@ -225,7 +225,7 @@
 //           <form /*onClick = {this.handleClick}*/>
 // 					<label>User Name:
 //           <br/>
-// 					<input type="text" name="User Name" required value = {this.state.userName} onChange={this.handleChangeuserName}/>
+// 					<input type="text" name="User Name" required value = {this.state.bakeryName} onChange={this.handleChangebakeryName}/>
 // 					</label>
 // 					<br/>
 // 					<label>Email:

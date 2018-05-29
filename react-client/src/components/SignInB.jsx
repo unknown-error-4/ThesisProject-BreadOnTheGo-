@@ -5,6 +5,7 @@ import {Redirect} from "react-router-dom";
 import {Button} from 'react-bootstrap'
 import Home from './Home.jsx';
 import Products from './Products.jsx';
+import NavcomSignedB from './NavcomSignedB.jsx';
 
 
 class SignInB extends React.Component {
@@ -48,7 +49,7 @@ class SignInB extends React.Component {
               console.log(data)
               if(data){
                 console.log('correct signin');
-                window.location.href = "/products";
+                window.location.href = "/navsignedB";
 
               } else{
                 this.setState({mssg: 'Invalid Email or password'})
@@ -64,14 +65,14 @@ class SignInB extends React.Component {
   render () {
     const { redirect } = this.state;
        if (redirect) {
-         return <Redirect to='/products'/>;
+         return <Redirect to='/navsignedB'/>;
        }
     return(
       <div>
     <div className="modal-dialog modal-login">
         <div className="modal-content">
             <div className="modal-header">
-                <h4 className="modal-title"> Login</h4>
+                <h4 className="modal-title"> Login As Bakery</h4>
                 <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div className="modal-body">
@@ -90,9 +91,7 @@ class SignInB extends React.Component {
                 </form>
 
             </div>
-            <div className="modal-footer">
-                <a href="#">Forgot Password?</a>
-            </div>
+
         </div>
     </div>
 </div>
