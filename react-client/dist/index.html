@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js" integrity="sha256-VAvG3sHdS5LqTT+5A/aeq/bZGa/Uj04xKxY8KM/w9EE=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
@@ -16,27 +17,33 @@
 <title>Bread On The Go</title>
 <style>
     body{
-/*    background: url("https://www.cobsbread.com/drive/uploads/2018/04/Homepage_CapeSeed_V2.jpg");*/
-/*    opacity: 0.5;
-    filter: alpha(opacity=50);*/
-    color:#800000;
-    width: 160px;
-    height: 100px;
+   background: url("https://www.labreabakery.com/sites/default/files/styles/home_page_slide/public/2017-08/Flash-stock-test-shoot-1110_1.png?itok=2LenpeQo");
+		opacity: 0.5;
+    filter: alpha(opacity=50);
+    /*color:#800000;*/
+    width: 2000px;
+    height: 1000px;
     font-style: italic;
+		font-size: 20px;
+		background-repeat: no-repeat;
+		background-size: 2020px 1000px;
+		margin-left: auto;
+    margin-right: auto;
     }
-    /*body:hover{
-    opacity: 0.5;
-    filter: alpha(opacity=50)
-    }*/
+    body:hover{
+    opacity: .75;
+    filter: alpha(opacity=50);
+    }
     /*start sign up style*/
 .main{
  	margin:50px 15px;
 }
 
-h1.title { 
+h1.title {
 	font-size: 50px;
-	font-family: 'Passion One', cursive; 
-	font-weight: 400; 
+	font-family: 'Passion One', cursive;
+	font-weight: 400;
+
 }
 
 hr{
@@ -133,15 +140,16 @@ span.input-group-addon i {
 }
 .btn-primary {
     color: #fff;
-    background-color:#fff;
-    border-color: #800000;
+    background-color:#800000;
+    border-color: #FFF;
 }
  /*end style of sign up|*
 }
 /*start login style*/
 	.modal-login {
 	color: #800000;
-	width: 350px;
+	width: 500px;
+	height: 500px;
 }
 .modal-login .modal-content {
 	padding: 20px;
@@ -160,12 +168,12 @@ span.input-group-addon i {
 .modal-login  .form-group {
 	position: relative;
 }
-.modal-login i {
+/* .modal-login i {
 	position: absolute;
 	left: 13px;
 	top: 11px;
 	font-size: 18px;
-}
+} */
 .modal-login .form-control {
 	padding-left: 40px;
 }
@@ -174,13 +182,13 @@ span.input-group-addon i {
 }
 .modal-login .form-control, .modal-login .btn {
 	min-height: 40px;
-	border-radius: 3px; 
+	border-radius: 3px;
 }
 .modal-login .hint-text {
 	text-align: center;
 	padding-top: 10px;
 	padding-right:150px;
-}	
+}
 /*.modal-login .close {
     position: absolute;
 	top: -5px;
@@ -211,9 +219,22 @@ span.input-group-addon i {
 #navb{
 	background:	#800000;
 	width:100%;
+}
+ #logout{
+	 border-radius: 25px;
+    border: 2px solid #fff;;
+    padding: 20px;
+    width: 300px;
+    height: 150px;
+ }
+#search{
+	  border-style: solid;
+    border-bottom-style: solid;
+		border-color: black;
+		text-decoration-color: black;
+		background: grey ;
+}
 
-
-}                         
 </style>
 </head>
 <body>

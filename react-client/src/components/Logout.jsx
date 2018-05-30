@@ -51,10 +51,19 @@ class Logout extends Component {
        return (
          <div >
          <form onSubmit={this.handleSubmit}>
-         <h2>Are you sure you want to log out ?? </h2>
-
-           <button type="submit" className="btn btn-danger" >log out</button>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <h2 id="logout" >Are you sure you want to log out !! </h2>
+          <div className = "row"  >
+           <button type="submit" className="btn btn-danger" >Log out</button>
+           </div>
          </form>
+
          </div>
        )
 

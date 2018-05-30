@@ -42,7 +42,7 @@ class ProfileB extends React.Component {
            <Image image={image}/>
 
           <div className='col-md-9'>
-            <h1>Bakery Name :  {bakeryName} Profile</h1>
+            <h1>Bakery Name : {bakeryName} </h1>
             <p>Email :{email}</p>
             <p>Phone Number : {phoneNumber}</p>
             </div>

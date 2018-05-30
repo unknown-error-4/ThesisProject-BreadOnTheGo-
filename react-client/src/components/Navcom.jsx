@@ -24,13 +24,15 @@ class Navcom extends React.Component {
   render(){
   	return(
       <div>
+
+
      <Router>
        <div>
     <Navbar id='navb' >
       <Navbar.Header>
        <Navbar.Brand >
 
-    <a>BreadOnTheGo</a>
+    <a>Bread On The Go</a>
     </Navbar.Brand>
     <Navbar.Toggle />
      </Navbar.Header>
@@ -59,8 +61,7 @@ class Navcom extends React.Component {
  </div>
 
 </Router>
-
-</div>
+ </div>
 
   		)
   }
