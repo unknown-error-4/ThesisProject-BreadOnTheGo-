@@ -10,12 +10,13 @@ class SearchProduct extends React.Component {
     }
     this.handleChange=this.handleChange.bind(this);
     this.getItem=this.getItem.bind(this);
-    this.handleClick=this.handleClick.bind(this);
+    // this.handleClick=this.handleClick.bind(this);
   }
 
   handleChange(e){
     this.setState({value:e.target.value})
   }
+
 
   handleSelect(activeKey){
     this.setState({activeKey});
@@ -59,26 +60,27 @@ class SearchProduct extends React.Component {
     })
   }
 
-///make the order ///
-handleClick(event){
 
-  $.ajax ({
-    type: 'POST',
-    url: '/showProduct',
-    data: {
-      name: y.name,
-      price: y.price
-    },
-    success: (data) => {
-      console.log('order added',data)
-      alert('Added to Your Cart');
-    },
-    error:(err) => {
-      console.log('Failed in adding product to the Cart',err);
-    }
-  });
-  event.preventDefault();
-}
+// ///make the order ///
+// handleClick(event){
+//
+//   $.ajax ({
+//     type: 'POST',
+//     url: '/showProduct',
+//     data: {
+//       name: y.name,
+//       price: y.price
+//     },
+//     success: (data) => {
+//       console.log('order added',data)
+//       alert('Added to Your Cart');
+//     },
+//     error:(err) => {
+//       console.log('Failed in adding product to the Cart',err);
+//     }
+//   });
+//   event.preventDefault();
+// }
 
 
   render(){
@@ -107,7 +109,7 @@ handleClick(event){
            <h1>Price : {y.price} </h1>
            <h1>Description : {y.description} </h1>
            <h1><img src={y.image}  thumbnail style={{weight : 50 , height : "60px"}} /></h1>
-           <button type ='button' onClick= {this.handleClick} >Add to Cart</button>
+           <button type ='button' >Add to Cart</button>
            <div> <Rating/></div>
            </div>
          <div>

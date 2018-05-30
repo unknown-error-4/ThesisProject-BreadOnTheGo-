@@ -9,12 +9,11 @@ class OrderList extends React.Component {
     super(props);
     this.state = {
       value:'',
-      orders:[],
       user: []
     }
     this.getItem=this.getItem.bind(this);
   }
-
+/////////////////////////////////////////////////////////////////////
 //getting the products are ordered ::
   getItem(){
     var that=this;
@@ -36,13 +35,14 @@ class OrderList extends React.Component {
       }
     })
   }
+/////////////////////////////////////////////////////////////////////
 //getting the Customer Info. that ordered ::
 componentDidMount() {
   var that = this;
   var user = this.props.userName
   console.log(user);
   $.ajax({
-    url: '/orderList',
+    url: '/orders',
     method: 'GET',
   })
   .done (function (data) {
@@ -64,14 +64,13 @@ componentDidMount() {
     return (
       <div>
       <h1>Here is the Customer's Information</h1>
-      <div className='col-md-9'>
+      <div>
          <h1>Name : {userName}</h1>
          <h1>Phone Number : {phoneNumber}</h1>
       </div>
       <br/>
       <div>
       <h1>The Customer Order</h1>
-      
       </div>
       </div>
     )

@@ -41,7 +41,6 @@ class Profile extends React.Component {
  		<div className="row">
         <div className="col-md-3" >
          <Image image={image}/>
-
         <div className='col-md-9'>
           <h1>User Name :  {userName} Profile</h1>
           <p>Email :{email}</p>
