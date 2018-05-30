@@ -357,3 +357,57 @@ exports.updateRating = function (req, res) {
 //  });
 // };
 //////////////////////////////
+var DistanceInKm =function(lat1,lon1,lat2,lon2) {
+          var radius = 6371;
+          var Latitude = deg2rad(lat2-lat1);
+          var Longtitude = deg2rad(lon2-lon1);
+          var a =
+            Math.sin(Latitude/2) * Math.sin(Latitude/2) +
+            Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+            Math.sin(Longtitude/2) * Math.sin(Longtitude/2);
+
+          var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+          var distance = radius * c; // Distance in km
+          return distance;
+        }
+
+      function deg2rad(deg) {
+        return deg * (Math.PI/180)
+      }
+////////////////////////////////////////////////////////////////////////////////////////////////////
+exports.distancebetweenBAndC=function(req, res){
+  user=req.body;
+    db.Bakery.find({},'bakeryName longtitude latitude distance phoneNumber email',function(err,bakeries){
+      for (var i = 0; i < bakeries.length; i++) {
+        var dis = DistanceInKm(user.latitude , user.longtitude, bakeries[i].latitude, bakeries[i].longtitude)
+        bakeries[i].distance = dis
+      }
+        function compare(a,b) {
+          if (a.distance < b.distance)
+            return -1;
+          if (a.distance > b.distance)
+            return 1;
+          return 0;
+        }
+
+    bakeries.sort(compare);
+
+
+    var arr=[];
+
+    for (var i = 0; i < 3; i++) {
+      arr.push(bakeries[i])
+    }
+
+    res.send(arr);
+
+  })
+
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+exports.logout=function(req,res) {
+  req.session.destroy(function() {
+   res.sendStatus(200);
+ });
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
