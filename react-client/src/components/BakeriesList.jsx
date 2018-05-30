@@ -1,5 +1,5 @@
 import React from'react';
-import Bakery from './Bakery.jsx'
+// import Bakery from './Bakery.jsx'
 
 
 
@@ -8,16 +8,23 @@ class BakeriesList extends React.Component{
         super(props);
     }
         render(){
-
             return(
                 <div style={{border:'solid', 'borderRadius': '15px', 'borderColor' : '#E9AB17'}}>
-                <ul style={{backgrondColor: '#E44F4F'}} className="list-group">
-                {this.props.Bakery && this.props.Bakery.map((Bakery)=><Bakery Bakery={Bakery} key={'d'+Bakery.bakeryName} longitude={this.props.longitude} laltitude={this.props.laltitude}/>)}
-                </ul>
-                </div>
-                )
-            }
+                { this.props.bakeries.map(item =>{
+                  return (
+                    <div>
+                    <h4>{item.email}</h4>
+                    <p>Distance: {item.phoneNumber} </p>
+                    <p>Mobile: {item.bakeryName}</p>
+                    <h5 style={{border:'solid'}}></h5> 
+                      </div>
 
+                  )
+                })}
+
+                </div>
+              )
+            }
     }
 
 export default BakeriesList

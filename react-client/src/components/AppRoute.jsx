@@ -17,7 +17,6 @@ import NavcomSignedB from './NavcomSignedB.jsx';
 import OrderList from './OrderList.jsx';
 import Rating from './Rating.jsx';
 import BakeriesList from './BakeriesList.jsx';
-import Bakery from './Bakery.jsx';
 import SignInB from './SignInB.jsx'
 import Logout from './Logout.jsx'
 import ProfileB from './ProfileB.jsx';
