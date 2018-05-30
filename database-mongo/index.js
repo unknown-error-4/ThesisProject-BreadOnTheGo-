@@ -26,7 +26,7 @@ var userSchema = mongoose.Schema({
    latitude:  Number,
    longtitude:  Number,
    typeOfPayment: String,
-   image:String
+   image:''
 
 });
 
