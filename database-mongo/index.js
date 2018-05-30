@@ -53,13 +53,12 @@ var bakerySchema = mongoose.Schema({
    type: String,
    trim: true
    },
-   password:{
-     type: String
-   },
+   password: String,
    phoneNumber: Number,
    latitude: Number,
    longtitude: Number,
-   typeOfRecievingPayment: String
+   typeOfRecievingPayment: String,
+   image:''
  });
 
 var Bakery = mongoose.model('Bakery', bakerySchema);
@@ -73,6 +72,7 @@ var Bakery = mongoose.model('Bakery', bakerySchema);
 var saveBakery =function(data,callback){
 
   var NBakery= new Bakery(data);
+  console.log(data);
   NBakery.save(function(err,data){
     if(err){
       callback(err,null)
@@ -80,14 +80,13 @@ var saveBakery =function(data,callback){
     callback(null,data)
   })
 }
- ///////////////////////// Prouducts' Schema /////////////////////////
+///////////////////////// Prouducts' Schema /////////////////////////
 
 var prouductSchema = mongoose.Schema({
  name:{ type: String, unique: true },
  description:String,
  img : {type: String },
-  price:Number,
- rating:Number
+ price:Number
 });
 
 var Prouduct = mongoose.model('Prouduct',prouductSchema);
@@ -119,7 +118,8 @@ var selectAll = function(callback) {
 ///////////////////////// Orders' Schema /////////////////////////
 
 var ordersSchema = mongoose.Schema({
- order: Array
+  name: String,
+  price: Number
 });
 
 var Orders = mongoose.model('Orders',ordersSchema);

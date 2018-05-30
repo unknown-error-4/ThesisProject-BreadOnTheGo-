@@ -26,25 +26,30 @@ app.use(morgan('dev'))
     }));
 /////////////////////////////////////////////////////////////
 
-
+// it should be the same in the ajax call
 app.post('/signupuser', handler.SignUpUser);
 app.post('/signupbakery', handler.SignUpBakery);
 app.post('/signin',handler.SignIn);
+app.post('/signinb',handler.SignInB);
 app.post("/products",handler.SavingProducts)
-app.get("/profile",handler.retrieveOne)
+app.get("/Profile",handler.retrieveOne)
+app.get("/ProfileB",handler.retrieveOneBakery)
 app.get("/showProduct",handler.showProduct)
 app.get("/showOne",handler.retrieveOneProduct)
 app.get("/profiles",handler.retrieve)
-app.put("/updateRating",handler.updateRating)
+// app.post("/orders",handler.SavingOrders)
+// app.get("/orders",handler.retrieveOneC)
+
+// app.post("/upload",handler.upload)
+ app.put("/updateRating",handler.updateRating)
 app.put("/updateImage",handler.updateImage)
 // app.put("/upload",handler.upload)
 // // app.get("/getImage",handler.getImage)
 app.get('/showUser',handler.showUser)
 
 
- app.post('/signinb',handler.SignInB);
- app.post('/Home', handler.distancebetweenBAndC);
-app.get('/logout',handler.logout);
+  // app.post('/Home', handler.distancebetweenBAndC);
+// app.get('/logout',handler.logout);
  // app.post("/upload",handler.upload)
 // app.get("/upload",handler.getImage)
 // app.get("/upload",handler.updateImage)

@@ -2,10 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import {Redirect} from "react-router-dom";
-import {Button} from 'react-bootstrap'
+import {Button} from 'react-bootstrap';
 import Home from './Home.jsx';
-
-
+import NavcomSignedC from './NavcomSignedC.jsx'
 
 class SignIn extends React.Component {
   constructor(props){
@@ -48,15 +47,17 @@ class SignIn extends React.Component {
               console.log(data)
               if(data){
                 console.log('correct signin');
+                window.location.href = "/navsignedC";
 
-                window.location.href = "/navsigned";
- 
+
               } else{
-                this.setState({mssg: 'Invalid Email or password'})
+                this.setState({mssg: 'Invalid Email or password'});
+                alert('user name or password is not correct!!');
               }
             },
             error: (err) => {
               console.log('err', err);
+              alert('user name is not existe !!');
             }
           });
           event.preventDefault();
@@ -65,16 +66,14 @@ class SignIn extends React.Component {
   render () {
     const { redirect } = this.state;
        if (redirect) {
-
-         return <Redirect to='/home'/>;
-
+         return <Redirect to='/navsignedC'/>;
        }
     return(
       <div>
     <div className="modal-dialog modal-login">
         <div className="modal-content">
             <div className="modal-header">
-                <h4 className="modal-title"> Login</h4>
+                <h4 className="modal-title">  Login As Customer</h4>
                 <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div className="modal-body">
@@ -93,9 +92,7 @@ class SignIn extends React.Component {
                 </form>
 
             </div>
-            <div className="modal-footer">
-                <a href="#">Forgot Password?</a>
-            </div>
+
         </div>
     </div>
 </div>

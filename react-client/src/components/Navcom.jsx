@@ -8,11 +8,10 @@ import {
   Link
 } from 'react-router-dom';
 import SignIn from './SignIn.js';
+import SignInB from './SignInB.jsx';
 import SignUpB from './SignUpB.js';
 import SignUpC from './SignUpC.js';
-import Profile from './Profile.jsx';
-import SearchProduct from './SearchProduct.jsx'
-import Home from './Home.jsx'
+
 
 
 
@@ -39,27 +38,25 @@ class Navcom extends React.Component {
   <Nav>
   </Nav>
   <Nav pullRight>
-    <NavItem eventKey={2}>
-          <Link  to= "/SignIn"><div id="link">Sign In</div></Link>
-      </NavItem>
-      <NavDropdown eventKey={3} title="Join Us" id="basic-nav-dropdown" >
-          <Link to= "/SignIn">Sign In</Link>
-    </NavDropdown>
-      <NavDropdown eventKey={3} title="Join Us" id="basic-nav-dropdown">
-     <MenuItem eventKey={3.1}><Link to= "/signupB">Sign Up as Bakery</Link></MenuItem>
-    <MenuItem eventKey={3.2}><Link to= "/signupC">Sign Up as Customer</Link></MenuItem>
-     <MenuItem divider />
-    </NavDropdown>
+  <NavDropdown eventKey={1} title="Sign In As " id="basic-nav-dropdown">
+<MenuItem eventKey={1.1}><Link to= "/signinb">Sign In as Bakery</Link></MenuItem>
+<MenuItem eventKey={1.2}><Link to= "/signin">Sign In as Customer</Link></MenuItem>
+ <MenuItem divider />
+</NavDropdown>
+  <NavDropdown eventKey={2} title="Join Us" id="basic-nav-dropdown">
+<MenuItem eventKey={2.1}><Link to= "/signupB">Sign Up as Bakery</Link></MenuItem>
+<MenuItem eventKey={2.2}><Link to= "/signupC">Sign Up as Customer</Link></MenuItem>
+ <MenuItem divider />
+</NavDropdown>
+
   </Nav>
 </Navbar.Collapse>
 </Navbar>
-    <Route path="/Profile"  component={Profile}/>
-    <Route path="/SignIn"  component={SignIn}/>
+     <Route path="/signin"  component={SignIn}/>
+     <Route path="/signinb"  component={SignInB}/>
     <Route exact path='/signupB' component={SignUpB} />
     <Route exact path='/signupC' component={SignUpC} />
-    <Route path='/SearchProduct' component={SearchProduct}/>
-    <Route path='/home' component={Home}/>
-</div>
+ </div>
 
 </Router>
 
