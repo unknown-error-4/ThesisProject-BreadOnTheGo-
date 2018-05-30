@@ -37,26 +37,26 @@ app.get("/ProfileB",handler.retrieveOneBakery)
 app.get("/showProduct",handler.showProduct)
 app.get("/showOne",handler.retrieveOneProduct)
 app.get("/profiles",handler.retrieve)
-// app.post("/orders",handler.SavingOrders)
-// app.get("/orders",handler.retrieveOneC)
+app.post("/orders",handler.SavingOrders)
+app.get("/orders",handler.retrieveOneC)
 
-// app.post("/upload",handler.upload)
+app.post("/upload",handler.upload)
  app.put("/updateRating",handler.updateRating)
 app.put("/updateImage",handler.updateImage)
-// app.put("/upload",handler.upload)
-// // app.get("/getImage",handler.getImage)
+app.put("/upload",handler.upload)
+app.get("/getImage",handler.getImage)
 app.get('/showUser',handler.showUser)
 
 
-  // app.post('/Home', handler.distancebetweenBAndC);
-// app.get('/logout',handler.logout);
- // app.post("/upload",handler.upload)
-// app.get("/upload",handler.getImage)
-// app.get("/upload",handler.updateImage)
+app.post('/home', handler.distancebetweenBAndC);
+app.get('/logout',handler.logout);
+ app.post("/upload",handler.upload)
+app.get("/upload",handler.getImage)
+app.get("/upload",handler.updateImage)
 
 
 app.get('/*', (req, res) => {
- res.sendFile(path.resolve(path.join(__dirname, '/../react-client/dist/index.html')));
+res.sendFile(path.resolve(path.join(__dirname, '/../react-client/dist/index.html')));
 });
 /////////////////////////////
 app.listen(3000, function() {

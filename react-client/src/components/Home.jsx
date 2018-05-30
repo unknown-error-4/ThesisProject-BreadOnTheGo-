@@ -45,7 +45,7 @@ import TheMap from './TheMap.jsx';
   handleSubmit(event) {
     $.ajax({
       type : 'POST',
-      url: '/Home',
+      url: '/home',
       data: {
 
         longitude: this.state.longtitude,
@@ -75,7 +75,6 @@ import TheMap from './TheMap.jsx';
         <div>
           <div>
           <div className="container" style={{'marginTop':'50px'}}>
-          <TheMap setLngLat={this.setLngLat} longitude={this.state.longitude} laltitude={this.state.laltitude}/>
           <h1>Home</h1>
           <div>
           <form onSubmit={this.handleSubmit}>
