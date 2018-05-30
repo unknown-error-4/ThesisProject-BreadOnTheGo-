@@ -108,188 +108,120 @@ class SignUpB extends React.Component {
 
 
 
-render(){
-const { redirect } = this.state;
-   if (redirect) {
+  render(){
+      const { redirect } = this.state;
+         if (redirect) {
 
-         return <Redirect to='/signinb'/>;
-        }
-	return (
-		<div className ="container">
-			<div className="row main">
-				<div className="panel-heading">
-	               <div className="panel-title text-center">
-	               		<h1 className="title">Sign Up as Bakery</h1>
-	               		<hr />
-	               	</div>
-	            </div>
-			<div className="main-login main-center">
-				<form className="form-horizontal" method="post" action="#">
-					<div className="form-group">
-						<label for="name" className="cols-sm-2 control-label">Your Name</label>
-						<div className="cols-sm-10">
-							<div className="input-group">
-								<span className="input-group-addon"><i className="fa fa-user fa" aria-hidden="true"></i></span>
-								<input type="text" className="form-control"  name="bakeryName Name" id="name" value = {this.state.bakeryName} placeholder="Enter your bakeryName" onChange={this.handleChangebakeryName}/>
-							</div>
-						</div>
-					</div>
-=======
-     return <Redirect to='/signinb'/>;
-    }
-return (
-<div className ="container">
-  <div className="row main">
-    <div className="panel-heading">
-             <div className="panel-title text-center">
-                <h1 className="title"></h1>
-                <hr />
-              </div>
-          </div>
-  <div className="main-login main-center">
-    <form className="form-horizontal" method="post" action="#">
-      <div className="form-group">
-        <label for="name" className="cols-sm-2 control-label">Your Name</label>
-        <div className="cols-sm-10">
-          <div className="input-group">
-            <span className="input-group-addon"><i className="fa fa-user fa" aria-hidden="true"></i></span>
-            <input type="text" className="form-control"  name="User Name" id="name" value = {this.state.userName} placeholder="Enter your Username" onChange={this.handleChangeuserName}/>
-          </div>
-        </div>
-      </div>
-        <div className="form-group">
-          <label for="email" className="cols-sm-2 control-label">Your Email</label>
-          <div className="cols-sm-10">
-            <div className="input-group">
-              <span className="input-group-addon"><i className="fa fa-envelope fa" aria-hidden="true"></i></span>
-              <input type="text" className="form-control" name="Email" id="email" value = {this.state.email} placeholder="Enter your Email" onChange={this.handleChangeEmail}/>
-            </div>
-          </div>
-        </div>
-        <div className="form-group">
-          <label for="password" className="cols-sm-2 control-label">Password</label>
-          <div className="cols-sm-10">
-            <div className="input-group">
-              <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-              <input type="password" className="form-control" value = {this.state.password} name="password" id="password"  placeholder="Enter your Password" onChange={this.handleChangePassword}/>
-            </div>
-          </div>
-        </div>
-						<div className="form-group">
-							<label for="confirm" className="cols-sm-2 control-label">Confirm Password</label>
-							<div className="cols-sm-10">
-								<div className="input-group">
-									<span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" className="form-control" value = {this.state.confirmPass} name="confirm" id="confirm"  placeholder="Confirm your Password" onChange={this.handleChangeConfirmPassword}/>
-								</div>
-							</div>
-						</div>
-						<div className="form-group">
-							<label for="bakeryName" className="cols-sm-2 control-label">Phone Number</label>
-							<div className="cols-sm-10">
-								<div className="input-group">
-									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" className="form-control" required name="Phone Number" placeholder="Enter your phoneNumber" value = {this.state.phoneNumber} onChange={this.handleChangePhoneNumber} />
-								</div>
-							</div>
-						</div>
-						<div className="form-group">
-							<label for="bakeryName" className="cols-sm-2 control-label">Location</label>
-							<div className="cols-sm-10">
-								<div className="input-group">
-									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" className="form-control" name="latitude" id="latitude"value = {this.state.latitude}  placeholder="Enter your latitude" onChange={this.handleChangeLatitude}/>
-								</div>
-							</div>
-						</div>
-						<div className="form-group">
-							<label for="bakeryName" className="cols-sm-2 control-label">longtitude</label>
-							<div className="cols-sm-10">
-								<div className="input-group">
-									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" className="form-control" name="longtitude" id="longtitude" value = {this.state.longtitude}  placeholder="Enter your longtitude" onChange={this.handleChangeLongtitude}/>
-								</div>
-							</div>
-						</div>
-            <div className="form-group">
-							<label for="bakeryName" className="cols-sm-2 control-label">Type Of Recieving Payment:</label>
-							<div className="cols-sm-10">
-								<div className="input-group">
-									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
-									<select className = "typeOfPayment" className="form-control selectpicker btn btn-default" value= {this.state.typeOfRecievingPayment} onChange={this.handleChangePay} required>
-								            <option>Sellect Type Of Recieving Payment</option>
-								            <option>Cash</option>
-								            <option>Credit Card</option>
-                            <option>Both</option>
-						          </select>
-         <div className="form-group">
-          <label for="confirm" className="cols-sm-2 control-label">Confirm Password</label>
-          <div className="cols-sm-10">
-            <div className="input-group">
-              <span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-              <input type="password" className="form-control" value = {this.state.confirmPass} name="confirm" id="confirm"  placeholder="Confirm your Password" onChange={this.handleChangeConfirmPassword}/>
-            </div>
-          </div>
-        </div>
-        <div className="form-group">
-          <label for="username" className="cols-sm-2 control-label">Phone Number</label>
-          <div className="cols-sm-10">
-            <div className="input-group">
-              <span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
-              <input type="text" className="form-control" required name="Phone Number" placeholder="Enter your phoneNumber" value = {this.state.phoneNumber} onChange={this.handleChangePhoneNumber} />
-            </div>
-          </div>
-        </div>
-        <div className="form-group">
-          <label for="username" className="cols-sm-2 control-label">Location</label>
-          <div className="cols-sm-10">
-            <div className="input-group">
-              <span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
-              <input type="text" className="form-control" name="latitude" id="latitude"value = {this.state.latitude}  placeholder="Enter your latitude" onChange={this.handleChangeLatitude}/>
-            </div>
-          </div>
-        </div>
-        <div className="form-group">
-          <label for="username" className="cols-sm-2 control-label">longtitude</label>
-          <div className="cols-sm-10">
-            <div className="input-group">
-              <span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
-              <input type="text" className="form-control" name="longtitude" id="longtitude" value = {this.state.longtitude}  placeholder="Enter your longtitude" onChange={this.handleChangeLongtitude}/>
-            </div>
-          </div>
-        </div>
-        <div className="form-group">
-          <label for="username" className="cols-sm-2 control-label">Type Of Recieving Payment:</label>
-          <div className="cols-sm-10">
-            <div className="input-group">
-              <span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
-              <select className = "typeOfPayment" className="form-control selectpicker btn btn-default" value= {this.state.typeOfRecievingPayment} onChange={this.handleChangePay} required>
-                        <option>Sellect Type Of Recieving Payment</option>
-                        <option>Cash</option>
-                        <option>Credit Card</option>
-                        <option>Both</option>
-                  </select>
+           return <Redirect to='/signinb'/>;
+          }
+  	return (
+  		<div className ="container">
+  			<div className="row main">
+  				<div className="panel-heading">
+  	               <div className="panel-title text-center">
+  	               		<h1 className="title"></h1>
+  	               		<hr />
+  	               	</div>
+  	            </div>
+  			<div className="main-login main-center">
+  				<form className="form-horizontal" method="post" action="#">
+  					<div className="form-group">
+  						<label for="name" className="cols-sm-2 control-label">Your Name</label>
+  						<div className="cols-sm-10">
+  							<div className="input-group">
+  								<span className="input-group-addon"><i className="fa fa-user fa" aria-hidden="true"></i></span>
+  								<input type="text" className="form-control"  name="User Name" id="name" value = {this.state.userName} placeholder="Enter your Username" onChange={this.handleChangeuserName}/>
+  							</div>
+  						</div>
+  					</div>
 
-            </div>
-          </div>
-        </div>
-        <div className="form-group ">
+  						<div className="form-group">
+  							<label for="email" className="cols-sm-2 control-label">Your Email</label>
+  							<div className="cols-sm-10">
+  								<div className="input-group">
+  									<span className="input-group-addon"><i className="fa fa-envelope fa" aria-hidden="true"></i></span>
+  									<input type="text" className="form-control" name="Email" id="email" value = {this.state.email} placeholder="Enter your Email" onChange={this.handleChangeEmail}/>
+  								</div>
+  							</div>
+  						</div>
+  						<div className="form-group">
+  							<label for="password" className="cols-sm-2 control-label">Password</label>
+  							<div className="cols-sm-10">
+  								<div className="input-group">
+  									<span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+  									<input type="password" className="form-control" value = {this.state.password} name="password" id="password"  placeholder="Enter your Password" onChange={this.handleChangePassword}/>
+  								</div>
+  							</div>
+  						</div>
 
-          <button type="button" className="btn btn-primary btn-lg btn-block login-button" onClick = {this.handleClick}>Sign Up</button>
-        </div>
+  						<div className="form-group">
+  							<label for="confirm" className="cols-sm-2 control-label">Confirm Password</label>
+  							<div className="cols-sm-10">
+  								<div className="input-group">
+  									<span className="input-group-addon"><i className="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+  									<input type="password" className="form-control" value = {this.state.confirmPass} name="confirm" id="confirm"  placeholder="Confirm your Password" onChange={this.handleChangeConfirmPassword}/>
+  								</div>
+  							</div>
+  						</div>
+  						<div className="form-group">
+  							<label for="username" className="cols-sm-2 control-label">Phone Number</label>
+  							<div className="cols-sm-10">
+  								<div className="input-group">
+  									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
+  									<input type="text" className="form-control" required name="Phone Number" placeholder="Enter your phoneNumber" value = {this.state.phoneNumber} onChange={this.handleChangePhoneNumber} />
+  								</div>
+  							</div>
+  						</div>
+  						<div className="form-group">
+  							<label for="username" className="cols-sm-2 control-label">Location</label>
+  							<div className="cols-sm-10">
+  								<div className="input-group">
+  									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
+  									<input type="text" className="form-control" name="latitude" id="latitude"value = {this.state.latitude}  placeholder="Enter your latitude" onChange={this.handleChangeLatitude}/>
+  								</div>
+  							</div>
+  						</div>
+  						<div className="form-group">
+  							<label for="username" className="cols-sm-2 control-label">longtitude</label>
+  							<div className="cols-sm-10">
+  								<div className="input-group">
+  									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
+  									<input type="text" className="form-control" name="longtitude" id="longtitude" value = {this.state.longtitude}  placeholder="Enter your longtitude" onChange={this.handleChangeLongtitude}/>
+  								</div>
+  							</div>
+  						</div>
+              <div className="form-group">
+  							<label for="username" className="cols-sm-2 control-label">Type Of Recieving Payment:</label>
+  							<div className="cols-sm-10">
+  								<div className="input-group">
+  									<span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
+  									<select className = "typeOfPayment" className="form-control selectpicker btn btn-default" value= {this.state.typeOfRecievingPayment} onChange={this.handleChangePay} required>
+  								            <option>Sellect Type Of Recieving Payment</option>
+  								            <option>Cash</option>
+  								            <option>Credit Card</option>
+                              <option>Both</option>
+  						          </select>
 
-      </form>
-    </div>
-  </div>
-</div>
+  								</div>
+  							</div>
+  						</div>
+  						<div className="form-group ">
 
-      );
-  }
+  							<button type="button" className="btn btn-primary btn-lg btn-block login-button" onClick = {this.handleClick}>Sign Up</button>
+  						</div>
+
+  					</form>
+  				</div>
+  			</div>
+  		</div>
+
+  					);
+  			}
 
 
-  }
+  			}
 
-  export default SignUpB;
+  			export default SignUpB;
 // ////////////////////////////////////////
 // 					<div>
 // 					<h1>Sign Up</h1>
