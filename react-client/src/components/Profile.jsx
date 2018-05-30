@@ -38,6 +38,8 @@ class Profile extends React.Component {
     var phoneNumber=user.phoneNumber
 
   	return(
+      
+
  		<div className="row">
         <div className="col-md-3" >
          <Image image={image}/>

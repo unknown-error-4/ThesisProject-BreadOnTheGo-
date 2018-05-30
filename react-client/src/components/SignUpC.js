@@ -219,7 +219,40 @@ return (
 
   }
 
-  export default SignUpC;
+			export default SignUpC;
+      /////LAST EDIT /////
+      // <div className="form-group">
+      //   <label for="username" className="cols-sm-2 control-label">Location</label>
+      //   <div className="cols-sm-10">
+      //     <div className="input-group">
+      //       <span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
+      //       <input type="text" className="form-control" name="latitude" id="latitude"value = {this.state.latitude}  placeholder="Enter your latitude" onChange={this.handleChangeLatitude}/>
+      //     </div>
+      //   </div>
+      // </div>
+      // <div className="form-group">
+      //   <label for="username" className="cols-sm-2 control-label">longtitude</label>
+      //   <div className="cols-sm-10">
+      //     <div className="input-group">
+      //       <span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
+      //       <input type="text" className="form-control" name="longtitude" id="longtitude" value = {this.state.longtitude}  placeholder="Enter your longtitude" onChange={this.handleChangeLongtitude}/>
+      //     </div>
+      //   </div>
+      // </div>
+      // <div className="form-group">
+      //   <label for="username" className="cols-sm-2 control-label">Type Of Payment:</label>
+      //   <div className="cols-sm-10">
+      //     <div className="input-group">
+      //       <span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
+      //       <select className = "typeOfPayment" className="form-control selectpicker btn btn-default" value= {this.state.typeOfPayment} onChange={this.handleChangePayment} required>
+      //                 <option>Sellect Type Of Payment</option>
+      //                 <option>Cash</option>
+      //                 <option>Credit Card</option>
+      //           </select>
+      //
+      //     </div>
+      //   </div>
+      // </div>
 // ////////////////////////////////////////
 // 					<div>
 // 					<h1>Sign Up</h1>

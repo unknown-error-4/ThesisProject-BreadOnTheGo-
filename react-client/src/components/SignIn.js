@@ -80,7 +80,7 @@ class SignIn extends React.Component {
                 <form action="/login" method="post">
                     <div className="form-group">
                         <i className="fa fa-user"></i>
-                        <input type="text" name="email" className="form-control" placeholder="email"  required="required" onChange={this.handleChangeEmail} />
+                        <input type="text" name="Email" className="form-control" placeholder="Email"  required="required" onChange={this.handleChangeEmail} />
                     </div>
                     <div className="form-group">
                         <i className="fa fa-lock"></i>

@@ -101,22 +101,17 @@ class SearchProduct extends React.Component {
         onSelect={this.handleSelect}/>
       {this.state.products.map(function(y){
         return(
-          <div>
 
-
-          <div  id="border" >
+          <div className="col-sm-4" id="search">
            <h1>Product Name : {y.name}</h1>
            <h1>Price : {y.price} </h1>
            <h1>Description : {y.description} </h1>
-           <h1><img src={y.image}  thumbnail style={{weight : 50 , height : "60px"}} /></h1>
+           <h1><img src={y.image}  thumbnail style={{weight : 60 , height : "70px"}} /></h1>
            <button type ='button' >Add to Cart</button>
            <div> <Rating/></div>
            </div>
-         <div>
-          <hr/>
-           <hr/>
-           </div>
-            </div>
+
+            
         )
       }
       )}
