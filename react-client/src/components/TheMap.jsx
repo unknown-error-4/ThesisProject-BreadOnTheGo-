@@ -37,7 +37,7 @@ that.setState({
  lng:crd.longtitude
 })
 
-that.props.setLngLat(crd.longitude, crd.latitude)
+that.props.setLngLat(crd.longtitude, crd.latitude)
 }
 
 function error(err) {

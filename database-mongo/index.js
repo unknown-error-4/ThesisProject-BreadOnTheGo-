@@ -23,8 +23,8 @@ var userSchema = mongoose.Schema({
      type: String
    },
    phoneNumber: Number,
-   latitude: String,
-   longtitude: String,
+   latitude:  Number,
+   longtitude:  Number,
    typeOfPayment: String,
    image:''
 
@@ -36,6 +36,7 @@ var User = mongoose.model('User', userSchema);
 
 var saveUser =function(data,callback){
  var NUser= new User(data);
+console.log(data);
  NUser.save(function(err,data){
    if(err){
      callback(err,null)
@@ -58,7 +59,6 @@ var bakerySchema = mongoose.Schema({
    longtitude: Number,
    typeOfRecievingPayment: String,
    image:''
-
  });
 
 var Bakery = mongoose.model('Bakery', bakerySchema);

@@ -73,7 +73,6 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
     }
    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 //////////SavingProducts//////////
 exports.SavingProducts = function(req, res){
   var data = req.body;
@@ -269,7 +268,7 @@ var DistanceInKm =function(lat1,lon1,lat2,lon2) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 exports.distancebetweenBAndC=function(req, res){
   user=req.body;
-    db.Bakery.find({},'username longitude laltitude distance phonenumber email',function(err,bakeries){
+    db.Bakery.find({},'bakeryName longtitude latitude distance phoneNumber email',function(err,bakeries){
       for (var i = 0; i < bakeries.length; i++) {
         var dis = DistanceInKm(user.latitude , user.longtitude, bakeries[i].latitude, bakeries[i].longtitude)
         bakeries[i].distance = dis
