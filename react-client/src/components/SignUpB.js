@@ -35,7 +35,6 @@ class SignUpB extends React.Component {
 
   handleClick(event){
     var that = this
-
 				$.ajax({
 					type:'POST',
 					url: '/signupbakery',
@@ -98,7 +97,7 @@ class SignUpB extends React.Component {
     console.log(this.state.longtitude);
   }
   handleChangeLatitude(event) {
-    this.setState({latitude: event.target.value});
+    this.setState({ latitude: event.target.value});
     console.log(this.state.latitude);
   }
   handleChangePay(event) {
@@ -222,61 +221,3 @@ class SignUpB extends React.Component {
   			}
 
   			export default SignUpB;
-// ////////////////////////////////////////
-// 					<div>
-// 					<h1>Sign Up</h1>
-// 					<br/>
-//           <form /*onClick = {this.handleClick}*/>
-// 					<label>User Name:
-//           <br/>
-// 					<input type="text" name="User Name" required value = {this.state.bakeryName} onChange={this.handleChangebakeryName}/>
-// 					</label>
-// 					<br/>
-// 					<label>Email:
-//           <br/>
-// 					<input type="email" name="Email" required value = {this.state.email} onChange={this.handleChangeEmail}/>
-// 					</label>
-// 					<br/>
-// 					<label>Password:
-//           <br/>
-// 					<input type="password" name="Password" required value = {this.state.password} onChange={this.handleChangePassword}/>
-// 					</label>
-// 					<br/>
-// 					<label>Confirm Password:
-//           <br/>
-// 					<input type="password" name="Confirm Password" required value = {this.state.confirmPass} onChange={this.handleChangeConfirmPassword}/>
-// 					</label>
-// 					<br/>
-// 					<label>Phone Number:
-//           <br/>
-// 					<input type="text" name="Phone Number" required value = {this.state.phoneNumber} onChange={this.handleChangePhoneNumber}/>
-// 					</label>
-// 					<br/>
-// 					<label>Location:
-//           <br/>
-// 					<input type="text" name="latitude" required value = {this.state.latitude} onChange={this.handleChangeLatitude}/>
-//           <br/>
-// 					<input type="text" name="longtitude" required value = {this.state.longtitude} onChange={this.handleChangeLongtitude}/>
-// 					</label>
-// 					<br/>
-// 					<label> Type Of Payment:
-//           <br/>
-// 					<form className="form-group1">
-// 		          <select name = "typeOfPayment" className="form-control selectpicker btn btn-default" value= {this.state.typeOfPayment} onChange={this.handleChangePayment} required>
-// 		            <option>Sellect Type Of Payment</option>
-// 		            <option>Cash</option>
-// 		            <option>Credit Card</option>
-// 		          </select>
-// 		          </form></label>
-// 					<br/>
-//           <label> Who Are You !!
-//           <br/>
-// 					<form className="form-group2">
-// 		           <select name = "typeOfUser" className="form-control selectpicker btn btn-default" value={this.state.typeOfUser} onChange={this.handleChangeUser} required>
-// 		            <option >Baker </option>
-// 		            <option >Customer</option>
-// 		          </select>
-// 		          </form></label>
-// 					<button onClick = {this.handleClick}>Sign Up</button>
-//           </form>
-// 					</div>

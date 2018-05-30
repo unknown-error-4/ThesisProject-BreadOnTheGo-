@@ -56,8 +56,8 @@ bcrypt.hash(data.password,saltRounds,function(err,hash){
            bakeryName:data.userName,
            password:hash,
            phoneNumber:data.phoneNumber,
-           longitude: data.longitude,
-           laltitude: data.laltitude,
+           longtitude: data.longtitude,
+           latitude: data.latitude,
            email:data.email,
            typeOfRecievingPayment: data.typeOfRecievingPayment
           },function(err,data){
