@@ -19,7 +19,6 @@ class BakeriesList extends React.Component {
 
           )
         })}
-
       </div>
     )
   }
