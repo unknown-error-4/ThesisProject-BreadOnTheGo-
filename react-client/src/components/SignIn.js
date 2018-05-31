@@ -97,21 +97,3 @@ class SignIn extends React.Component {
 }
 
 export default SignIn
-
-/// /////////////////
-//   <div>
-//   <label>Email:
-//   <br/>
-//   <input type="email" name="email" required onChange={this.handleChangeEmail}/>
-//   </label>
-//   <br/>
-//   <label> password:
-//   <br/>
-//   <input type="password" name="password" required onChange={this.handleChangepassword}/>
-//   </label>
-//   <br/>
-//   <br/>
-//   <Button onClick = {this.handleSubmit}>Sign In</Button>
-
-// </div>
-/// ////////////////////////////////////////
