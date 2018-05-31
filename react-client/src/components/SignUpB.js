@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import $ from 'jquery'
 import {Redirect} from 'react-router-dom'
+import TheMap from './TheMap.jsx'
 
 class SignUpB extends React.Component {
   constructor (props) {
@@ -158,39 +159,15 @@ class SignUpB extends React.Component {
                 </div>
                 </div>
             </div>
-              <div className='form-group'>
-              <label for='username' className='cols-sm-2 control-label'>Location</label>
-              <div className='cols-sm-10'>
-                  <div className='input-group'>
-                  <span className='input-group-addon'><i className='fa fa-users fa' aria-hidden='true' /></span>
-                  <input type='text' className='form-control' name='latitude' id='latitude'value={this.state.latitude} placeholder='Enter your latitude' onChange={this.handleChangeLatitude} />
-                </div>
-                </div>
-            </div>
-              <div className='form-group'>
-              <label for='username' className='cols-sm-2 control-label'>longtitude</label>
-              <div className='cols-sm-10'>
-                  <div className='input-group'>
-                  <span className='input-group-addon'><i className='fa fa-users fa' aria-hidden='true' /></span>
-                  <input type='text' className='form-control' name='longtitude' id='longtitude' value={this.state.longtitude} placeholder='Enter your longtitude' onChange={this.handleChangeLongtitude} />
-                </div>
-                </div>
-            </div>
-              <div className='form-group'>
-              <label for='username' className='cols-sm-2 control-label'>Type Of Recieving Payment:</label>
-              <div className='cols-sm-10'>
-                  <div className='input-group'>
-                  <span className='input-group-addon'><i className='fa fa-users fa' aria-hidden='true' /></span>
-                  <select className='typeOfPayment' className='form-control selectpicker btn btn-default' value={this.state.typeOfRecievingPayment} onChange={this.handleChangePay} required>
-                      <option>Sellect Type Of Recieving Payment</option>
-                      <option>Cash</option>
-                      <option>Credit Card</option>
-                      <option>Both</option>
-                    </select>
-
-                </div>
-                </div>
-            </div>
+            <div className='form-group'>
+              <TheMap setLngLat={this.setLngLat} longitude={this.state.longtitude} laltitude={this.state.latitude} />
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+          </div>
               <div className='form-group '>
 
               <button type='button' className='btn btn-primary btn-lg btn-block login-button' onClick={this.handleClick}>Sign Up</button>
@@ -198,6 +175,7 @@ class SignUpB extends React.Component {
 
             </form>
         </div>
+
         </div>
     </div>
 
