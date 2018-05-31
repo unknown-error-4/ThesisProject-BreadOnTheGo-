@@ -168,8 +168,6 @@ var saveCridetCard =function(data,callback){
  })
 }
 
-
-
 /// ///////////////////////////////////////////
 
 module.exports.Prouduct = Prouduct
@@ -182,5 +180,7 @@ module.exports.selectAll = selectAll
 module.exports.Orders = Orders
 module.exports.saveOrder = saveOrder
 module.exports.selectAll = selectAll
+
 module.exports.cridetCard=cridetCard
 module.exports.saveCridetCard=saveCridetCard
+

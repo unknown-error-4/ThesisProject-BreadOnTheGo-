@@ -228,6 +228,7 @@ exports.retrieveOneProduct = function (req, res) {
     res.json(response);
   });
 };
+
 /// /////// Saving Orders //////////
 exports.SavingOrders = function (req, res) {
   var data = req.body
@@ -389,6 +390,7 @@ exports.logout = function (req, res) {
     res.sendStatus(200)
   })
 }
+
 //////////////////////// this function to update the value(balance) of payment 
 exports.payment = function (req, res) {
           var price=req.body.price
@@ -413,3 +415,4 @@ exports.payment = function (req, res) {
 
 }
 //////////////////////////////////////////////////////////
+

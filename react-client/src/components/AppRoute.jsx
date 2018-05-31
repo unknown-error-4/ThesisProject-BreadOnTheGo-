@@ -21,8 +21,6 @@ import SignInB from './SignInB.jsx'
 import Logout from './Logout.jsx'
 import ProfileB from './ProfileB.jsx'
 import CardCom from './CardCom.jsx';
-
-
 class AppRoute extends React.Component {
   constructor (props) {
     super(props)

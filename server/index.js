@@ -27,6 +27,7 @@ app.use(session({
 /// //////////////////////////////////////////////////////////
 
 // it should be the same in the ajax call
+
 app.post('/alo',handler.payment)
 app.get('/alo',handler.payment)
 app.post('/signupuser', handler.SignUpUser)
@@ -38,7 +39,6 @@ app.get('/Profile', handler.retrieveOne)
 app.get('/ProfileB', handler.retrieveOneBakery)
 app.get('/showProduct', handler.showProduct)
 app.get('/showOne', handler.retrieveOneProduct)
-
 app.get('/profiles', handler.retrieve)
 app.post('/orders', handler.SavingOrders)
 app.get('/orders', handler.retrieveOneC)
