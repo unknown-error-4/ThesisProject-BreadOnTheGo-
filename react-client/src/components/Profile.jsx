@@ -38,17 +38,38 @@ class Profile extends React.Component {
 
   	return (
 
-      <div className='row'>
-      <div className='col-md-3' >
+      <div className="container" id = "profile">
+        <div className="row">
+        <div className="panel panel-default">
+        <div className="panel-heading"><h4 >User Profile</h4></div>
+        <div className="panel-body">
+        <div className="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+        <div className="col-md-3">
           <Image image={image} />
           <div className='col-md-9'>
-          <h1>User Name :  {userName} Profile</h1>
-          <p>Email :{email}</p>
-          <p>Phone Number : {phoneNumber}</p>
+          <div className="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+          <div className="container">
+          <h2>User Name :  {userName} </h2>
+          </div>
+          <hr/>
+          <ul className="container details" >
+          <p className="glyphicon glyphicon-envelope">  Email :{email}</p>
+          <br/>
+          <p className= "glyphicon glyphicon-earphone"> PhoneNumber : {phoneNumber}</p>
+          <br/>
+          <p className="glyphicon glyphicon-map-marker" >  Location : </p>
+          <br/>
+          </ul>
+          <hr/>
+        </div>
+        <button className="btn btn-lg btn-danger"> Update </button>
+        </div>
+        </div>
+        </div>
+        </div>
         </div>
         </div>
     </div>
-
   	)
   }
 }
