@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import $ from 'jquery'
 import {Redirect} from 'react-router-dom'
+import TheMap from './TheMap.jsx'
 
 class SignUpC extends React.Component {
   constructor (props) {
@@ -159,39 +160,16 @@ class SignUpC extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className='form-group'>
-                <label for='username' className='cols-sm-2 control-label'>Location</label>
-                <div className='cols-sm-10'>
-                  <div className='input-group'>
-                    <span className='input-group-addon'><i className='fa fa-users fa' aria-hidden='true' /></span>
-                    <input type='text' className='form-control' name='latitude' id='latitude'value={this.state.latitude} placeholder='Enter your latitude' onChange={this.handleChangeLatitude} />
-                  </div>
-                </div>
-              </div>
-              <div className='form-group'>
-                <label for='username' className='cols-sm-2 control-label'>longtitude</label>
-                <div className='cols-sm-10'>
-                  <div className='input-group'>
-                    <span className='input-group-addon'><i className='fa fa-users fa' aria-hidden='true' /></span>
-                    <input type='text' className='form-control' name='longtitude' id='longtitude' value={this.state.longtitude} placeholder='Enter your longtitude' onChange={this.handleChangeLongtitude} />
-                  </div>
-                </div>
-              </div>
-              <div className='form-group'>
-                <label for='username' className='cols-sm-2 control-label'>Type Of Payment:</label>
-                <div className='cols-sm-10'>
-                  <div className='input-group'>
-                    <span className='input-group-addon'><i className='fa fa-users fa' aria-hidden='true' /></span>
-                    <select className='typeOfPayment' className='form-control selectpicker btn btn-default' value={this.state.typeOfPayment} onChange={this.handleChangePayment} required>
-                      <option>Sellect Type Of Payment</option>
-                      <option>Cash</option>
-                      <option>Credit Card</option>
-                    </select>
 
-                  </div>
-                </div>
-              </div>
-
+              <div className='form-group'>
+                <TheMap setLngLat={this.setLngLat} longitude={this.state.longtitude} laltitude={this.state.latitude} />
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
               <div className='form-group '>
                 <button type='button' className='btn btn-primary btn-lg btn-block login-button' onClick={this.handleClick}>Sign Up</button>
               </div>
@@ -206,94 +184,3 @@ class SignUpC extends React.Component {
 }
 
 export default SignUpC
-/// //LAST EDIT /////
-// <div className="form-group">
-//   <label for="username" className="cols-sm-2 control-label">Location</label>
-//   <div className="cols-sm-10">
-//     <div className="input-group">
-//       <span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
-//       <input type="text" className="form-control" name="latitude" id="latitude"value = {this.state.latitude}  placeholder="Enter your latitude" onChange={this.handleChangeLatitude}/>
-//     </div>
-//   </div>
-// </div>
-// <div className="form-group">
-//   <label for="username" className="cols-sm-2 control-label">longtitude</label>
-//   <div className="cols-sm-10">
-//     <div className="input-group">
-//       <span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
-//       <input type="text" className="form-control" name="longtitude" id="longtitude" value = {this.state.longtitude}  placeholder="Enter your longtitude" onChange={this.handleChangeLongtitude}/>
-//     </div>
-//   </div>
-// </div>
-// <div className="form-group">
-//   <label for="username" className="cols-sm-2 control-label">Type Of Payment:</label>
-//   <div className="cols-sm-10">
-//     <div className="input-group">
-//       <span className="input-group-addon"><i className="fa fa-users fa" aria-hidden="true"></i></span>
-//       <select className = "typeOfPayment" className="form-control selectpicker btn btn-default" value= {this.state.typeOfPayment} onChange={this.handleChangePayment} required>
-//                 <option>Sellect Type Of Payment</option>
-//                 <option>Cash</option>
-//                 <option>Credit Card</option>
-//           </select>
-//
-//     </div>
-//   </div>
-// </div>
-// ////////////////////////////////////////
-// 					<div>
-// 					<h1>Sign Up</h1>
-// 					<br/>
-//           <form /*onClick = {this.handleClick}*/>
-// 					<label>User Name:
-//           <br/>
-// 					<input type="text" name="User Name" required value = {this.state.userName} onChange={this.handleChangeuserName}/>
-// 					</label>
-// 					<br/>
-// 					<label>Email:
-//           <br/>
-// 					<input type="email" name="Email" required value = {this.state.email} onChange={this.handleChangeEmail}/>
-// 					</label>
-// 					<br/>
-// 					<label>Password:
-//           <br/>
-// 					<input type="password" name="Password" required value = {this.state.password} onChange={this.handleChangePassword}/>
-// 					</label>
-// 					<br/>
-// 					<label>Confirm Password:
-//           <br/>
-// 					<input type="password" name="Confirm Password" required value = {this.state.confirmPass} onChange={this.handleChangeConfirmPassword}/>
-// 					</label>
-// 					<br/>
-// 					<label>Phone Number:
-//           <br/>
-// 					<input type="text" name="Phone Number" required value = {this.state.phoneNumber} onChange={this.handleChangePhoneNumber}/>
-// 					</label>
-// 					<br/>
-// 					<label>Location:
-//           <br/>
-// 					<input type="text" name="latitude" required value = {this.state.latitude} onChange={this.handleChangeLatitude}/>
-//           <br/>
-// 					<input type="text" name="longtitude" required value = {this.state.longtitude} onChange={this.handleChangeLongtitude}/>
-// 					</label>
-// 					<br/>
-// 					<label> Type Of Payment:
-//           <br/>
-// 					<form className="form-group1">
-// 		          <select name = "typeOfPayment" className="form-control selectpicker btn btn-default" value= {this.state.typeOfPayment} onChange={this.handleChangePayment} required>
-// 		            <option>Sellect Type Of Payment</option>
-// 		            <option>Cash</option>
-// 		            <option>Credit Card</option>
-// 		          </select>
-// 		          </form></label>
-// 					<br/>
-//           <label> Who Are You !!
-//           <br/>
-// 					<form className="form-group2">
-// 		           <select name = "typeOfUser" className="form-control selectpicker btn btn-default" value={this.state.typeOfUser} onChange={this.handleChangeUser} required>
-// 		            <option >Baker </option>
-// 		            <option >Customer</option>
-// 		          </select>
-// 		          </form></label>
-// 					<button onClick = {this.handleClick}>Sign Up</button>
-//           </form>
-// 					</div>

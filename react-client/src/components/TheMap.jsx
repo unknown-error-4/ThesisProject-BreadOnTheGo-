@@ -71,7 +71,7 @@ class TheMap extends Component {
           {this.getLoc()// calling getLoc here will get your location once you open the app
           }
 
-          <Map style={{width: '60%', height: '30%'}} google={this.props.google} zoom={7}
+          <Map style={{width: '22%', height: '22%'}} google={this.props.google} zoom={7}
             // the map component which is made thanks to google maps react library
             initialCenter={{ lat: 31.963158, lng: 35.930359}}>
 
