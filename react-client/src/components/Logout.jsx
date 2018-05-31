@@ -44,7 +44,7 @@ class Logout extends Component {
       return <Redirect to='/' />
     }
     return (
-      <div >
+      <div className='container' style={{'marginTop': '50px'}} >
         <form onSubmit={this.handleSubmit}>
           <br />
           <br />
@@ -55,7 +55,7 @@ class Logout extends Component {
           <br />
           <h2 id='logout' >Are you sure you want to log out !! </h2>
           <div className='row' >
-            <button type='submit' className='btn btn-danger' >Log out</button>
+            <button type='submit' className='btn btn-danger btn-md'>Log out</button>
           </div>
         </form>
 

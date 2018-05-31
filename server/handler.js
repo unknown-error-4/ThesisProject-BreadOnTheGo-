@@ -145,7 +145,7 @@ exports.retrieve = function (req, res) {
 }
 /// ////////retrive function for profile page(user) //////////
 exports.retrieveOne = function (req, res) {
-  var query = {id: req.params.id }
+  var query = req.session.user
 
   db.User.findOne(query, function (err, response) {
     if (err) {
@@ -155,6 +155,7 @@ exports.retrieveOne = function (req, res) {
       return res.sendStatus(404)
       console.log(res.sendStatus(404), 'no profile')
     }
+    console.log(response);
     res.json(response)
   })
 }
@@ -386,6 +387,7 @@ exports.distancebetweenBAndC = function (req, res) {
 }
 /// /////////////////////////////////////////////////////////////////////////////////////////////////
 exports.logout = function (req, res) {
+  console.log(req.session);
   req.session.destroy(function () {
     res.sendStatus(200)
   })
