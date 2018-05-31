@@ -216,18 +216,19 @@ exports.showUser = function (req, res) {
 }
 /// /////retrive one product function
 exports.retrieveOneProduct = function (req, res) {
-  var query = {id: req.session.id }
+  var query = {id: req.params.id };
 
-  db.Prouduct.findOne(query, function (err, response) {
+ db.Prouduct.findOne(query, function (err, response) {
     if (err) {
-      return res.status(500).json(err.message)
+      return res.status(500).json(err.message);
     }
     if (!response) {
-      return res.sendStatus(404)
+      return res.sendStatus(404);
     }
-    res.json(response)
-  })
-}
+    res.json(response);
+  });
+};
+
 /// /////// Saving Orders //////////
 exports.SavingOrders = function (req, res) {
   var data = req.body
@@ -389,4 +390,29 @@ exports.logout = function (req, res) {
     res.sendStatus(200)
   })
 }
-/// /////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////// this function to update the value(balance) of payment 
+exports.payment = function (req, res) {
+          var price=req.body.price
+          var value=req.body.value
+          var securityNumber=req.body.securityNumber
+          var valuee = 0
+          db.cridetCard.findOne({securityNumber:securityNumber},
+                function(err,data){
+                    if(err){
+                       throw err
+                    } 
+                    if(parseInt(price)>parseInt(value)){
+                        res.sendStatus(404)
+                    }
+                    else{
+                        valuee= parseInt(value)-parseInt(price)
+                        console.log(valuee)
+                        res.send(valuee.toString())
+                    }
+
+               })  
+
+}
+//////////////////////////////////////////////////////////
+

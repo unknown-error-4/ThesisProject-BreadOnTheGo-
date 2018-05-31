@@ -27,6 +27,9 @@ app.use(session({
 /// //////////////////////////////////////////////////////////
 
 // it should be the same in the ajax call
+
+app.post('/alo',handler.payment)
+app.get('/alo',handler.payment)
 app.post('/signupuser', handler.SignUpUser)
 app.post('/signupbakery', handler.SignUpBakery)
 app.post('/signin', handler.SignIn)

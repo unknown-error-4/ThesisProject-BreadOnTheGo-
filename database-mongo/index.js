@@ -145,6 +145,29 @@ var selectAll = function (callback) {
   })
 }
 
+////////////////cridetCardSchema
+var cridetCardSchema =mongoose.Schema({
+  cardNumber:Number,
+  cardholderName: String,
+  value: { type: Number,default: 1000},
+  expiryDate: {type: Date, default: Date.now},
+  securityNumber:{type:Number, unique: true }
+
+
+})
+var cridetCard = mongoose.model('cridetCard', cridetCardSchema);
+//////////////////// save function to save data in cridetCard
+
+var saveCridetCard =function(data,callback){
+ var NCard= new cridetCard(data);
+ NCard.save(function(err,data){
+   if(err){
+     callback(err,null)
+   }
+   callback(null,data)
+ })
+}
+
 /// ///////////////////////////////////////////
 
 module.exports.Prouduct = Prouduct
@@ -157,3 +180,7 @@ module.exports.selectAll = selectAll
 module.exports.Orders = Orders
 module.exports.saveOrder = saveOrder
 module.exports.selectAll = selectAll
+
+module.exports.cridetCard=cridetCard
+module.exports.saveCridetCard=saveCridetCard
+

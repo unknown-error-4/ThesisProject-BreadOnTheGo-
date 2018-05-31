@@ -20,7 +20,7 @@ import BakeriesList from './BakeriesList.jsx'
 import SignInB from './SignInB.jsx'
 import Logout from './Logout.jsx'
 import ProfileB from './ProfileB.jsx'
-
+import CardCom from './CardCom.jsx';
 class AppRoute extends React.Component {
   constructor (props) {
     super(props)
@@ -49,6 +49,7 @@ class AppRoute extends React.Component {
           <Route exact path='/home' component={Home} />
           <Route exact path='/Rating' component={Rating} />
           <Route exact path='/logout' component={Logout} />
+          <Route exact path='/CardCom'  component={CardCom }/>
 
         </Switch>
 
