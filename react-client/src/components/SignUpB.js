@@ -106,7 +106,7 @@ class SignUpB extends React.Component {
       <div className='row main'>
           <div className='panel-heading'>
           <div className='panel-title text-center'>
-              <h1 className='title' />
+          <h1 className='title'>Sign Up as Bakery</h1>
               <hr />
             </div>
         </div>
@@ -159,15 +159,7 @@ class SignUpB extends React.Component {
                 </div>
                 </div>
             </div>
-            <div className='form-group'>
-              <TheMap setLngLat={this.setLngLat} longitude={this.state.longtitude} laltitude={this.state.latitude} />
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-          </div>
+          
               <div className='form-group '>
 
               <button type='button' className='btn btn-primary btn-lg btn-block login-button' onClick={this.handleClick}>Sign Up</button>

@@ -56,7 +56,7 @@ class Products extends React.Component {
 
   render () {
     return (
-     <div> 
+     <div>
       <section id="contact">
       <div className="section-content">
         <h1 className="section-header"><span className="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Add your product</span></h1>
@@ -73,7 +73,7 @@ class Products extends React.Component {
               <div className="form-group">
                 <label for="exampleInputEmail">Price:</label>
                 <input type="email" className="form-control" id="exampleInputEmail" placeholder=" Enter price" onChange={this.handleChangeprice}/>
-              </div>  
+              </div>
               <div className="form-group">
                 <label for="telephone">Image:</label>
                 <input type="tel" className="form-control" id="telephone" placeholder=" Enter image" onChange={this.handleChangeimage}/>
@@ -88,11 +88,11 @@ class Products extends React.Component {
 
                 <button type="button" className="btn btn-default submit" onClick={this.handleClick.bind(this)}> <i className="fa fa-paper-plane" aria-hidden="true"></i>  add product </button>
               </div>
-              
+
           </div>
         </form>
        </div>
-      </div> 
+      </div>
     </section>
 </div>
     )

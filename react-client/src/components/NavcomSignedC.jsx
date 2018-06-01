@@ -11,6 +11,7 @@ import SearchProduct from './SearchProduct.jsx'
 import Logout from './Logout.jsx'
 import Home from './Home.jsx'
 import Profile from './Profile.jsx'
+import ABitofLove from './ABitofLove.jsx';
 
 class NavcomSignedC extends React.Component {
   constructor (props) {
@@ -39,19 +40,26 @@ class NavcomSignedC extends React.Component {
 
               <Nav pullLeft>
                   <NavItem eventKey={1}>
-                  <Link to='/showProduct'>Let's Order</Link>
-                </NavItem>
-                  <NavItem eventKey={2}>
-                  <Link to='/Profile'>Profile</Link>
-                </NavItem>
-                  <NavItem eventKey={3}>
                   <Link to='/home'>Nearest Bakery</Link>
-                </NavItem>
+                  </NavItem>
+                  <NavItem eventKey={2}>
+                  <Link to='/showProduct'>Let's Order</Link>
+                  </NavItem>
+                  <NavItem eventKey={3}>
+                  <Link to='/Profile'>Profile</Link>
+                  </NavItem>
+
                 </Nav>
               <Nav pullRight>
+              <NavItem eventKey={1}>
+              <Link to='/bitLove'  >
+                  A Bit of Love
+                  <div className="glyphicon glyphicon-heart-empty"></div>
+                </Link>
+            </NavItem>
                   <NavItem eventKey={1}>
                   <Link to='/logout'>
-          Logout
+                   Logout
                     </Link>
                 </NavItem>
                 </Nav>
@@ -61,6 +69,7 @@ class NavcomSignedC extends React.Component {
           <Route path='/Profile'component={Profile} />
           <Route exact path='/showProduct' component={SearchProduct} />
           <Route exact path='/logout' component={Logout} />
+          <Route exact path='/bitLove' component={ABitofLove} />
         </div>
 
         </Router>

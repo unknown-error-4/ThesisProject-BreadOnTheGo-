@@ -80,7 +80,7 @@ var saveBakery = function (data, callback) {
 var prouductSchema = mongoose.Schema({
   name: { type: String, unique: true },
   description: String,
-  img: { data: Buffer, type: String },
+  image: String ,
   price: Number
 })
 
@@ -183,4 +183,3 @@ module.exports.selectAll = selectAll
 
 module.exports.cridetCard=cridetCard
 module.exports.saveCridetCard=saveCridetCard
-
