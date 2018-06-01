@@ -53,7 +53,7 @@ class SignUpC extends React.Component {
           this.setState({redirect: true})
         } else {
           this.setState({mssg: data})
-        // window.location.href = "http://localhost:3000/login";
+        window.location.href = "http://localhost:3000/signin";
         }
         console.log('success', data)
       },
@@ -107,7 +107,7 @@ class SignUpC extends React.Component {
         <div className='row main'>
           <div className='panel-heading'>
             <div className='panel-title text-center'>
-              <h1 className='title'>Sign Up Customer</h1>
+              <h1 className='title'>Sign Up as Customer</h1>
               <hr />
             </div>
           </div>
@@ -161,15 +161,7 @@ class SignUpC extends React.Component {
                 </div>
               </div>
 
-              <div className='form-group'>
-                <TheMap setLngLat={this.setLngLat} longitude={this.state.longtitude} laltitude={this.state.latitude} />
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-            </div>
+              
               <div className='form-group '>
                 <button type='button' className='btn btn-primary btn-lg btn-block login-button' onClick={this.handleClick}>Sign Up</button>
               </div>

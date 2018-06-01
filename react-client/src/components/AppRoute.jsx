@@ -21,6 +21,7 @@ import SignInB from './SignInB.jsx'
 import Logout from './Logout.jsx'
 import ProfileB from './ProfileB.jsx'
 import CardCom from './CardCom.jsx';
+import ABitofLove from './ABitofLove.jsx';
 class AppRoute extends React.Component {
   constructor (props) {
     super(props)
@@ -49,7 +50,8 @@ class AppRoute extends React.Component {
           <Route exact path='/home' component={Home} />
           <Route exact path='/Rating' component={Rating} />
           <Route exact path='/logout' component={Logout} />
-          <Route exact path='/CardCom'  component={CardCom }/>
+          <Route exact path='/alo'  component={CardCom}/>
+          <Route exact path='/bitLove'  component={ABitofLove}/>
 
         </Switch>
 

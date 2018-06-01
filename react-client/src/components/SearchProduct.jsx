@@ -1,25 +1,54 @@
 import React from 'react'
 import { Button, Panel, ListGroupItem, PanelGroup, FormControl, FormGroup } from 'react-bootstrap'
 import Rating from './Rating.jsx'
+import CardCom from './CardCom.jsx';
+import {Redirect} from 'react-router-dom'
+
 class SearchProduct extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
+      redirect: false,
       value: '',
       products: []
     }
     this.handleChange = this.handleChange.bind(this)
     this.getItem = this.getItem.bind(this)
-    // this.handleClick=this.handleClick.bind(this);
+    this.handleClick=this.handleClick.bind(this);
   }
 
   handleChange (e) {
     this.setState({value: e.target.value})
   }
 
+handleClick (){
+  this.setState({redirect: true })
+}
+
   handleSelect (activeKey) {
     this.setState({activeKey})
   }
+
+  // handleSubmit (event) {
+  //   $.ajax({
+  //     type: 'GET',
+  //     url: '/showProduct',
+  //     data: {
+  //       redirect: this.state.redirect
+  //     },
+  //     success: (data) => {
+  //       console.log(data)
+  //       if (data) {
+  //         console.log('byebye')
+  //         window.location.href = '/alo'
+  //       }
+  //     },
+  //     error: (err) => {
+  //       console.log('errlogout ', err)
+  //     }
+  //   })
+  //   event.preventDefault()
+  // }
 
   componentDidMount () {
     var that = this
@@ -80,10 +109,14 @@ class SearchProduct extends React.Component {
   // }
 
   render () {
-    var r = this
+    console.log(this,'hereeeee')
+    var r = this;
+    const { redirect } = this.state
+    if (redirect) {
+      return <Redirect to='/alo' />
+    }
     return (
-      <div>
-
+      <div id = "background">
         <FormGroup bsSize='large'>
           <FormControl
             value={this.state.value}
@@ -95,24 +128,27 @@ class SearchProduct extends React.Component {
 
         <div activeKey={this.state.activeKey}
           onSelect={this.handleSelect} />
-        {this.state.products.map(function (y) {
+          {this.state.products.map(function (y) {
           return (
 
             <div className='col-sm-3' id='search' >
-              <h1><img src={y.image} thumbnail style={{weight: '100px', height: '100px'}} /></h1>
-              <h1>Product Name : {y.name}</h1>
-              <h1>Price : {y.price} </h1>
-              <h1>Description : {y.description} </h1>
-              <button type='button' >Add to Cart</button>
+              <img id="profile" src={y.image} width="200" height="200" />
+              <h1 id="profile">Product Name : {y.name}</h1>
+              <h1 id="profile">Price : {y.price} </h1>
+              <h1 id="profile">Description : {y.description} </h1>
+               <button className="btn btn-lg btn-danger" onClick={r.handleClick}>Add to Cart</button>
               <div> <Rating /></div>
             </div>
 
           )
         }
         )}
-      </div>
+        </div>
 
     )
   }
 }
-export default SearchProduct
+export default SearchProduct;
+//onSubmit={this.handleSubmit}
+ // onClick={this.handleClick}
+ //onClick={this.handleSubmit}

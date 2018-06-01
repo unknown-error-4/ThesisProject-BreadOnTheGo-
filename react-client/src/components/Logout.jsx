@@ -44,7 +44,7 @@ class Logout extends Component {
       return <Redirect to='/' />
     }
     return (
-      <div className='container' style={{'marginTop': '50px'}} >
+      <div className='container' style={{'marginTop': '70px'}} >
         <form onSubmit={this.handleSubmit}>
           <br />
           <br />

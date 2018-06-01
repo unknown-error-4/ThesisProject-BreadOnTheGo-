@@ -69,7 +69,7 @@ class Home extends React.Component {
               <h1>Home</h1>
               <div>
                 <form onSubmit={this.handleSubmit}>
-                  <button type='submit' className='btn btn-warning btn-block btn-lg' style={{color: 'black', marginBottom: '10px'}}>Get me the nearest bakeries!</button>
+                  <button type='submit' >The Nearest bakeries !!</button>
                 </form>
               </div>
               <div style={{margin: '15px'}}>
