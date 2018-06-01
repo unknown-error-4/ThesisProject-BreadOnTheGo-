@@ -92,15 +92,11 @@ class CardCom extends React.Component {
 
     })
   }
-
-
-
-
   render(){
 
     return (
       <div>
-      <div className="container">
+      <div className="container" id ="card">
     <div className="row">
       <div className="col-md-4 offset-md-4 col-10 offset-1 pl-0 pr-0">
         <div className="card">
@@ -146,7 +142,7 @@ class CardCom extends React.Component {
                   <label for="exampleInputCouponCode"><strong>Your account</strong></label>
                   <input type="text" class="form-control" id="exampleInputCouponCode" placeholder="Your account" onChange={this.handleChangeValue}/>
                 </div>
-                <button className="btn btn-info w-100 pb-2 pt-2"  onClick = {this.handleSubmit}>Buy</button>
+                <button className="btn btn-info w-100 pb-2 pt-2" id="sub" onClick = {this.handleSubmit}>Buy</button>
             </form>
             </div>
         </div>
@@ -154,9 +150,6 @@ class CardCom extends React.Component {
     </div>
   </div> 
   </div> 
-
-
-       
 
       )
   }
